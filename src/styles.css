@@ -400,6 +400,85 @@ body::after {
   animation: dash-travel 4s linear infinite;
 }
 
+@keyframes radar-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes radar-ping {
+  0%,
+  35%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.75);
+  }
+  48%,
+  62% {
+    opacity: 1;
+    transform: scale(1.35);
+  }
+}
+@keyframes flow-x {
+  0% {
+    opacity: 0;
+    transform: translateX(0) scale(0.7);
+  }
+  20%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(var(--flow-distance, 42px)) scale(1);
+  }
+}
+@keyframes flow-y {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.7);
+  }
+  20%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(24px) scale(1);
+  }
+}
+@keyframes waveform {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scaleY(0.45);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+@utility radar-sweep {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    color-mix(in srgb, var(--orange) 34%, transparent) 48deg,
+    transparent 82deg
+  );
+  animation: radar-rotate 4.8s linear infinite;
+}
+@utility radar-blip {
+  animation: radar-ping 4.8s ease-in-out infinite;
+}
+@utility flow-pulse-x {
+  animation: flow-x 2.4s linear infinite;
+}
+@utility flow-pulse-y {
+  animation: flow-y 2.4s linear infinite;
+}
+@utility wave-bar {
+  animation: waveform 1.4s ease-in-out var(--wave-delay, 0s) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

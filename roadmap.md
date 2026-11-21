@@ -1,7 +1,7 @@
-# Home page build
+# Sales page build
 
-- [x] Add verbatim Home content and cinematic hero
-- [x] Add proof strip and interactive four-pillar accordion
-- [x] Add problem/solution, founder, industries, and testimonials
-- [x] Verify interactions, reduced motion, and 360–1536px layouts
-- [x] Run tests and commit the completed page
+- [x] Add verbatim Sales content and interactive product hero
+- [x] Build six-card feature bento with live product mini-mocks
+- [x] Add benefit counters, hash-synced scenarios, and pricing
+- [x] Verify modal interest, tabs, reduced motion, and 360–1536px layouts
+- [x] Run focused tests and commit the completed page
