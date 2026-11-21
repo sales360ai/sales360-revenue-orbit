@@ -1,8 +1,8 @@
-# Automation page build
+# Tech & Cloud page build
 
-- [x] Add verbatim Automation content and animated node-graph hero
-- [x] Build sticky scroll-spy navigation and four alternating use-case sections
-- [x] Build the looping WhatsApp chat and active email sequence
-- [x] Build the staggered content engine and animated lead-routing cards
-- [x] Verify modal interest, motion preferences, interactions, and 360–1536px layouts
+- [x] Add verbatim Tech & Cloud content and live monitoring hero
+- [x] Build managed hosting specs, gauges, scaling chart, and migration panel
+- [x] Build the cybersecurity protection grid with scan effects
+- [x] Build the three-card technical support matrix
+- [x] Verify CTA interest, animations, reduced motion, and 360–1536px layouts
 - [x] Run focused tests and commit the completed page
