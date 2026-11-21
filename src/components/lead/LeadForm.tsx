@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useServerFn } from "@tanstack/react-start";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Check, ChevronDown } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { leadSchema, type LeadValues } from "@/lib/lead-schema";
@@ -62,6 +62,7 @@ export function LeadForm({
 }) {
   const [done, setDone] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const reduce = useReducedMotion();
   const sendLead = useServerFn(submitLead);
   const {
     register,
@@ -116,9 +117,9 @@ export function LeadForm({
     return (
       <div role="status" className="flex flex-col items-center py-10 text-center">
         <motion.div
-          initial={{ scale: 0.6, opacity: 0 }}
+          initial={{ scale: reduce ? 1 : 0.6, opacity: reduce ? 1 : 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ type: "spring", stiffness: 260, damping: 18 }}
+          transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 260, damping: 18 }}
           className="grid size-20 place-items-center rounded-full bg-grad shadow-glow-lg"
         >
           <Check className="size-9 text-ink" strokeWidth={2.5} aria-hidden />
@@ -140,7 +141,10 @@ export function LeadForm({
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className={cn("grid gap-4 sm:grid-cols-2", variant === "inline" && "sm:gap-5")}
+      className={cn(
+        "grid min-w-0 grid-cols-[minmax(0,1fr)] gap-4 sm:grid-cols-2",
+        variant === "inline" && "sm:gap-5",
+      )}
     >
       <Field id={id("name")} label={f.name} error={errors.name?.message} required>
         <input
@@ -182,7 +186,13 @@ export function LeadForm({
               {...aria("phone")}
               {...register("phone")}
             />
-            <label htmlFor={id("phone")} className={labelBase}>
+            <label
+              htmlFor={id("phone")}
+              className={cn(
+                labelBase,
+                "max-sm:peer-placeholder-shown:top-1.5 max-sm:peer-placeholder-shown:text-[11px]",
+              )}
+            >
               {f.phone}
               <span aria-hidden className="text-amber">
                 {" "}
@@ -259,7 +269,7 @@ export function LeadForm({
           type="submit"
           loading={isSubmitting}
           disabled={isSubmitting}
-          className="w-full sm:w-auto"
+          className="h-auto min-h-[52px] w-full whitespace-normal py-2 text-center leading-snug sm:w-auto"
         >
           {leadForm.submit}
         </Button>

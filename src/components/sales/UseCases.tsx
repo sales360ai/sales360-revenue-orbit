@@ -1,7 +1,6 @@
 import { Database, MousePointerClick, RefreshCw, ShoppingCart } from "lucide-react";
 import { sales, type SalesScenario } from "@/content/sales";
 import { HashTabs, type TabItem } from "@/components/system/HashTabs";
-import { Reveal } from "@/components/system/motion";
 import { cn } from "@/lib/utils";
 
 const scenarioIcons = [MousePointerClick, ShoppingCart, Database, RefreshCw];
@@ -83,9 +82,7 @@ export function UseCases() {
 
   return (
     <section className="container-site section-y" aria-label="Real-world use cases">
-      <Reveal>
-        <HashTabs items={items} label={sales.useCases.label} />
-      </Reveal>
+      <HashTabs items={items} label={sales.useCases.label} />
     </section>
   );
 }

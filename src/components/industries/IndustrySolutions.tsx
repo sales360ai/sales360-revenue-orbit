@@ -126,9 +126,9 @@ export function IndustrySolutions() {
           {industries.solutionsHeading}
         </h2>
       </Reveal>
-      <Reveal delay={0.08} className="mt-9">
+      <div className="mt-9">
         <HashTabs items={items} label="Industry features and use cases" stickyList />
-      </Reveal>
+      </div>
     </section>
   );
 }

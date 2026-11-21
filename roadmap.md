@@ -36,3 +36,11 @@
 - [x] Move the two pill labels below the graphic so nothing covers the chat or catalogue
 - [x] Verify transparency, readability, reduced motion and six responsive widths
 - [x] Commit the completed refinement
+
+# All-device responsive and motion polish
+
+- [x] Audit all seven pages at 360, 390, 768, 1024, 1280 and 1536 pixels
+- [x] Fix mobile text, navigation, tabs, cards and media composition issues
+- [x] Refine smooth scrolling and motion across touch and reduced-motion devices
+- [x] Recheck every page, keyboard interactions and reduced motion
+- [x] Run regression checks and commit the responsive polish

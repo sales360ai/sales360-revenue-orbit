@@ -12,7 +12,7 @@ import { SunburstRing } from "@/components/motifs/SunburstRing";
 
 /* ---------- Button ---------- */
 export const buttonStyles = cva(
-  "group inline-flex items-center justify-center gap-3 rounded-full font-semibold whitespace-nowrap transition-[box-shadow,border-color,background-color,transform] duration-300 disabled:opacity-60 disabled:pointer-events-none",
+  "group inline-flex max-w-full items-center justify-center gap-3 rounded-full font-semibold whitespace-nowrap transition-[box-shadow,border-color,background-color,transform] duration-300 disabled:opacity-60 disabled:pointer-events-none",
   {
     variants: {
       variant: {

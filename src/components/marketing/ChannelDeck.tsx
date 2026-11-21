@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import { marketing, type MarketingChannel, type MarketingChannelId } from "@/content/marketing";
 import { HashTabs, type TabItem } from "@/components/system/HashTabs";
-import { Reveal } from "@/components/system/motion";
 
 const channelIcons: Record<MarketingChannelId, LucideIcon> = {
   "google-meta-ads": MousePointerClick,
@@ -103,9 +102,7 @@ export function ChannelDeck() {
       className="container-site scroll-mt-24 section-y"
       aria-label="Interactive seven-channel marketing deck"
     >
-      <Reveal>
-        <HashTabs items={items} label="Seven core marketing services" stickyList />
-      </Reveal>
+      <HashTabs items={items} label="Seven core marketing services" stickyList />
     </section>
   );
 }

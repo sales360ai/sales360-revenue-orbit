@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import founderPortrait from "@/assets/founder-viswa-korapala.webp.asset.json";
 import {
@@ -301,9 +301,20 @@ export function IndustriesSnapshot() {
   const [activeId, setActiveId] =
     useState<(typeof home.industries.items)[number]["id"]>("e-commerce");
   const reduce = useReducedMotion();
+  const tabListRef = useRef<HTMLDivElement>(null);
   const active =
     home.industries.items.find((industry) => industry.id === activeId) ?? home.industries.items[0];
   const ActiveIcon = industryIcons[active.icon];
+
+  useEffect(() => {
+    const list = tabListRef.current;
+    const selected = list?.querySelector<HTMLElement>('[aria-selected="true"]');
+    if (!list || !selected || list.scrollWidth <= list.clientWidth) return;
+    list.scrollTo({
+      left: selected.offsetLeft - list.clientWidth / 2 + selected.clientWidth / 2,
+      behavior: reduce ? "auto" : "smooth",
+    });
+  }, [activeId, reduce]);
 
   const onTabKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
     let nextIndex: number | undefined;
@@ -327,7 +338,8 @@ export function IndustriesSnapshot() {
       </Reveal>
       <Reveal delay={0.08}>
         <div
-          className="edge-fade mt-9 flex snap-x snap-mandatory gap-2 overflow-x-auto px-4 py-2 [scrollbar-width:none] sm:px-6 lg:flex-wrap lg:justify-center lg:overflow-visible lg:px-0"
+          ref={tabListRef}
+          className="edge-fade mt-9 flex snap-x snap-mandatory gap-2 overflow-x-auto px-4 py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:px-6 lg:flex-wrap lg:justify-center lg:overflow-visible lg:px-0"
           role="tablist"
           aria-label="Industry overviews"
         >
@@ -379,7 +391,7 @@ export function IndustriesSnapshot() {
           id="industry-overview-panel"
           role="tabpanel"
           aria-labelledby={`industry-tab-${active.id}`}
-          className="relative overflow-hidden rounded-[28px] border border-line-strong bg-surface p-6 shadow-inset-top sm:p-8 lg:p-10"
+          className="relative overflow-hidden rounded-[28px] border border-line-strong bg-surface p-3 shadow-inset-top sm:p-8 lg:p-10"
           initial={{ opacity: 0, y: reduce ? 0 : 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
@@ -389,7 +401,7 @@ export function IndustriesSnapshot() {
             aria-hidden
           />
           <div className="relative grid lg:grid-cols-[.82fr_1.18fr]">
-            <div className="relative flex flex-col p-6 sm:p-9 lg:p-11">
+            <div className="relative flex flex-col p-5 sm:p-9 lg:p-11">
               <div
                 className="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,var(--glow-spot),transparent_58%)] opacity-15"
                 aria-hidden
@@ -520,7 +532,7 @@ export function IndustriesSnapshot() {
 export function Testimonials() {
   return (
     <section className="container-site section-y" aria-label="Client impact stories">
-      <RevealGroup className="edge-fade -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-6 pt-4 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0">
+      <RevealGroup className="edge-fade -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-6 pt-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0">
         {home.testimonials.map((testimonial, index) => (
           <RevealItem
             key={testimonial.name}

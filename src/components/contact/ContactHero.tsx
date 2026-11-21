@@ -99,7 +99,7 @@ export function ContactHero() {
       aria-labelledby="contact-hero-title"
     >
       <DottedGridFrame className="px-5 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
-        <div className="grid gap-8 lg:grid-cols-2 lg:gap-x-10 lg:gap-y-8">
+        <div className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-2 lg:gap-x-10 lg:gap-y-8">
           <div className="order-1 lg:col-start-1 lg:row-start-1">
             <motion.div {...rise(0.08)}>
               <EyebrowBadge>{h.eyebrow}</EyebrowBadge>

@@ -5,13 +5,29 @@ export function SmoothScroll() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let raf = 0;
+    let cancelled = false;
     let lenis: { raf: (t: number) => void; destroy: () => void } | null = null;
     import("lenis").then(({ default: Lenis }) => {
-      lenis = new Lenis({ duration: 1.1, anchors: true });
-      const loop = (t: number) => { lenis?.raf(t); raf = requestAnimationFrame(loop); };
+      if (cancelled) return;
+      lenis = new Lenis({
+        duration: 1.05,
+        anchors: { offset: -88 },
+        smoothWheel: true,
+        syncTouch: false,
+        touchMultiplier: 1.1,
+        wheelMultiplier: 0.9,
+      });
+      const loop = (t: number) => {
+        lenis?.raf(t);
+        raf = requestAnimationFrame(loop);
+      };
       raf = requestAnimationFrame(loop);
     });
-    return () => { cancelAnimationFrame(raf); lenis?.destroy(); };
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(raf);
+      lenis?.destroy();
+    };
   }, []);
   return null;
 }

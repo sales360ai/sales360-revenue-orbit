@@ -34,7 +34,7 @@ export function HashTabs({
   useEffect(() => {
     const viewport = listViewport.current;
     const selected = viewport?.querySelector<HTMLElement>('[data-state="active"]');
-    if (!viewport || !selected || !window.matchMedia("(max-width: 639px)").matches) return;
+    if (!viewport || !selected || viewport.scrollWidth <= viewport.clientWidth) return;
     const viewportRect = viewport.getBoundingClientRect();
     const selectedRect = selected.getBoundingClientRect();
     viewport.scrollTo({
@@ -56,7 +56,7 @@ export function HashTabs({
       <div
         ref={listViewport}
         className={cn(
-          "edge-fade -mx-4 overflow-x-auto px-4 [scrollbar-width:none] sm:mx-0 sm:px-0 sm:[mask-image:none]",
+          "edge-fade -mx-4 overflow-x-auto px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:px-0 sm:[mask-image:none]",
           stickyList &&
             "sticky top-[72px] z-40 bg-background/95 py-3 backdrop-blur-xl sm:static sm:bg-transparent sm:py-0 sm:backdrop-blur-none",
         )}

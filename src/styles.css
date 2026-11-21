@@ -91,7 +91,9 @@
   }
   html {
     background: var(--bg);
+    scroll-padding-top: 96px;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
   body {
     background: var(--bg);
@@ -114,6 +116,21 @@
   h3 {
     font-family: var(--font-display);
   }
+}
+
+/* Lenis keeps wheel motion smooth while touch and modal scrolling stay native. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 /* Grain overlay */
@@ -264,6 +281,17 @@ body::after {
   }
   &:hover::before {
     opacity: 1;
+  }
+}
+
+@media (hover: none) {
+  .spotlight-card:hover {
+    transform: none;
+    border-color: var(--line);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+  .spotlight-card:hover::before {
+    opacity: 0;
   }
 }
 
