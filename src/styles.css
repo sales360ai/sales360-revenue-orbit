@@ -520,6 +520,12 @@ body::after {
 @utility funnel-line-pulse {
   animation: funnel-line 4.5s linear infinite;
 }
+@utility routing-orbit {
+  animation: orbit-rotate 8s linear infinite;
+}
+@utility routing-counter {
+  animation: orbit-counter-rotate 8s linear infinite;
+}
 
 @media (prefers-reduced-motion: reduce) {
   *,

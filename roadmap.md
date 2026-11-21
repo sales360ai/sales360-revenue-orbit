@@ -1,7 +1,8 @@
-# Marketing page build
+# Automation page build
 
-- [x] Add verbatim seven-channel content and orbiting Marketing hero
-- [x] Build hash-synced channel deck with seven lazy mockups
-- [x] Add the connected Attract / Engage / Convert funnel
-- [x] Verify modal interest, orbit links, tabs, reduced motion, and 360–1536px layouts
+- [x] Add verbatim Automation content and animated node-graph hero
+- [x] Build sticky scroll-spy navigation and four alternating use-case sections
+- [x] Build the looping WhatsApp chat and active email sequence
+- [x] Build the staggered content engine and animated lead-routing cards
+- [x] Verify modal interest, motion preferences, interactions, and 360–1536px layouts
 - [x] Run focused tests and commit the completed page
