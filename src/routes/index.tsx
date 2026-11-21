@@ -1,20 +1,41 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { stubs } from "@/content/global";
-import { StubPage } from "@/components/layout/StubPage";
+import { home } from "@/content/home";
+import { HomeHero } from "@/components/home/HomeHero";
+import { Pillars } from "@/components/home/Pillars";
+import {
+  DifferenceBand,
+  FounderSpotlight,
+  IndustriesSnapshot,
+  ProofStrip,
+  Testimonials,
+} from "@/components/home/HomeSections";
 
-const c = stubs.home;
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: c.title },
-      { name: "description", content: c.desc },
-      { property: "og:title", content: c.title },
-      { property: "og:description", content: c.desc },
+      { title: home.meta.title },
+      { name: "description", content: home.meta.description },
+      { property: "og:title", content: home.meta.title },
+      { property: "og:description", content: home.meta.description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
-  component: () => <StubPage h1={c.h1} home />,
+  component: HomePage,
 });
+
+function HomePage() {
+  return (
+    <>
+      <HomeHero />
+      <ProofStrip />
+      <Pillars />
+      <DifferenceBand />
+      <FounderSpotlight />
+      <IndustriesSnapshot />
+      <Testimonials />
+    </>
+  );
+}

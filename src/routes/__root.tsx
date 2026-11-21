@@ -91,7 +91,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#0A0A0B" },
       { title: "Sales360.ai | AI Revenue, Marketing & Cloud Partner" },
-      { name: "description", content: "AI-powered sales, marketing, and cloud infrastructure built for predictable business growth." },
+      {
+        name: "description",
+        content:
+          "AI-powered sales, marketing, and cloud infrastructure built for predictable business growth.",
+      },
       { property: "og:site_name", content: "Sales360.ai" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -101,7 +105,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=JetBrains+Mono:wght@500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=JetBrains+Mono:wght@500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
+      },
     ],
     scripts: [
       {
@@ -112,7 +119,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           name: "Sales360.ai",
           email: "info@sales360.ai",
           telephone: "+91 8050700300",
-          // TODO: add founder { "@type": "Person", name } once confirmed in Prompt 1
+          founder: { "@type": "Person", name: "Viswa Korapala" },
         }),
       },
     ],
@@ -144,7 +151,12 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <LeadModalProvider>
-        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-orange focus:px-5 focus:py-3 focus:font-semibold">Skip to content</a>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-orange focus:px-5 focus:py-3 focus:font-semibold"
+        >
+          Skip to content
+        </a>
         <SmoothScroll />
         <Header />
         <AppMain />
@@ -159,10 +171,18 @@ function AppMain() {
   const reduce = useReducedMotion();
   const isContact = pathname.startsWith("/contact");
   const first = useRef(true);
-  useEffect(() => { first.current = false; }, []);
+  useEffect(() => {
+    first.current = false;
+  }, []);
   return (
     <>
-      <motion.main id="main" key={pathname} initial={first.current ? false : { opacity: 0, y: reduce ? 0 : 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}>
+      <motion.main
+        id="main"
+        key={pathname}
+        initial={first.current ? false : { opacity: 0, y: reduce ? 0 : 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.25 }}
+      >
         <Outlet />
         {!isContact && <ConversionBanner />}
       </motion.main>
