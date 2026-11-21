@@ -226,7 +226,7 @@ export const marketing = {
     },
     whatsapp: {
       captureAlt:
-        "WhatsApp Business conversation displayed on a smartphone with customer messages, quick replies and call actions",
+        "WhatsApp Business order update sent to a customer, with a product catalogue menu opening beside the conversation",
       visualBadges: ["Official Business API", "Automated journeys"],
       title: "Growth broadcast",
       status: "Online",

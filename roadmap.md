@@ -28,3 +28,11 @@
 - [x] Add three features and three use cases plus a bespoke graphic for every industry
 - [x] Verify tabs, deep links, reduced motion, tests and six responsive widths
 - [x] Commit the completed refinement
+
+# WhatsApp tab image refinement
+
+- [x] Cut the uploaded WhatsApp conversational-commerce graphic out of its mint background
+- [x] Serve it as a transparent landscape-style banner that fills the mock frame
+- [x] Move the two pill labels below the graphic so nothing covers the chat or catalogue
+- [x] Verify transparency, readability, reduced motion and six responsive widths
+- [x] Commit the completed refinement
