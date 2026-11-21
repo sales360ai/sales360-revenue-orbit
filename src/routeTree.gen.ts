@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AutomationRouteImport } from './routes/automation'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as MarketingRouteImport } from './routes/marketing'
+import { Route as SalesRouteImport } from './routes/sales'
+import { Route as TechCloudRouteImport } from './routes/tech-cloud'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AutomationRoute = AutomationRouteImport.update({
+  id: '/automation',
+  path: '/automation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesRoute = IndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketingRoute = MarketingRouteImport.update({
+  id: '/marketing',
+  path: '/marketing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SalesRoute = SalesRouteImport.update({
+  id: '/sales',
+  path: '/sales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TechCloudRoute = TechCloudRouteImport.update({
+  id: '/tech-cloud',
+  path: '/tech-cloud',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/automation': typeof AutomationRoute
+  '/contact': typeof ContactRoute
+  '/industries': typeof IndustriesRoute
+  '/marketing': typeof MarketingRoute
+  '/sales': typeof SalesRoute
+  '/tech-cloud': typeof TechCloudRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/automation': typeof AutomationRoute
+  '/contact': typeof ContactRoute
+  '/industries': typeof IndustriesRoute
+  '/marketing': typeof MarketingRoute
+  '/sales': typeof SalesRoute
+  '/tech-cloud': typeof TechCloudRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/automation': typeof AutomationRoute
+  '/contact': typeof ContactRoute
+  '/industries': typeof IndustriesRoute
+  '/marketing': typeof MarketingRoute
+  '/sales': typeof SalesRoute
+  '/tech-cloud': typeof TechCloudRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/automation'
+    | '/contact'
+    | '/industries'
+    | '/marketing'
+    | '/sales'
+    | '/tech-cloud'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/automation'
+    | '/contact'
+    | '/industries'
+    | '/marketing'
+    | '/sales'
+    | '/tech-cloud'
+  id:
+    | '__root__'
+    | '/'
+    | '/automation'
+    | '/contact'
+    | '/industries'
+    | '/marketing'
+    | '/sales'
+    | '/tech-cloud'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AutomationRoute: typeof AutomationRoute
+  ContactRoute: typeof ContactRoute
+  IndustriesRoute: typeof IndustriesRoute
+  MarketingRoute: typeof MarketingRoute
+  SalesRoute: typeof SalesRoute
+  TechCloudRoute: typeof TechCloudRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/automation': {
+      id: '/automation'
+      path: '/automation'
+      fullPath: '/automation'
+      preLoaderRoute: typeof AutomationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries': {
+      id: '/industries'
+      path: '/industries'
+      fullPath: '/industries'
+      preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing': {
+      id: '/marketing'
+      path: '/marketing'
+      fullPath: '/marketing'
+      preLoaderRoute: typeof MarketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sales': {
+      id: '/sales'
+      path: '/sales'
+      fullPath: '/sales'
+      preLoaderRoute: typeof SalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tech-cloud': {
+      id: '/tech-cloud'
+      path: '/tech-cloud'
+      fullPath: '/tech-cloud'
+      preLoaderRoute: typeof TechCloudRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AutomationRoute: AutomationRoute,
+  ContactRoute: ContactRoute,
+  IndustriesRoute: IndustriesRoute,
+  MarketingRoute: MarketingRoute,
+  SalesRoute: SalesRoute,
+  TechCloudRoute: TechCloudRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -8,7 +8,15 @@ import {
   Scripts,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
+import { useLocation } from "@tanstack/react-router";
+import { motion, useReducedMotion } from "framer-motion";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { ConversionBanner } from "@/components/layout/ConversionBanner";
+import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
+import { SmoothScroll } from "@/components/layout/SmoothScroll";
+import { LeadModalProvider } from "@/components/lead/LeadModal";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -81,21 +89,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { name: "theme-color", content: "#0A0A0B" },
+      { title: "Sales360.ai | AI Revenue, Marketing & Cloud Partner" },
+      { name: "description", content: "AI-powered sales, marketing, and cloud infrastructure built for predictable business growth." },
+      { property: "og:site_name", content: "Sales360.ai" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=JetBrains+Mono:wght@500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" },
+    ],
+    scripts: [
       {
-        rel: "stylesheet",
-        href: appCss,
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Sales360.ai",
+          email: "info@sales360.ai",
+          telephone: "+91 8050700300",
+          // TODO: add founder { "@type": "Person", name } once confirmed in Prompt 1
+        }),
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
   shellComponent: RootShell,
@@ -106,7 +125,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-background">
       <head>
         <HeadContent />
       </head>
@@ -124,7 +143,30 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <LeadModalProvider>
+        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-orange focus:px-5 focus:py-3 focus:font-semibold">Skip to content</a>
+        <SmoothScroll />
+        <Header />
+        <AppMain />
+        <Footer />
+      </LeadModalProvider>
     </QueryClientProvider>
+  );
+}
+
+function AppMain() {
+  const { pathname } = useLocation();
+  const reduce = useReducedMotion();
+  const isContact = pathname.startsWith("/contact");
+  const first = useRef(true);
+  useEffect(() => { first.current = false; }, []);
+  return (
+    <>
+      <motion.main id="main" key={pathname} initial={first.current ? false : { opacity: 0, y: reduce ? 0 : 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}>
+        <Outlet />
+        {!isContact && <ConversionBanner />}
+      </motion.main>
+      {!isContact && <FloatingWhatsApp />}
+    </>
   );
 }

@@ -1,29 +1,12 @@
-# Welcome to your Lovable project
+# Sales360.ai — front end
 
-This project was built with [Lovable](https://lovable.dev).
+Run: `bun install && bun run dev`. Tests: `bunx vitest run`.
 
-## Build with Lovable
-
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+- `src/routes/` — the 7 pages (currently temporary stubs) + `__root.tsx` shell
+- `src/content/global.ts` — **edit all global copy here** (nav, footer, banner, form)
+- `src/components/system/` — Button, EyebrowBadge, Chip, Card, StatPod, SectionHeading, PageHero, DottedGridFrame, GradientBand, Reveal, CountUp, HashTabs, FaqAccordion
+- `src/components/layout/` — Header, Footer, ConversionBanner, FloatingWhatsApp, LegalPanel, SmoothScroll
+- `src/components/lead/` — LeadForm, LeadModal (`useLeadModal().open("AI Automation")`)
+- `src/components/motifs/SunburstRing.tsx` — the 360 ring (static / spin / loader)
+- `src/styles.css` — all design tokens and utilities
+- Logo: `src/assets/sales360-logo.webp.asset.json` (swap by re-uploading)

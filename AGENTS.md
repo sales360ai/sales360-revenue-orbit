@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- All site copy lives in `src/content/` typed objects; components never hardcode brief copy. Why: client edits text in one place.
+- Exactly 7 routes (/, /sales, /marketing, /automation, /tech-cloud, /industries, /contact); legal pages are slide-over panels, never routes. Why: brief forbids subpages.
+- Shared shell (Header, Footer, ConversionBanner, WhatsApp, LeadModalProvider) lives in `__root.tsx`; non-navigational CTAs call `useLeadModal().open(interest)`. Why: one global modal with pre-selected interest.
+- Design tokens are CSS variables + `@utility` classes in `src/styles.css`; reusable primitives in `src/components/system/`. Why: single design system.
