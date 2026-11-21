@@ -189,6 +189,7 @@ export const marketing = {
     seo: {
       captureAlt:
         "Google search interface showing a Modern furniture search and a visible search result example",
+      visualBadges: ["Search visibility", "AI answer ready"],
       query: "AI sales automation partner India",
       resultBadge: "#1",
       resultTitle: "Sales360.ai | AI Revenue & Growth Ecosystem",
@@ -226,6 +227,7 @@ export const marketing = {
     whatsapp: {
       captureAlt:
         "WhatsApp Business conversation displayed on a smartphone with customer messages, quick replies and call actions",
+      visualBadges: ["Official Business API", "Automated journeys"],
       title: "Growth broadcast",
       status: "Online",
       offer: "Your custom growth plan is ready.",

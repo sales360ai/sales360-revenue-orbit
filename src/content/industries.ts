@@ -1,5 +1,3 @@
-import type { Interest } from "./global";
-
 export type IndustryId =
   "e-commerce" | "healthcare" | "real-estate" | "manufacturing" | "b2b-services" | "education";
 
@@ -23,91 +21,249 @@ export const industries = {
     { id: "b2b-services", label: "B2B Services", icon: "briefcase" },
     { id: "education", label: "Education", icon: "education" },
   ] as const,
-  flagship: {
-    id: "e-commerce" as IndustryId,
-    eyebrow: "FLAGSHIP VERTICAL • E-COMMERCE & D2C",
-    headline: "Turn Window Shoppers Into Repeat Buyers on Autopilot",
-    sub: "From high-ROAS Meta/Google acquisition to instant WhatsApp cart recovery and ultra-fast cloud hosting, we power high-converting online stores.",
-    useCases: [
-      {
-        number: "01",
-        lead: "Automated Abandoned Cart & COD Verification:",
-        body: "Recover lost checkouts and reduce RTO (Return to Origin) via automated WhatsApp flows.",
-      },
-      {
-        number: "02",
-        lead: "AI Shopping Assistant:",
-        body: "Recommend products, answer sizing/shipping queries, and share payment links inside chat.",
-      },
-      {
-        number: "03",
-        lead: "High-Speed Commerce Cloud Hosting:",
-        body: "Sub-second store load speeds built to handle flash-sale traffic surges.",
-      },
-      {
-        number: "04",
-        lead: "Post-Purchase Retention & Reorder Loops:",
-        body: "Automated review requests, loyalty drops, and replenishment reminders.",
-      },
-    ],
-    cta: "Scale Your E-Commerce Brand",
-    interest: "Full Ecosystem" as Interest,
-    mock: {
-      title: "Cart recovery",
-      status: "WhatsApp · now",
-      greeting: "Hi Aarav, your cart is waiting.",
-      message: "Complete your order securely and we’ll get it ready for dispatch.",
-      payment: "Pay ₹12,499",
-      cod: "COD verified",
+  solutionsHeading: "Explore Industry-Specific Features & Use Cases",
+  featuresLabel: "Features",
+  useCasesLabel: "Use Cases",
+  solutions: [
+    {
+      id: "e-commerce" as IndustryId,
+      icon: "shopping",
+      label: "E-Commerce & D2C",
+      features: [
+        {
+          title: "Commerce Acquisition System",
+          description:
+            "Connect high-intent Google and Meta campaigns with your product catalog and online store.",
+        },
+        {
+          title: "WhatsApp Revenue Automation",
+          description:
+            "Automate cart recovery, COD verification, product recommendations, and payment-link conversations.",
+        },
+        {
+          title: "Retention & Commerce Cloud",
+          description:
+            "Run review, loyalty, and reorder journeys on fast cloud hosting built for traffic surges.",
+        },
+      ],
+      useCases: [
+        {
+          title: "Recover an Abandoned Checkout",
+          description:
+            "Send a timely WhatsApp reminder with the saved cart and a direct payment link.",
+        },
+        {
+          title: "Verify COD Before Dispatch",
+          description:
+            "Confirm customer intent automatically before the order moves to fulfilment.",
+        },
+        {
+          title: "Bring Customers Back to Reorder",
+          description:
+            "Trigger replenishment reminders, loyalty drops, and review requests after purchase.",
+        },
+      ],
+      visual: { title: "Commerce Journey", status: "Store connected" },
     },
-  },
-  grid: {
-    headline: "Proven Frameworks Across 5 Core Industries",
-    challengeLabel: "Core Challenge",
-    solutionLabel: "Sales360 Solution",
-    cards: [
-      {
-        id: "healthcare" as IndustryId,
-        icon: "health",
-        title: "Healthcare & Clinics",
-        challenge: "Missed patient calls, slow inquiry follow-ups, and appointment no-shows.",
-        solution:
-          "24/7 WhatsApp appointment booking, automated patient reminders, local Google/SEO dominance, and HIPAA-conscious secure hosting.",
-      },
-      {
-        id: "real-estate" as IndustryId,
-        icon: "building",
-        title: "Real Estate & Developers",
-        challenge:
-          "High ad spend wasted on unverified property leads and slow site-visit scheduling.",
-        solution:
-          "Instant Meta/Google lead qualification via AI, automated brochure & floor-plan delivery on WhatsApp, and site-visit reminder sequences.",
-      },
-      {
-        id: "manufacturing" as IndustryId,
-        icon: "factory",
-        title: "Manufacturing & Industrial",
-        challenge: "Complex B2B RFQs, slow quotation turnarounds, and manual dealer follow-ups.",
-        solution:
-          "Automated RFQ capture, instant digital quote generation, B2B search/LinkedIn lead generation, and distributor portal hosting.",
-      },
-      {
-        id: "b2b-services" as IndustryId,
-        icon: "briefcase",
-        title: "B2B & Professional Services",
-        challenge:
-          "Long sales cycles, inconsistent outbound prospecting, and founder-led bottlenecks.",
-        solution:
-          "Targeted LinkedIn/Email outbound automation, AEO/SEO thought-leadership engines, and automated discovery call booking.",
-      },
-      {
-        id: "education" as IndustryId,
-        icon: "education",
-        title: "Education & EdTech",
-        challenge: "Seasonal admission rushes overwhelming counselors and high inquiry drop-offs.",
-        solution:
-          "AI admission counselor bots on web/WhatsApp, automated webinar & campus tour reminders, and high-converting student acquisition ads.",
-      },
-    ],
-  },
+    {
+      id: "healthcare" as IndustryId,
+      icon: "health",
+      label: "Healthcare & Clinics",
+      features: [
+        {
+          title: "Patient Inquiry & Booking System",
+          description:
+            "Answer inquiries and book appointments around the clock through web and WhatsApp.",
+        },
+        {
+          title: "Reminder & Follow-Up Automation",
+          description:
+            "Coordinate appointment reminders, preparation instructions, and patient follow-ups.",
+        },
+        {
+          title: "Local Search & Secure Infrastructure",
+          description:
+            "Strengthen local Google visibility with HIPAA-conscious, securely managed hosting.",
+        },
+      ],
+      useCases: [
+        {
+          title: "Book an Appointment After Hours",
+          description:
+            "Let a patient choose a suitable slot without waiting for the front desk to open.",
+        },
+        {
+          title: "Reduce Missed Appointments",
+          description: "Send automated reminders and make rescheduling simple before the visit.",
+        },
+        {
+          title: "Continue Post-Visit Care",
+          description:
+            "Share approved follow-up instructions and review requests through a structured journey.",
+        },
+      ],
+      visual: { title: "Patient Journey", status: "Booking assistant online" },
+    },
+    {
+      id: "real-estate" as IndustryId,
+      icon: "building",
+      label: "Real Estate & Developers",
+      features: [
+        {
+          title: "Property Lead Qualification",
+          description:
+            "Capture budget, location, configuration, and buying timeline as inquiries arrive.",
+        },
+        {
+          title: "Project Information Delivery",
+          description:
+            "Share the relevant brochure, floor plan, and project details instantly on WhatsApp.",
+        },
+        {
+          title: "Site-Visit Automation",
+          description:
+            "Coordinate visit scheduling, confirmations, reminders, and sales-team routing.",
+        },
+      ],
+      useCases: [
+        {
+          title: "Qualify a New Property Inquiry",
+          description:
+            "Identify buyer requirements before assigning the opportunity to a sales advisor.",
+        },
+        {
+          title: "Share the Right Project Assets",
+          description:
+            "Deliver property-specific information without manual searching or repeated calls.",
+        },
+        {
+          title: "Confirm a Site Visit",
+          description:
+            "Keep buyers and advisors aligned with automated scheduling and visit reminders.",
+        },
+      ],
+      visual: { title: "Property Inquiry", status: "Advisor routing ready" },
+    },
+    {
+      id: "manufacturing" as IndustryId,
+      icon: "factory",
+      label: "Manufacturing & Industrial",
+      features: [
+        {
+          title: "RFQ Capture & Qualification",
+          description:
+            "Structure product, quantity, delivery, and specification details from every inquiry.",
+        },
+        {
+          title: "Digital Quotation Workflow",
+          description:
+            "Route requirements for faster quote preparation and automate follow-up sequences.",
+        },
+        {
+          title: "Distributor & B2B Growth System",
+          description:
+            "Connect targeted acquisition, dealer communication, and reliable portal hosting.",
+        },
+      ],
+      useCases: [
+        {
+          title: "Turn an RFQ Into a Structured Lead",
+          description:
+            "Capture technical buying requirements and route them to the right internal team.",
+        },
+        {
+          title: "Follow Up on a Pending Quote",
+          description:
+            "Keep quotations moving with timely reminders and a visible opportunity status.",
+        },
+        {
+          title: "Nurture a Distributor Inquiry",
+          description:
+            "Share the right information and maintain consistent follow-up across a longer cycle.",
+        },
+      ],
+      visual: { title: "RFQ Workspace", status: "Quote workflow ready" },
+    },
+    {
+      id: "b2b-services" as IndustryId,
+      icon: "briefcase",
+      label: "B2B & Professional Services",
+      features: [
+        {
+          title: "Outbound Prospecting Engine",
+          description:
+            "Coordinate targeted LinkedIn and email outreach with structured follow-up sequences.",
+        },
+        {
+          title: "Authority & Discovery System",
+          description:
+            "Combine AEO, SEO, and thought leadership with automated discovery-call booking.",
+        },
+        {
+          title: "Unified Pipeline & Routing",
+          description:
+            "Bring every conversation into the AI Command Center for qualification and next steps.",
+        },
+      ],
+      useCases: [
+        {
+          title: "Nurture a High-Value Prospect",
+          description:
+            "Build familiarity through relevant outreach instead of inconsistent manual follow-ups.",
+        },
+        {
+          title: "Convert Search Intent Into a Call",
+          description:
+            "Guide a qualified visitor from useful expertise to a booked discovery session.",
+        },
+        {
+          title: "Reduce Founder-Led Bottlenecks",
+          description:
+            "Give the team a repeatable qualification and handoff process for every opportunity.",
+        },
+      ],
+      visual: { title: "B2B Pipeline", status: "Discovery workflow active" },
+    },
+    {
+      id: "education" as IndustryId,
+      icon: "education",
+      label: "Education & EdTech",
+      features: [
+        {
+          title: "AI Admission Counselor",
+          description:
+            "Answer course, eligibility, fee, and admission questions instantly on web and WhatsApp.",
+        },
+        {
+          title: "Admission Journey Automation",
+          description:
+            "Coordinate inquiries, webinars, campus tours, applications, and counselor handoffs.",
+        },
+        {
+          title: "Student Acquisition & Tracking",
+          description:
+            "Connect high-converting campaigns with a clear view of every admission opportunity.",
+        },
+      ],
+      useCases: [
+        {
+          title: "Handle a Seasonal Inquiry Rush",
+          description:
+            "Give every prospective student an immediate response without overwhelming counselors.",
+        },
+        {
+          title: "Increase Webinar or Tour Attendance",
+          description: "Send timely confirmations and reminders before the scheduled session.",
+        },
+        {
+          title: "Follow Up on an Application",
+          description:
+            "Nudge interested students toward the next admission step with relevant guidance.",
+        },
+      ],
+      visual: { title: "Admission Journey", status: "Counselor assistant online" },
+    },
+  ],
 } as const;
+
+export type IndustrySolution = (typeof industries.solutions)[number];

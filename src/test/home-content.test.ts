@@ -38,7 +38,7 @@ describe("Home page refinement", () => {
       techCloud.security.headline,
       techCloud.support.headline,
       industries.hero.accent,
-      industries.flagship.headline,
+      industries.solutionsHeading,
     ];
     expect(headlines.every((headline) => !headline.endsWith("."))).toBe(true);
   });

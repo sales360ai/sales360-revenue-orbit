@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { industries } from "@/content/industries";
 import { IndustriesHero } from "@/components/industries/IndustriesHero";
-import { EcommerceFlagship } from "@/components/industries/EcommerceFlagship";
-import { IndustryGrid } from "@/components/industries/IndustryGrid";
+import { IndustrySolutions } from "@/components/industries/IndustrySolutions";
 
 export const Route = createFileRoute("/industries")({
   head: () => ({
@@ -24,8 +23,7 @@ function IndustriesPage() {
   return (
     <>
       <IndustriesHero />
-      <EcommerceFlagship />
-      <IndustryGrid />
+      <IndustrySolutions />
     </>
   );
 }

@@ -20,3 +20,11 @@
 - [x] Add a three-stage scroll-animated marketing funnel after the channel collaboration section
 - [x] Verify all tabs, funnel motion, reduced motion and six responsive widths
 - [x] Commit the completed Marketing refinement
+
+# Marketing and Industries refinement
+
+- [x] Make WhatsApp and SEO visuals landscape with transparent surrounds
+- [x] Replace the dedicated Industries page cards with six accessible tabs
+- [x] Add three features and three use cases plus a bespoke graphic for every industry
+- [x] Verify tabs, deep links, reduced motion, tests and six responsive widths
+- [x] Commit the completed refinement

@@ -97,10 +97,10 @@ export function HashTabs({
           {active && (
             <T.Content key={active.id} value={active.id} forceMount asChild>
               <motion.div
-                initial={{ opacity: 0, y: reduce ? 0 : 8 }}
+                initial={{ opacity: reduce ? 1 : 0, y: reduce ? 0 : 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: reduce ? 0 : -4 }}
-                transition={{ duration: 0.25 }}
+                exit={{ opacity: reduce ? 1 : 0, y: reduce ? 0 : -4 }}
+                transition={{ duration: reduce ? 0 : 0.25 }}
                 className={cn("outline-none")}
               >
                 {active.content}
