@@ -388,40 +388,128 @@ export function IndustriesSnapshot() {
             className="absolute inset-0 dotted-grid opacity-20 [mask-image:linear-gradient(90deg,transparent,#000)]"
             aria-hidden
           />
-          <div className="relative grid gap-8 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-14">
-            <div>
-              <span className="grid size-12 place-items-center rounded-2xl border border-orange/30 bg-orange/10 text-orange">
-                <ActiveIcon className="size-5" aria-hidden />
-              </span>
-              <h3 className="type-h3 mt-5">{active.label}</h3>
-              <p className="mt-4 max-w-[58ch] text-sm leading-relaxed text-muted-foreground sm:text-base">
+          <div className="relative grid lg:grid-cols-[.82fr_1.18fr]">
+            <div className="relative flex flex-col p-6 sm:p-9 lg:p-11">
+              <div
+                className="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,var(--glow-spot),transparent_58%)] opacity-15"
+                aria-hidden
+              />
+              <div className="relative flex items-center justify-between gap-4">
+                <span className="grid size-14 shrink-0 place-items-center rounded-[20px] border border-orange/40 bg-orange/10 text-orange shadow-glow-sm">
+                  <ActiveIcon className="size-6" strokeWidth={1.6} aria-hidden />
+                </span>
+                <span className="font-mono text-[10px] tracking-[0.16em] text-dim">
+                  {String(
+                    home.industries.items.findIndex((item) => item.id === active.id) + 1,
+                  ).padStart(2, "0")}
+                  <span className="mx-2 text-line-strong">/</span>06
+                </span>
+              </div>
+              <h3 className="type-h2 relative mt-8 max-w-[12ch] text-balance">{active.label}</h3>
+              <p className="relative mt-5 max-w-[48ch] text-sm leading-relaxed text-muted-foreground sm:text-base">
                 {active.overview}
               </p>
               <Link
                 to="/industries"
                 hash={active.id}
-                className="group mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-amber"
+                className="group relative mt-8 inline-flex min-h-12 w-fit items-center gap-3 rounded-full border border-line-strong bg-background/50 pl-5 pr-1.5 text-sm font-semibold text-foreground transition-colors hover:border-orange"
               >
                 Explore {active.label}
-                <ArrowRight
-                  className="size-4 transition-transform group-hover:translate-x-1"
-                  aria-hidden
-                />
+                <span className="grid size-9 shrink-0 place-items-center rounded-full bg-orange text-ink">
+                  <ArrowRight
+                    className="size-4 transition-transform group-hover:translate-x-0.5"
+                    aria-hidden
+                  />
+                </span>
               </Link>
             </div>
-            <ul className="grid gap-3">
-              {active.points.map((point, index) => (
-                <li
-                  key={point}
-                  className="flex min-h-14 items-center gap-3 rounded-2xl border border-line bg-background/60 px-4 py-3 text-sm text-foreground/90"
-                >
-                  <span className="grid size-7 shrink-0 place-items-center rounded-full bg-orange/10 font-mono text-[9px] text-amber">
-                    0{index + 1}
+
+            <div className="relative border-t border-line bg-background/55 p-4 sm:p-6 lg:border-l lg:border-t-0 lg:p-8">
+              <div className="overflow-hidden rounded-[24px] border border-line-strong bg-raised shadow-inset-top">
+                <div className="flex min-h-12 items-center justify-between gap-3 border-b border-line px-4 sm:px-5">
+                  <div className="flex items-center gap-1.5" aria-hidden>
+                    <span className="size-1.5 rounded-full bg-line-strong" />
+                    <span className="size-1.5 rounded-full bg-line-strong" />
+                    <span className="size-1.5 rounded-full bg-orange" />
+                  </div>
+                  <span className="truncate font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground">
+                    Sales360.ai
                   </span>
-                  {point}
-                </li>
-              ))}
-            </ul>
+                  <span className="flex items-center gap-2 font-mono text-[8px] uppercase tracking-[0.12em] text-amber">
+                    <span className="size-1.5 rounded-full bg-orange shadow-glow-sm" aria-hidden />
+                    Connected
+                  </span>
+                </div>
+
+                <div className="p-4 sm:p-6">
+                  <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 rounded-2xl border border-line bg-background/70 p-3 sm:gap-3 sm:p-4">
+                    {[
+                      { label: "Marketing", icon: Zap },
+                      { label: "AI Automation", icon: Workflow },
+                      { label: "Tech & Cloud", icon: ShieldCheck },
+                    ].map((step, index) => (
+                      <div key={step.label} className="contents">
+                        <div className="flex min-w-0 flex-col items-center gap-2 text-center">
+                          <span className="grid size-9 place-items-center rounded-xl border border-orange/25 bg-orange/10 text-orange sm:size-10">
+                            <step.icon className="size-4" strokeWidth={1.7} aria-hidden />
+                          </span>
+                          <span className="text-[9px] font-medium leading-tight text-muted-foreground sm:text-[10px]">
+                            {step.label}
+                          </span>
+                        </div>
+                        {index < 2 && (
+                          <span
+                            className="relative h-px w-4 overflow-hidden bg-line-strong sm:w-7"
+                            aria-hidden
+                          >
+                            <motion.span
+                              className="absolute inset-y-0 w-2 bg-orange"
+                              initial={{ x: reduce ? 0 : -8, opacity: reduce ? 1 : 0 }}
+                              animate={{ x: reduce ? 0 : 28, opacity: reduce ? 1 : [0, 1, 0] }}
+                              transition={{
+                                duration: 1.8,
+                                repeat: reduce ? 0 : Infinity,
+                                delay: index * 0.5,
+                              }}
+                            />
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+
+                  <ul className="relative mt-4 grid gap-3">
+                    <span
+                      className="absolute bottom-8 left-[23px] top-8 w-px bg-gradient-to-b from-orange/50 via-orange/20 to-transparent"
+                      aria-hidden
+                    />
+                    {active.points.map((point, index) => (
+                      <motion.li
+                        key={point}
+                        className="relative flex min-h-[72px] items-center gap-4 rounded-2xl border border-line bg-surface/80 p-4 shadow-inset-top sm:px-5"
+                        initial={{ opacity: 0, x: reduce ? 0 : 12 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                          duration: 0.4,
+                          delay: index * 0.08,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
+                      >
+                        <span className="relative z-10 grid size-8 shrink-0 place-items-center rounded-full border border-orange/40 bg-raised font-mono text-[9px] text-amber">
+                          0{index + 1}
+                        </span>
+                        <span className="min-w-0 flex-1 text-sm font-medium leading-snug text-foreground/90">
+                          {point}
+                        </span>
+                        <span className="grid size-7 shrink-0 place-items-center rounded-full bg-orange/10 text-orange">
+                          <Check className="size-3.5" strokeWidth={2} aria-hidden />
+                        </span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </motion.div>
       </Reveal>

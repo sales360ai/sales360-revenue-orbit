@@ -23,27 +23,27 @@ const trustPortraits = [
 
 const h = home.hero;
 
-const Y_HUB = 330;
-const fanLines = Array.from({ length: 14 }, (_, i) => 20 + i * 26);
+const Y_HUB = 270;
+const fanLines = Array.from({ length: 14 }, (_, i) => 4 + i * 20);
 
 const integrations: { name: string; x: number; y: number; icon: ReactNode }[] = [
-  { name: "Meta", x: 11, y: 22, icon: <BrandIcon name="Meta" className="size-full" /> },
-  { name: "Google", x: 24, y: 58, icon: <BrandIcon name="Google" className="size-full" /> },
-  { name: "WhatsApp", x: 9, y: 86, icon: <BrandIcon name="WhatsApp" className="size-full" /> },
-  { name: "Email", x: 36, y: 86, icon: <Mail className="size-full" strokeWidth={1.7} /> },
-  { name: "AI", x: 50, y: 18, icon: <Sparkles className="size-full" strokeWidth={1.7} /> },
-  { name: "Instagram", x: 64, y: 86, icon: <BrandIcon name="Instagram" className="size-full" /> },
-  { name: "LinkedIn", x: 76, y: 58, icon: <Linkedin className="size-full" strokeWidth={1.7} /> },
-  { name: "Website", x: 89, y: 22, icon: <Globe className="size-full" strokeWidth={1.7} /> },
-  { name: "Call", x: 91, y: 86, icon: <Phone className="size-full" strokeWidth={1.7} /> },
+  { name: "Meta", x: 8, y: 16, icon: <BrandIcon name="Meta" className="size-full" /> },
+  { name: "Google", x: 24, y: 53, icon: <BrandIcon name="Google" className="size-full" /> },
+  { name: "WhatsApp", x: 7, y: 84, icon: <BrandIcon name="WhatsApp" className="size-full" /> },
+  { name: "Email", x: 36, y: 84, icon: <Mail className="size-full" strokeWidth={1.7} /> },
+  { name: "AI", x: 50, y: 39, icon: <Sparkles className="size-full" strokeWidth={1.7} /> },
+  { name: "Instagram", x: 64, y: 84, icon: <BrandIcon name="Instagram" className="size-full" /> },
+  { name: "LinkedIn", x: 76, y: 53, icon: <Linkedin className="size-full" strokeWidth={1.7} /> },
+  { name: "Website", x: 92, y: 16, icon: <Globe className="size-full" strokeWidth={1.7} /> },
+  { name: "Call", x: 93, y: 84, icon: <Phone className="size-full" strokeWidth={1.7} /> },
 ];
 
 function IntegrationFan() {
   const reduce = useReducedMotion();
   return (
-    <div className="relative mx-auto aspect-[12/5] w-full max-w-[1200px] min-h-[220px]">
+    <div className="relative mx-auto aspect-[12/4] min-h-[190px] w-full sm:min-h-[250px]">
       <svg
-        viewBox="0 0 1200 420"
+        viewBox="0 0 1200 340"
         preserveAspectRatio="none"
         className="absolute inset-0 h-full w-full"
         aria-hidden
@@ -238,7 +238,7 @@ export function HomeHero() {
           </motion.p>
         </div>
 
-        <div className="relative z-20 px-2 pb-6 sm:px-6">
+        <div className="relative z-20 pb-4 sm:pb-5">
           <IntegrationFan />
         </div>
       </motion.div>
