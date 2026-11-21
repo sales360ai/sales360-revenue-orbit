@@ -4,9 +4,14 @@ import { Plus } from "lucide-react";
 export type FaqItem = { q: string; a: string };
 
 /** Single-open accordion, animated height, + rotates to ×. */
-export function FaqAccordion({ items }: { items: FaqItem[] }) {
+export function FaqAccordion({ items, defaultValue }: { items: FaqItem[]; defaultValue?: string }) {
   return (
-    <A.Root type="single" collapsible className="divide-y divide-line rounded-xl border border-line bg-surface">
+    <A.Root
+      type="single"
+      collapsible
+      {...(defaultValue ? { defaultValue } : {})}
+      className="divide-y divide-line rounded-xl border border-line bg-surface"
+    >
       {items.map((it, i) => (
         <A.Item key={i} value={`i${i}`}>
           <A.Header>

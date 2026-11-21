@@ -1,8 +1,8 @@
-# Industries page build
+# Contact page build
 
-- [x] Add verbatim Industries content and metadata
-- [x] Build the compact hero and sticky scroll-spy industry navigation
-- [x] Build the E-Commerce flagship with cube, use cases, CTA, and cart-recovery mock
-- [x] Build the five-card cross-industry solutions grid
-- [x] Verify hash deep links, border pulses, modal interest, reduced motion, and six widths
-- [x] Run focused tests and commit the completed page
+- [x] Add verbatim Contact content, metadata, and FAQ structured data
+- [x] Build split booking hero, direct-contact cards, and copy actions
+- [x] Connect the shared lead form to validated stored submissions with loading, error, and reset states
+- [x] Build the three-step process strip and single-open FAQ
+- [x] Verify submission storage, validation, contact links, accessibility, reduced motion, and six widths
+- [x] Remove the test submission, run regression tests, and commit the completed page

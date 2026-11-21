@@ -34,3 +34,4 @@ use the editor.
 - Exactly 7 routes (/, /sales, /marketing, /automation, /tech-cloud, /industries, /contact); legal pages are slide-over panels, never routes. Why: brief forbids subpages.
 - Shared shell (Header, Footer, ConversionBanner, WhatsApp, LeadModalProvider) lives in `__root.tsx`; non-navigational CTAs call `useLeadModal().open(interest)`. Why: one global modal with pre-selected interest.
 - Design tokens are CSS variables + `@utility` classes in `src/styles.css`; reusable primitives in `src/components/system/`. Why: single design system.
+- Lead forms submit through a validated server function to private `lead_submissions` storage; never replace this with client-only success state or public read access. Why: every inquiry must reach the owner without exposing customer data.
