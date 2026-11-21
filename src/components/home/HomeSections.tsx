@@ -1,4 +1,7 @@
 import { Link } from "@tanstack/react-router";
+import { useState, type KeyboardEvent } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import founderPortrait from "@/assets/founder-viswa-korapala.webp.asset.json";
 import {
   ArrowRight,
   BriefcaseBusiness,
@@ -194,47 +197,15 @@ function FounderPortrait() {
             className="absolute -right-16 -top-12 opacity-15"
             variant="spin"
           />
-          {/* TODO: add founder portrait at /assets/founder-viswa.jpg or .png. */}
-          <svg
-            viewBox="0 0 360 450"
-            className="absolute inset-x-0 bottom-0 h-[92%] w-full"
-            role="img"
-            aria-label="Viswa Korapala"
-          >
-            <defs>
-              <linearGradient id="portrait-silhouette" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stopColor="var(--surface-3)" />
-                <stop offset=".55" stopColor="var(--bg)" />
-                <stop offset="1" stopColor="var(--orange-deep)" />
-              </linearGradient>
-              <radialGradient id="portrait-rim" cx="85%" cy="35%">
-                <stop offset="0" stopColor="var(--orange)" stopOpacity=".75" />
-                <stop offset=".45" stopColor="var(--surface-2)" stopOpacity=".2" />
-                <stop offset="1" stopColor="var(--bg)" stopOpacity="0" />
-              </radialGradient>
-            </defs>
-            <path
-              d="M67 450 C71 351 100 309 146 293 L144 261 C119 241 108 207 111 163 C115 105 141 72 183 72 C229 72 251 110 247 169 C244 214 232 244 211 261 L209 294 C264 310 295 358 301 450 Z"
-              fill="url(#portrait-silhouette)"
-            />
-            <path
-              d="M212 91 C244 113 252 151 244 194 C239 227 226 251 211 261 L209 294 C264 310 295 358 301 450"
-              fill="none"
-              stroke="var(--orange)"
-              strokeOpacity=".7"
-              strokeWidth="3"
-            />
-            <path
-              d="M67 450 C71 351 100 309 146 293 L180 332 L209 294 C264 310 295 358 301 450"
-              fill="url(#portrait-rim)"
-            />
-            <path
-              d="M145 294 L180 332 L210 294 L229 305 L204 365 L180 340 L157 365 L130 307 Z"
-              fill="var(--bg)"
-              fillOpacity=".65"
-            />
-          </svg>
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background/70 to-transparent" />
+          <img
+            src={founderPortrait.url}
+            alt="Mr. Viswa Korapala, Founder and Chief Revenue Architect of Sales360.ai"
+            width="880"
+            height="1100"
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover object-[52%_center]"
+          />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/45 to-transparent" />
         </div>
       </div>
       <div className="absolute bottom-5 left-0 z-10 grid size-14 place-items-center rounded-2xl border border-orange/35 bg-background shadow-glow-sm">
@@ -327,40 +298,132 @@ const industryIcons = {
 };
 
 export function IndustriesSnapshot() {
+  const [activeId, setActiveId] =
+    useState<(typeof home.industries.items)[number]["id"]>("e-commerce");
+  const reduce = useReducedMotion();
+  const active =
+    home.industries.items.find((industry) => industry.id === activeId) ?? home.industries.items[0];
+  const ActiveIcon = industryIcons[active.icon];
+
+  const onTabKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
+    let nextIndex: number | undefined;
+    if (event.key === "ArrowRight") nextIndex = (index + 1) % home.industries.items.length;
+    if (event.key === "ArrowLeft")
+      nextIndex = (index - 1 + home.industries.items.length) % home.industries.items.length;
+    if (event.key === "Home") nextIndex = 0;
+    if (event.key === "End") nextIndex = home.industries.items.length - 1;
+    if (nextIndex === undefined) return;
+    event.preventDefault();
+    const next = home.industries.items[nextIndex];
+    if (!next) return;
+    setActiveId(next.id);
+    document.getElementById(`industry-tab-${next.id}`)?.focus();
+  };
+
   return (
     <section className="container-site pb-8 sm:pb-12" aria-labelledby="industries-heading">
       <Reveal>
         <SectionHeading id="industries-heading" title={home.industries.headline} align="center" />
       </Reveal>
       <Reveal delay={0.08}>
-        <div className="edge-fade mt-9 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 py-2 [scrollbar-width:none] sm:px-6 lg:flex-wrap lg:justify-center lg:overflow-visible lg:px-0">
-          {home.industries.items.map((industry) => {
+        <div
+          className="edge-fade mt-9 flex snap-x snap-mandatory gap-2 overflow-x-auto px-4 py-2 [scrollbar-width:none] sm:px-6 lg:flex-wrap lg:justify-center lg:overflow-visible lg:px-0"
+          role="tablist"
+          aria-label="Industry overviews"
+        >
+          {home.industries.items.map((industry, index) => {
             const Icon = industryIcons[industry.icon];
+            const selected = industry.id === active.id;
             return (
-              <Link
+              <button
                 key={industry.id}
-                to="/industries"
-                hash={industry.id}
+                id={`industry-tab-${industry.id}`}
+                type="button"
+                role="tab"
+                aria-selected={selected}
+                aria-controls="industry-overview-panel"
+                tabIndex={selected ? 0 : -1}
+                onClick={() => setActiveId(industry.id)}
+                onKeyDown={(event) => onTabKeyDown(event, index)}
                 className={cn(
-                  "group flex min-h-14 shrink-0 snap-center items-center gap-3 rounded-full border bg-surface px-5 text-sm font-semibold transition-[border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-orange",
-                  industry.flagship ? "border-orange/60" : "border-line-strong",
+                  "group flex min-h-14 shrink-0 snap-center items-center gap-2.5 rounded-full border px-4 text-sm font-semibold transition-[border-color,background-color,color,transform] duration-300 hover:-translate-y-0.5 hover:border-orange",
+                  selected
+                    ? "border-orange bg-orange text-ink shadow-glow-sm"
+                    : "border-line-strong bg-surface text-foreground",
                 )}
               >
-                <Icon className="size-4 text-orange" strokeWidth={1.7} aria-hidden />
+                <Icon
+                  className={cn("size-4", selected ? "text-ink" : "text-orange")}
+                  strokeWidth={1.7}
+                  aria-hidden
+                />
                 <span>{industry.label}</span>
                 {industry.flagship && (
-                  <span className="rounded-full bg-orange px-2 py-1 font-mono text-[8px] uppercase tracking-wider text-ink">
+                  <span
+                    className={cn(
+                      "rounded-full px-2 py-1 font-mono text-[8px] uppercase tracking-wider",
+                      selected ? "bg-ink text-foreground" : "bg-orange text-ink",
+                    )}
+                  >
                     {home.industries.flagship}
                   </span>
                 )}
-                <ArrowRight
-                  className="size-3.5 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-orange"
-                  aria-hidden
-                />
-              </Link>
+              </button>
             );
           })}
         </div>
+      </Reveal>
+      <Reveal delay={0.12} className="mt-5">
+        <motion.div
+          key={active.id}
+          id="industry-overview-panel"
+          role="tabpanel"
+          aria-labelledby={`industry-tab-${active.id}`}
+          className="relative overflow-hidden rounded-[28px] border border-line-strong bg-surface p-6 shadow-inset-top sm:p-8 lg:p-10"
+          initial={{ opacity: 0, y: reduce ? 0 : 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35 }}
+        >
+          <div
+            className="absolute inset-0 dotted-grid opacity-20 [mask-image:linear-gradient(90deg,transparent,#000)]"
+            aria-hidden
+          />
+          <div className="relative grid gap-8 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-14">
+            <div>
+              <span className="grid size-12 place-items-center rounded-2xl border border-orange/30 bg-orange/10 text-orange">
+                <ActiveIcon className="size-5" aria-hidden />
+              </span>
+              <h3 className="type-h3 mt-5">{active.label}</h3>
+              <p className="mt-4 max-w-[58ch] text-sm leading-relaxed text-muted-foreground sm:text-base">
+                {active.overview}
+              </p>
+              <Link
+                to="/industries"
+                hash={active.id}
+                className="group mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-amber"
+              >
+                Explore {active.label}
+                <ArrowRight
+                  className="size-4 transition-transform group-hover:translate-x-1"
+                  aria-hidden
+                />
+              </Link>
+            </div>
+            <ul className="grid gap-3">
+              {active.points.map((point, index) => (
+                <li
+                  key={point}
+                  className="flex min-h-14 items-center gap-3 rounded-2xl border border-line bg-background/60 px-4 py-3 text-sm text-foreground/90"
+                >
+                  <span className="grid size-7 shrink-0 place-items-center rounded-full bg-orange/10 font-mono text-[9px] text-amber">
+                    0{index + 1}
+                  </span>
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
       </Reveal>
     </section>
   );

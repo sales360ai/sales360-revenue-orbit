@@ -1,8 +1,9 @@
-# Contact page build
+# Home page refinement
 
-- [x] Add verbatim Contact content, metadata, and FAQ structured data
-- [x] Build split booking hero, direct-contact cards, and copy actions
-- [x] Connect the shared lead form to validated stored submissions with loading, error, and reset states
-- [x] Build the three-step process strip and single-open FAQ
-- [x] Verify submission storage, validation, contact links, accessibility, reduced motion, and six widths
-- [x] Remove the test submission, run regression tests, and commit the completed page
+- [x] Redesign the home hero using the supplied layout references and existing orange-black design system
+- [x] Replace trust-row initials with Indian male and female portrait photos
+- [x] Add the uploaded founder photograph and prefix the founder name with Mr.
+- [x] Remove trailing full stops from website page and section titles
+- [x] Add accessible home industry tabs with an overview for every sector
+- [x] Verify interactions, reduced motion, metadata, tests, and all six responsive widths
+- [ ] Commit the completed refinement

@@ -119,7 +119,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           name: "Sales360.ai",
           email: "info@sales360.ai",
           telephone: "+91 8050700300",
-          founder: { "@type": "Person", name: "Viswa Korapala" },
+          founder: { "@type": "Person", name: "Mr. Viswa Korapala" },
         }),
       },
     ],

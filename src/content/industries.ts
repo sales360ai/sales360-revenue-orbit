@@ -12,7 +12,7 @@ export const industries = {
   hero: {
     eyebrow: "INDUSTRY-SPECIFIC AI & GROWTH SOLUTIONS",
     titleLead: "Built for",
-    accent: "How Your Industry Actually Sells.",
+    accent: "How Your Industry Actually Sells",
     sub: "Every sector has unique buying cycles and operational bottlenecks. Explore how Sales360.ai adapts our AI Command Center, marketing, and cloud stack to your exact vertical.",
   },
   nav: [
@@ -26,7 +26,7 @@ export const industries = {
   flagship: {
     id: "e-commerce" as IndustryId,
     eyebrow: "FLAGSHIP VERTICAL • E-COMMERCE & D2C",
-    headline: "Turn Window Shoppers Into Repeat Buyers on Autopilot.",
+    headline: "Turn Window Shoppers Into Repeat Buyers on Autopilot",
     sub: "From high-ROAS Meta/Google acquisition to instant WhatsApp cart recovery and ultra-fast cloud hosting, we power high-converting online stores.",
     useCases: [
       {

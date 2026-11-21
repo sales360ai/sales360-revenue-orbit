@@ -9,14 +9,13 @@ export const home = {
   hero: {
     eyebrow: "AI-POWERED REVENUE & CLOUD ECOSYSTEM",
     line1: "Turn Every Lead Into Revenue—",
-    line2: "Automatically.",
+    line2: "Automatically",
     sub: "Sales360.ai unifies your AI Sales Command Center, multi-channel marketing, workflow automation, and secure cloud infrastructure into one predictable growth engine.",
     primary: "Book Free Demo",
     primaryInterest: "Full Ecosystem" as Interest,
     secondary: "Explore AI Command Center",
     trust: "Trusted by 100+ founders",
     micro: "Free 15-min strategy call · Reply within 4 business hours",
-    avatars: ["VK", "AP", "DS", "AM", "RS"],
     channels: ["WhatsApp", "Email", "Meta", "Google", "Instagram", "LinkedIn"],
     leadCard: {
       prospect: "Rohit M.",
@@ -107,7 +106,7 @@ export const home = {
     { value: "99.9%", label: "Managed Cloud Uptime & Security" },
   ],
   pillars: {
-    headline: "Everything You Need to Acquire, Convert, and Scale.",
+    headline: "Everything You Need to Acquire, Convert, and Scale",
     cards: [
       {
         id: "sales",
@@ -148,7 +147,7 @@ export const home = {
     ],
   },
   difference: {
-    headline: "Great Products Fail Without a Fast Sales Engine.",
+    headline: "Great Products Fail Without a Fast Sales Engine",
     body: "Most businesses lose up to 50% of their paid leads to slow responses, disconnected tools, and missed follow-ups. Sales360.ai fixes the leaks—connecting your marketing directly to an AI-driven sales system that engages buyers the second they show interest.",
     checkpoints: [
       {
@@ -168,8 +167,8 @@ export const home = {
   },
   founder: {
     eyebrow: "LEADERSHIP & VISION",
-    headline: "Built on 20+ Years of Real-World Sales Mastery.",
-    name: "Viswa Korapala",
+    headline: "Built on 20+ Years of Real-World Sales Mastery",
+    name: "Mr. Viswa Korapala",
     title: "Founder & Chief Revenue Architect, Sales360.ai",
     body: "After two decades of building high-performing sales teams and scaling businesses across India and global markets, Viswa Korapala founded Sales360.ai with a clear mission: give growing businesses the exact AI systems, marketing precision, and cloud reliability once reserved for Fortune 500 enterprises.",
     credentials: [
@@ -182,12 +181,84 @@ export const home = {
     headline: "Tailored for High-Growth Sectors",
     flagship: "Flagship",
     items: [
-      { label: "E-Commerce & D2C", id: "e-commerce", icon: "shopping", flagship: true },
-      { label: "Healthcare", id: "healthcare", icon: "health", flagship: false },
-      { label: "Real Estate", id: "real-estate", icon: "building", flagship: false },
-      { label: "Manufacturing", id: "manufacturing", icon: "factory", flagship: false },
-      { label: "B2B Services", id: "b2b-services", icon: "briefcase", flagship: false },
-      { label: "Education", id: "education", icon: "education", flagship: false },
+      {
+        label: "E-Commerce & D2C",
+        id: "e-commerce",
+        icon: "shopping",
+        flagship: true,
+        overview:
+          "Acquire high-intent shoppers, recover abandoned checkouts on WhatsApp, and build repeat purchases with fast, reliable commerce infrastructure.",
+        points: [
+          "Meta & Google acquisition",
+          "Abandoned cart & COD verification",
+          "Retention & reorder automation",
+        ],
+      },
+      {
+        label: "Healthcare",
+        id: "healthcare",
+        icon: "health",
+        flagship: false,
+        overview:
+          "Respond to every patient inquiry, simplify appointment booking, and reduce no-shows with always-on communication and secure infrastructure.",
+        points: [
+          "24/7 WhatsApp appointment booking",
+          "Automated patient reminders",
+          "Local Google & SEO growth",
+        ],
+      },
+      {
+        label: "Real Estate",
+        id: "real-estate",
+        icon: "building",
+        flagship: false,
+        overview:
+          "Qualify property inquiries instantly, share the right project information, and keep site visits moving without manual follow-up delays.",
+        points: [
+          "Instant AI lead qualification",
+          "Brochure & floor-plan delivery",
+          "Site-visit reminder sequences",
+        ],
+      },
+      {
+        label: "Manufacturing",
+        id: "manufacturing",
+        icon: "factory",
+        flagship: false,
+        overview:
+          "Turn complex RFQs into structured opportunities with faster quotations, targeted B2B acquisition, and reliable distributor experiences.",
+        points: [
+          "Automated RFQ capture",
+          "Instant digital quote generation",
+          "B2B search & LinkedIn lead generation",
+        ],
+      },
+      {
+        label: "B2B Services",
+        id: "b2b-services",
+        icon: "briefcase",
+        flagship: false,
+        overview:
+          "Create a consistent outbound engine, build category authority, and move qualified prospects into discovery calls without founder-led bottlenecks.",
+        points: [
+          "LinkedIn & email outbound automation",
+          "AEO & SEO thought leadership",
+          "Automated discovery call booking",
+        ],
+      },
+      {
+        label: "Education",
+        id: "education",
+        icon: "education",
+        flagship: false,
+        overview:
+          "Handle seasonal admission demand with instant counseling, timely reminders, and student acquisition campaigns built around conversion.",
+        points: [
+          "AI admission counselor bots",
+          "Webinar & campus tour reminders",
+          "Student acquisition ads",
+        ],
+      },
     ],
   },
   testimonials: [

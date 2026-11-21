@@ -8,8 +8,8 @@ export const automation = {
   },
   hero: {
     eyebrow: "INTELLIGENT WORKFLOW & AGENT AUTOMATION",
-    titleLead: "Automate Your Busywork.",
-    accent: "Scale Without Adding Headcount.",
+    titleLead: "Automate Your Busywork",
+    accent: "Scale Without Adding Headcount",
     sub: "We design and deploy custom AI workflows that handle customer conversations, personalized email outreach, and high-volume content creation around the clock.",
     primary: "Automate Your Workflow",
     interest: "AI Automation" as Interest,
@@ -31,7 +31,7 @@ export const automation = {
     {
       id: "whatsapp",
       number: "01",
-      headline: "24/7 WhatsApp Sales & Support Agents.",
+      headline: "24/7 WhatsApp Sales & Support Agents",
       description:
         "Turn WhatsApp into an autonomous storefront and support desk that answers product questions, shares brochures, qualifies leads, and books appointments instantly.",
       capabilities: [
@@ -52,7 +52,7 @@ export const automation = {
     {
       id: "email",
       number: "02",
-      headline: "Hyper-Personalized Email Sequences at Scale.",
+      headline: "Hyper-Personalized Email Sequences at Scale",
       description:
         "Replace generic bulk blasts with AI-driven email workflows that adapt to prospect behavior, follow up automatically, and book qualified meetings on autopilot.",
       capabilities: [
@@ -73,7 +73,7 @@ export const automation = {
     {
       id: "content",
       number: "03",
-      headline: "Publish High-Quality Brand Content in a Fraction of the Time.",
+      headline: "Publish High-Quality Brand Content in a Fraction of the Time",
       description:
         "Custom-trained AI content pipelines calibrated to your brand voice—producing SEO blogs, social posts, ad copy, and video scripts ready for human review.",
       capabilities: [

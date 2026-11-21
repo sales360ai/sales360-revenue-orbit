@@ -1,7 +1,6 @@
 import { useState, type CSSProperties, type MouseEvent, type ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
-  ArrowUpRight,
   Bot,
   Check,
   Flame,
@@ -17,6 +16,19 @@ import { BrandIcon } from "./BrandIcon";
 import { Button, ButtonLink, EyebrowBadge } from "@/components/system/primitives";
 import { EASE } from "@/components/system/motion";
 import { cn } from "@/lib/utils";
+import arjunPortrait from "@/assets/founder-arjun.webp.asset.json";
+import ananyaPortrait from "@/assets/founder-ananya.webp.asset.json";
+import devPortrait from "@/assets/founder-dev.webp.asset.json";
+import meeraPortrait from "@/assets/founder-meera.webp.asset.json";
+import rahulPortrait from "@/assets/founder-rahul.webp.asset.json";
+
+const trustPortraits = [
+  { name: "Arjun", image: arjunPortrait.url },
+  { name: "Ananya", image: ananyaPortrait.url },
+  { name: "Dev", image: devPortrait.url },
+  { name: "Meera", image: meeraPortrait.url },
+  { name: "Rahul", image: rahulPortrait.url },
+];
 
 const h = home.hero;
 
@@ -190,14 +202,14 @@ function FloatingCard({
 function ConnectorLines() {
   const reduce = useReducedMotion();
   const paths = [
-    "M600 80 C470 90 370 105 230 150",
-    "M600 80 C430 160 315 270 190 410",
-    "M600 80 C730 90 830 105 970 150",
-    "M600 80 C770 160 885 270 1010 410",
+    "M600 96 C470 40 330 55 170 132",
+    "M600 96 C490 150 390 210 270 320",
+    "M600 96 C730 40 870 55 1030 132",
+    "M600 96 C710 150 810 210 930 320",
   ];
   return (
     <svg
-      viewBox="0 0 1200 760"
+      viewBox="0 0 1200 360"
       preserveAspectRatio="none"
       className="pointer-events-none absolute inset-0 z-10 hidden h-full w-full lg:block"
       aria-hidden
@@ -347,88 +359,50 @@ export function HomeHero() {
   });
 
   return (
-    <section className="container-site max-w-none pt-[88px]" aria-labelledby="home-hero-title">
+    <section className="container-site max-w-[1440px] pt-[88px]" aria-labelledby="home-hero-title">
       <motion.div
         onMouseMove={onMouseMove}
         onMouseLeave={() => setParallax({ x: 0, y: 0 })}
-        className="relative overflow-hidden rounded-[28px] border border-line bg-raised sm:rounded-[36px] lg:min-h-[max(880px,calc(100svh-88px))]"
+        className="relative overflow-hidden rounded-[28px] border border-line bg-raised sm:rounded-[36px]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.45 }}
       >
         <div
-          className="absolute inset-0 dotted-grid opacity-70 [mask-image:radial-gradient(ellipse_at_center,#000_32%,transparent_82%)]"
+          className="absolute inset-0 dotted-grid opacity-70 [mask-image:radial-gradient(ellipse_at_50%_25%,#000_20%,transparent_78%)]"
           aria-hidden
         />
         <div
-          className="absolute inset-x-0 bottom-0 h-[72%] bg-horizon opacity-75 animate-breathe"
+          className="absolute inset-x-0 bottom-0 h-[58%] bg-horizon opacity-60 animate-breathe"
           aria-hidden
         />
         <div
-          className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-background/50 to-transparent"
+          className="absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-orange/[.055] blur-[110px]"
           aria-hidden
         />
-        <ConnectorLines />
 
-        <FloatingCard
-          className="left-[4%] top-[0.5%] hidden lg:block"
-          delay={-1}
-          duration={7}
-          parallax={parallax}
-          index={0}
-        >
-          <LeadReplyCard />
-        </FloatingCard>
-        <FloatingCard
-          className="left-[2%] top-[60%] hidden xl:block"
-          delay={-3}
-          duration={8.5}
-          parallax={parallax}
-          index={1}
-        >
-          <PipelineStrip />
-        </FloatingCard>
-        <FloatingCard
-          className="right-[4%] top-[0.5%] hidden lg:block"
-          delay={-2}
-          duration={7.5}
-          parallax={parallax}
-          index={2}
-        >
-          <ScoreCard />
-        </FloatingCard>
-        <FloatingCard
-          className="right-[2%] top-[60%] hidden xl:block"
-          delay={-4}
-          duration={9}
-          parallax={parallax}
-          index={3}
-        >
-          <RevenueCard />
-        </FloatingCard>
-
-        <div className="relative z-30 mx-auto flex max-w-[1400px] flex-col items-center px-4 pb-10 pt-8 text-center sm:px-8 lg:pb-[360px] lg:pt-10">
+        <div className="relative z-30 mx-auto flex max-w-[1120px] flex-col items-center px-4 pb-8 pt-8 text-center sm:px-8 sm:pt-10 lg:pb-0">
           <motion.div
-            className="glass grid size-[72px] place-items-center rounded-[22px] border border-line-strong shadow-glow-sm"
-            initial={{ opacity: 0, scale: reduce ? 1 : 0.6 }}
+            className="glass grid size-14 place-items-center rounded-[18px] border border-line-strong shadow-glow-sm"
+            initial={{ opacity: 0, scale: reduce ? 1 : 0.75 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.12, ease: EASE }}
           >
-            <SunburstRing size={46} variant="spin" />
+            <SunburstRing size={36} variant="spin" />
           </motion.div>
-          <motion.div {...rise(0.35)} className="mt-6">
+          <motion.div {...rise(0.28)} className="mt-5">
             <EyebrowBadge>{h.eyebrow}</EyebrowBadge>
           </motion.div>
           <h1
             id="home-hero-title"
-            className="type-hero mt-10 max-w-full text-balance tracking-[-0.045em] [font-variation-settings:'wdth'_100] max-[389px]:text-[2.15rem] lg:text-[clamp(2.35rem,3.7vw,3.6rem)] lg:tracking-[-0.02em] lg:[font-variation-settings:'wdth'_125]"
+            className="type-hero mt-8 max-w-full text-balance text-[clamp(2.35rem,6.4vw,5.4rem)] leading-[.98] tracking-[-0.035em] [font-variation-settings:'wdth'_112] max-sm:text-[clamp(1.9rem,8.4vw,2.35rem)] lg:mt-9"
           >
-            <span className="block overflow-hidden pb-1 lg:whitespace-nowrap">
+            <span className="block overflow-hidden pb-1">
               <motion.span
                 className="block"
                 initial={{ y: reduce ? 0 : "110%" }}
                 animate={{ y: 0 }}
-                transition={{ duration: 0.75, delay: 0.45, ease: EASE }}
+                transition={{ duration: 0.75, delay: 0.4, ease: EASE }}
               >
                 {h.line1}
               </motion.span>
@@ -438,20 +412,20 @@ export function HomeHero() {
                 className="text-grad block"
                 initial={{ y: reduce ? 0 : "110%" }}
                 animate={{ y: 0 }}
-                transition={{ duration: 0.75, delay: 0.55, ease: EASE }}
+                transition={{ duration: 0.75, delay: 0.5, ease: EASE }}
               >
                 {h.line2}
               </motion.span>
             </span>
           </h1>
           <motion.p
-            {...rise(0.7)}
-            className="mt-5 max-w-[62ch] text-sm leading-relaxed text-muted-foreground sm:text-base"
+            {...rise(0.64)}
+            className="mt-5 max-w-[64ch] text-sm leading-relaxed text-muted-foreground sm:text-base"
           >
             {h.sub}
           </motion.p>
           <motion.div
-            {...rise(0.78)}
+            {...rise(0.72)}
             className="mt-7 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row"
           >
             <Button onClick={() => open(h.primaryInterest)} className="w-full sm:w-auto">
@@ -465,43 +439,93 @@ export function HomeHero() {
               {h.secondary}
             </ButtonLink>
           </motion.div>
-          <motion.div {...rise(0.86)} className="mt-6 flex flex-col items-center gap-3 sm:flex-row">
-            <div className="flex -space-x-2" aria-hidden>
-              {h.avatars.map((avatar) => (
-                <span
-                  key={avatar}
-                  className="grid size-8 place-items-center rounded-full border-2 border-orange/70 bg-surface font-mono text-[8px] font-medium text-amber ring-2 ring-background"
-                >
-                  {avatar}
-                </span>
+          <motion.div {...rise(0.8)} className="mt-6 flex flex-col items-center gap-3 sm:flex-row">
+            <div className="flex -space-x-2.5">
+              {trustPortraits.map((portrait) => (
+                <img
+                  key={portrait.name}
+                  src={portrait.image}
+                  alt=""
+                  width="36"
+                  height="36"
+                  loading="eager"
+                  className="size-9 rounded-full border-2 border-background object-cover ring-1 ring-orange/60"
+                />
               ))}
             </div>
             <span className="text-xs font-medium text-foreground/85">{h.trust}</span>
           </motion.div>
           <motion.p
-            {...rise(0.92)}
+            {...rise(0.86)}
             className="mt-3 font-mono text-[9px] uppercase tracking-[0.1em] text-muted-foreground sm:text-[10px]"
           >
             {h.micro}
           </motion.p>
-          <motion.div {...rise(1)} className="mx-auto mt-8 w-full max-w-[310px] lg:hidden">
+          <motion.div {...rise(0.94)} className="mx-auto mt-8 w-full max-w-[340px] lg:hidden">
             <LeadReplyCard mobile />
           </motion.div>
         </div>
 
-        <div className="relative z-40 mx-auto mb-5 w-fit max-w-full lg:absolute lg:bottom-6 lg:left-1/2 lg:mb-0 lg:-translate-x-1/2">
+        <div className="relative z-20 mx-auto hidden h-[370px] max-w-[1200px] lg:block">
+          <ConnectorLines />
+          <motion.div
+            className="absolute left-1/2 top-14 z-30 grid size-16 -translate-x-1/2 place-items-center rounded-[20px] border border-orange/40 bg-background shadow-glow-sm"
+            initial={{ opacity: 0, scale: reduce ? 1 : 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.8, ease: EASE }}
+          >
+            <SunburstRing size={40} variant="spin" />
+          </motion.div>
+          <FloatingCard
+            className="left-[1%] top-28"
+            delay={-1}
+            duration={7}
+            parallax={parallax}
+            index={0}
+          >
+            <LeadReplyCard />
+          </FloatingCard>
+          <FloatingCard
+            className="bottom-8 left-[5%]"
+            delay={-3}
+            duration={8.5}
+            parallax={parallax}
+            index={1}
+          >
+            <PipelineStrip />
+          </FloatingCard>
+          <FloatingCard
+            className="right-[1%] top-28"
+            delay={-2}
+            duration={7.5}
+            parallax={parallax}
+            index={2}
+          >
+            <ScoreCard />
+          </FloatingCard>
+          <FloatingCard
+            className="bottom-8 right-[5%]"
+            delay={-4}
+            duration={9}
+            parallax={parallax}
+            index={3}
+          >
+            <RevenueCard />
+          </FloatingCard>
+          <motion.div
+            {...rise(0.95)}
+            className="pointer-events-none absolute -bottom-28 left-1/2 z-10 -translate-x-1/2 opacity-90"
+          >
+            <InboxWindow />
+          </motion.div>
+        </div>
+
+        <div className="relative z-40 mx-auto mb-5 w-fit max-w-full lg:mb-4">
           <ChannelTiles />
         </div>
-        <div className="pointer-events-none absolute -bottom-20 -left-16 z-10 hidden rotate-[-3deg] opacity-75 [mask-image:linear-gradient(90deg,#000_65%,transparent)] lg:block">
-          <InboxWindow />
-        </div>
-        <div className="pointer-events-none absolute -bottom-16 -right-20 z-10 hidden rotate-[3deg] opacity-75 [mask-image:linear-gradient(270deg,#000_65%,transparent)] lg:block">
+        <div className="pointer-events-none absolute -bottom-24 -right-24 z-0 hidden rotate-[3deg] opacity-30 [mask-image:linear-gradient(270deg,#000_55%,transparent)] xl:block">
           <PipelineWindow />
         </div>
-        <ArrowUpRight
-          className="absolute bottom-6 right-6 z-40 hidden size-4 text-foreground/30 xl:block"
-          aria-hidden
-        />
       </motion.div>
     </section>
   );

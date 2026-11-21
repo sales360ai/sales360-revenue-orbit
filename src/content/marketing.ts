@@ -8,8 +8,8 @@ export const marketing = {
   },
   hero: {
     eyebrow: "FULL-FUNNEL PERFORMANCE & BRAND MARKETING",
-    titleLead: "7 High-Converting Marketing Engines.",
-    accent: "One Unified Growth Strategy.",
+    titleLead: "7 High-Converting Marketing Engines",
+    accent: "One Unified Growth Strategy",
     sub: "We don’t chase vanity likes. Sales360.ai combines precision paid ads, AI-era search optimization, video storytelling, and direct WhatsApp, email, and telecalling outreach to fill your sales pipeline.",
     primary: "Get Your Free Marketing Audit",
     interest: "Growth Marketing" as Interest,
@@ -19,7 +19,7 @@ export const marketing = {
       id: "google-meta-ads",
       label: "Google & Meta Ads",
       short: "Google & Meta Ads",
-      headline: "Precision Paid Acquisition That Maximizes ROAS.",
+      headline: "Precision Paid Acquisition That Maximizes ROAS",
       deliverables: [
         "High-Intent Google Search & Performance Max",
         "Meta (Facebook & Instagram) Lead & Catalog Ads",
@@ -32,7 +32,7 @@ export const marketing = {
       id: "seo-aeo",
       label: "SEO & AEO (Answer Engine Optimization)",
       short: "SEO & AEO",
-      headline: "Rank #1 on Google Search and AI Answer Engines.",
+      headline: "Rank #1 on Google Search and AI Answer Engines",
       deliverables: [
         "High-Intent Commercial Keyword Ranking",
         "AEO Optimization for ChatGPT, Gemini & Perplexity Citations",
@@ -45,7 +45,7 @@ export const marketing = {
       id: "social-media",
       label: "Social Media Marketing",
       short: "Social Media",
-      headline: "Build Category Authority That Turns Followers Into Buyers.",
+      headline: "Build Category Authority That Turns Followers Into Buyers",
       deliverables: [
         "Executive LinkedIn & Instagram Brand Positioning",
         "High-Retention Carousel & Reel Calendars",
@@ -58,7 +58,7 @@ export const marketing = {
       id: "whatsapp",
       label: "WhatsApp Marketing",
       short: "WhatsApp",
-      headline: "98% Open-Rate Direct Campaigns That Drive Instant Action.",
+      headline: "98% Open-Rate Direct Campaigns That Drive Instant Action",
       deliverables: [
         "Official WhatsApp Business API Setup",
         "Segmented Broadcast Offers & Product Catalogs",
@@ -71,7 +71,7 @@ export const marketing = {
       id: "email",
       label: "Email Marketing",
       short: "Email",
-      headline: "Automated Lifecycle & B2B Outreach That Nurtures Every Lead.",
+      headline: "Automated Lifecycle & B2B Outreach That Nurtures Every Lead",
       deliverables: [
         "High-Deliverability Domain Warmup & Setup",
         "Automated Welcome, Nurture & Win-Back Flows",
@@ -84,7 +84,7 @@ export const marketing = {
       id: "telecalling",
       label: "Telecalling & Voice Outreach",
       short: "Telecalling",
-      headline: "Human + AI-Assisted Calling That Qualifies and Books Faster.",
+      headline: "Human + AI-Assisted Calling That Qualifies and Books Faster",
       deliverables: [
         "Instant Inbound Lead Verification Calls",
         "Outbound Appointment Setting & Event Invitations",
@@ -97,7 +97,7 @@ export const marketing = {
       id: "video",
       label: "Video Marketing",
       short: "Video",
-      headline: "Scroll-Stopping Video Ads & Brand Films Built to Convert.",
+      headline: "Scroll-Stopping Video Ads & Brand Films Built to Convert",
       deliverables: [
         "Direct-Response Performance Video Ads",
         "Product Explainers & 3D Visuals",

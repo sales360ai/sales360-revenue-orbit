@@ -9,7 +9,7 @@ export const sales = {
   hero: {
     eyebrow: "FLAGSHIP PRODUCT • AI COMMAND CENTER",
     titleLead: "Your Entire Sales Pipeline, Powered by",
-    accent: "One AI Command Center.",
+    accent: "One AI Command Center",
     sub: "Capture leads from every channel, respond in seconds via AI, recover abandoned carts and quotes, and give management complete visibility into every rupee of pipeline.",
     primary: "Book Live Demo",
     secondary: "View Pricing Plans",
@@ -86,7 +86,7 @@ export const sales = {
     ],
   },
   features: {
-    headline: "Engineered to Close Deals While You Sleep.",
+    headline: "Engineered to Close Deals While You Sleep",
     items: [
       {
         id: "inbox",
@@ -230,7 +230,7 @@ export const sales = {
     ],
   },
   pricing: {
-    headline: "Simple, Scalable Plans Built for ROI.",
+    headline: "Simple, Scalable Plans Built for ROI",
     popular: "Most Popular",
     tiers: [
       {

@@ -9,7 +9,7 @@ export const techCloud = {
   hero: {
     eyebrow: "MANAGED CLOUD, SECURITY & INFRASTRUCTURE",
     titleLead: "Fast, Fortress-Grade Cloud Infrastructure",
-    accent: "Managed 24/7.",
+    accent: "Managed 24/7",
     sub: "Eliminate slow load times, server crashes, and security vulnerabilities. Sales360.ai delivers high-speed VPS/cloud hosting, proactive cybersecurity, and dedicated engineering support.",
     primary: "Request Infrastructure Audit",
     interest: "Tech & Cloud" as Interest,
@@ -54,7 +54,7 @@ export const techCloud = {
     region: "Mumbai · 18 ms",
   },
   hosting: {
-    headline: "High-Speed Cloud & VPS Hosting Built for Zero Downtime.",
+    headline: "High-Speed Cloud & VPS Hosting Built for Zero Downtime",
     description:
       "Dedicated compute resources engineered for high-traffic websites, e-commerce stores, and mission-critical business applications.",
     specs: [
@@ -94,7 +94,7 @@ export const techCloud = {
     },
   },
   security: {
-    headline: "Proactive Cybersecurity That Protects Your Data & Reputation.",
+    headline: "Proactive Cybersecurity That Protects Your Data & Reputation",
     protected: "Protected ✓",
     cards: [
       {
@@ -116,7 +116,7 @@ export const techCloud = {
     ],
   },
   support: {
-    headline: "Real Cloud Engineers On Call Whenever You Need Them.",
+    headline: "Real Cloud Engineers On Call Whenever You Need Them",
     presence: "Engineer on call",
     cards: [
       {
