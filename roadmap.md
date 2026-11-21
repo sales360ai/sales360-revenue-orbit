@@ -1,8 +1,8 @@
-# Tech & Cloud page build
+# Industries page build
 
-- [x] Add verbatim Tech & Cloud content and live monitoring hero
-- [x] Build managed hosting specs, gauges, scaling chart, and migration panel
-- [x] Build the cybersecurity protection grid with scan effects
-- [x] Build the three-card technical support matrix
-- [x] Verify CTA interest, animations, reduced motion, and 360–1536px layouts
+- [x] Add verbatim Industries content and metadata
+- [x] Build the compact hero and sticky scroll-spy industry navigation
+- [x] Build the E-Commerce flagship with cube, use cases, CTA, and cart-recovery mock
+- [x] Build the five-card cross-industry solutions grid
+- [x] Verify hash deep links, border pulses, modal interest, reduced motion, and six widths
 - [x] Run focused tests and commit the completed page

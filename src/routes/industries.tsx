@@ -1,20 +1,31 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { stubs } from "@/content/global";
-import { StubPage } from "@/components/layout/StubPage";
+import { industries } from "@/content/industries";
+import { IndustriesHero } from "@/components/industries/IndustriesHero";
+import { EcommerceFlagship } from "@/components/industries/EcommerceFlagship";
+import { IndustryGrid } from "@/components/industries/IndustryGrid";
 
-const c = stubs.industries;
 export const Route = createFileRoute("/industries")({
   head: () => ({
     meta: [
-      { title: c.title },
-      { name: "description", content: c.desc },
-      { property: "og:title", content: c.title },
-      { property: "og:description", content: c.desc },
+      { title: industries.meta.title },
+      { name: "description", content: industries.meta.description },
+      { property: "og:title", content: industries.meta.title },
+      { property: "og:description", content: industries.meta.description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/industries" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/industries" }],
   }),
-  component: () => <StubPage h1={c.h1} />,
+  component: IndustriesPage,
 });
+
+function IndustriesPage() {
+  return (
+    <>
+      <IndustriesHero />
+      <EcommerceFlagship />
+      <IndustryGrid />
+    </>
+  );
+}
