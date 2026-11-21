@@ -479,6 +479,48 @@ body::after {
   animation: waveform 1.4s ease-in-out var(--wave-delay, 0s) infinite;
 }
 
+@keyframes orbit-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes orbit-counter-rotate {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes funnel-line {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  15%,
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(70vw);
+  }
+}
+@utility orbit-spin {
+  animation: orbit-rotate 60s linear infinite;
+  &:hover,
+  &:focus-within {
+    animation-play-state: paused;
+  }
+  &:hover .orbit-counter,
+  &:focus-within .orbit-counter {
+    animation-play-state: paused;
+  }
+}
+@utility orbit-counter {
+  animation: orbit-counter-rotate 60s linear infinite;
+}
+@utility funnel-line-pulse {
+  animation: funnel-line 4.5s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

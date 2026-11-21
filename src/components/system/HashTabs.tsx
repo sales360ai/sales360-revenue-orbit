@@ -1,6 +1,6 @@
 import * as T from "@radix-ui/react-tabs";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useEffect, useId, useState, type ReactNode } from "react";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { EASE } from "./motion";
 
@@ -11,13 +11,16 @@ export function HashTabs({
   items,
   label,
   className,
+  stickyList = false,
 }: {
   items: TabItem[];
   label: string;
   className?: string;
+  stickyList?: boolean;
 }) {
   const [value, setValue] = useState(items[0]?.id ?? "");
   const lid = useId();
+  const listViewport = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
   useEffect(() => {
     const sync = () => {
@@ -28,6 +31,21 @@ export function HashTabs({
     window.addEventListener("hashchange", sync);
     return () => window.removeEventListener("hashchange", sync);
   }, [items]);
+  useEffect(() => {
+    const viewport = listViewport.current;
+    const selected = viewport?.querySelector<HTMLElement>('[data-state="active"]');
+    if (!viewport || !selected || !window.matchMedia("(max-width: 639px)").matches) return;
+    const viewportRect = viewport.getBoundingClientRect();
+    const selectedRect = selected.getBoundingClientRect();
+    viewport.scrollTo({
+      left:
+        viewport.scrollLeft +
+        selectedRect.left -
+        viewportRect.left -
+        (viewport.clientWidth - selected.clientWidth) / 2,
+      behavior: reduce ? "auto" : "smooth",
+    });
+  }, [value, reduce]);
   const change = (v: string) => {
     setValue(v);
     history.replaceState(null, "", `#${v}`);
@@ -35,7 +53,14 @@ export function HashTabs({
   const active = items.find((i) => i.id === value);
   return (
     <T.Root value={value} onValueChange={change} className={className}>
-      <div className="edge-fade -mx-4 overflow-x-auto px-4 [scrollbar-width:none] sm:mx-0 sm:px-0 sm:[mask-image:none]">
+      <div
+        ref={listViewport}
+        className={cn(
+          "edge-fade -mx-4 overflow-x-auto px-4 [scrollbar-width:none] sm:mx-0 sm:px-0 sm:[mask-image:none]",
+          stickyList &&
+            "sticky top-[72px] z-40 bg-background/95 py-3 backdrop-blur-xl sm:static sm:bg-transparent sm:py-0 sm:backdrop-blur-none",
+        )}
+      >
         <T.List
           aria-label={label}
           className="inline-flex snap-x gap-1 rounded-full border border-line bg-surface p-1.5"
@@ -72,9 +97,9 @@ export function HashTabs({
           {active && (
             <T.Content key={active.id} value={active.id} forceMount asChild>
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                initial={{ opacity: 0, y: reduce ? 0 : 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: reduce ? 0 : -4 }}
                 transition={{ duration: 0.25 }}
                 className={cn("outline-none")}
               >
