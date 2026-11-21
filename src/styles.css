@@ -560,4 +560,20 @@ body::after {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+
+  [data-funnel-layer],
+  [data-funnel-detail] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  [data-funnel-scene] {
+    height: auto !important;
+  }
+
+  [data-funnel-sticky] {
+    position: relative !important;
+    top: auto !important;
+    min-height: 0 !important;
+  }
 }

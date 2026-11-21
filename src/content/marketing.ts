@@ -131,10 +131,51 @@ export const marketing = {
       },
     ],
   },
+  scrollFunnel: {
+    eyebrow: "OUR MARKETING FUNNEL",
+    title: "From First Click to Closed Revenue",
+    sub: "Three connected stages turn attention into conversations, and conversations into sales-ready opportunities.",
+    progressLabel: "Your connected revenue journey",
+    steps: [
+      {
+        number: "01",
+        title: "Attract",
+        kicker: "Capture the right demand",
+        body: "Google/Meta Ads, SEO/AEO, Social Media & Video capture buyer attention.",
+        channels: ["Google & Meta Ads", "SEO & AEO", "Social Media", "Video"],
+      },
+      {
+        number: "02",
+        title: "Engage",
+        kicker: "Nurture every opportunity",
+        body: "WhatsApp, Email & Telecalling connect instantly and build trust.",
+        channels: ["WhatsApp", "Email", "Telecalling"],
+      },
+      {
+        number: "03",
+        title: "Convert",
+        kicker: "Move sales-ready leads forward",
+        body: "Every warm lead routes straight into your AI Command Center to close.",
+        channels: ["AI Command Center"],
+      },
+    ],
+  },
   mocks: {
     ads: {
       title: "Acquisition performance",
-      period: "Last 30 days",
+      period: "Account performance",
+      sources: [
+        {
+          id: "google",
+          label: "Google Ads",
+          alt: "Google Ads analytics showing clicks, conversions, average CPC, impressions, auction insights and device performance",
+        },
+        {
+          id: "meta",
+          label: "Meta Ads",
+          alt: "Meta Ads Manager results showing campaign budgets, reach, impressions, cost per result and amount spent in INR",
+        },
+      ],
       roas: "ROAS 4.8X",
       cpaChip: "CPA ▼ 18%",
       chartLabels: ["Spend", "Revenue"],
@@ -146,6 +187,8 @@ export const marketing = {
       ],
     },
     seo: {
+      captureAlt:
+        "Google search interface showing a Modern furniture search and a visible search result example",
       query: "AI sales automation partner India",
       resultBadge: "#1",
       resultTitle: "Sales360.ai | AI Revenue & Growth Ecosystem",
@@ -160,6 +203,8 @@ export const marketing = {
       sourceLabel: "Sales360.ai",
     },
     social: {
+      captureAlt:
+        "Creative social media content library with reels, carousels, videos and posters arranged in a content calendar",
       title: "October content calendar",
       scheduled: "Scheduled",
       types: [
@@ -179,6 +224,8 @@ export const marketing = {
       days: ["01", "03", "05", "08", "10", "12", "15", "17", "19", "22", "24", "26"],
     },
     whatsapp: {
+      captureAlt:
+        "WhatsApp Business conversation displayed on a smartphone with customer messages, quick replies and call actions",
       title: "Growth broadcast",
       status: "Online",
       offer: "Your custom growth plan is ready.",
@@ -196,7 +243,18 @@ export const marketing = {
     email: {
       title: "Lifecycle automation",
       live: "Active",
+      workspace: "Sales360 Mail",
+      trigger: "New lead captured",
+      triggerMeta: "AI Command Center · Instant",
       steps: ["Welcome", "Nurture", "Win-back"],
+      delays: ["Send immediately", "Wait 2 days", "Wait 5 days"],
+      previewLabel: "Email preview",
+      previewFrom: "Sales360.ai · Growth Team",
+      previewSubject: "Your custom growth plan is ready",
+      previewGreeting: "Hi Ananya,",
+      previewBody:
+        "Your business has a clear next step. Explore your tailored plan and choose a time to review it with our team.",
+      previewCta: "View my growth plan",
       stats: [
         { label: "Open rate", value: "52%" },
         { label: "Click rate", value: "12.8%" },
@@ -207,6 +265,16 @@ export const marketing = {
     calling: {
       title: "Live call log",
       agents: "4 agents active",
+      console: "Voice outreach workspace",
+      liveCall: "Live call · 06:42",
+      callPurpose: "Inbound lead verification",
+      callSentiment: "Positive intent",
+      transcriptLabel: "Live transcription",
+      transcript: "I’d like to understand how quickly your team can automate our lead follow-ups.",
+      summaryLabel: "AI call summary",
+      summary:
+        "High-intent inquiry. Book a strategy call and share the AI Command Center overview.",
+      controls: ["Mute", "Keypad", "Hold", "End call"],
       headers: ["Prospect", "Duration", "Disposition"],
       calls: [
         { initials: "AS", name: "Ananya Shah", duration: "06:42", status: "Interested" },
@@ -217,6 +285,12 @@ export const marketing = {
     },
     video: {
       title: "Founder story · Final cut",
+      studio: "Sales360 Studio",
+      timeline: "Timeline",
+      previewAlt: "Mr. Viswa Korapala featured in the founder story video edit",
+      caption: "Build a revenue engine that never stops following up.",
+      tracks: ["Founder film", "Captions", "Audio"],
+      cutLabel: "Final cut · 16:9",
       duration: "00:24 / 00:45",
       play: "Play video",
       engagement: "Engagement lift",

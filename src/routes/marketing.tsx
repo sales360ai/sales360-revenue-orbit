@@ -3,6 +3,7 @@ import { marketing } from "@/content/marketing";
 import { MarketingHero } from "@/components/marketing/MarketingHero";
 import { ChannelDeck } from "@/components/marketing/ChannelDeck";
 import { MarketingFunnel } from "@/components/marketing/MarketingFunnel";
+import { MarketingJourneyFunnel } from "@/components/marketing/MarketingJourneyFunnel";
 
 export const Route = createFileRoute("/marketing")({
   head: () => ({
@@ -26,6 +27,7 @@ function MarketingPage() {
       <MarketingHero />
       <ChannelDeck />
       <MarketingFunnel />
+      <MarketingJourneyFunnel />
     </>
   );
 }

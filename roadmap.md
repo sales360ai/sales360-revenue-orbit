@@ -12,3 +12,11 @@
 - [x] Replace the basic industry overview with a polished workflow panel
 - [x] Verify the updated hero and industry tabs at all six responsive widths
 - [x] Commit the spacing and industry-panel refinements
+
+# Marketing page refinement
+
+- [x] Replace Google/Meta, SEO, Social and WhatsApp graphics with the supplied real visuals
+- [x] Upgrade Email, Telecalling and Video graphics into realistic product interfaces
+- [x] Add a three-stage scroll-animated marketing funnel after the channel collaboration section
+- [x] Verify all tabs, funnel motion, reduced motion and six responsive widths
+- [x] Commit the completed Marketing refinement

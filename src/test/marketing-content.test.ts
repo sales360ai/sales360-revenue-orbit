@@ -22,4 +22,12 @@ describe("Marketing page rules", () => {
   it("selects Growth Marketing for the audit CTA", () => {
     expect(marketing.hero.interest).toBe("Growth Marketing");
   });
+
+  it("reveals the three marketing funnel layers in order", () => {
+    expect(marketing.scrollFunnel.steps.map((step) => step.title)).toEqual([
+      "Attract",
+      "Engage",
+      "Convert",
+    ]);
+  });
 });
