@@ -36,13 +36,13 @@ function SalesGraphic() {
         </radialGradient>
       </defs>
       <circle cx="110" cy="82" r="55" fill="url(#sales-sphere)" opacity=".95" />
-      <ellipse cx="110" cy="139" rx="67" ry="10" fill="var(--ink)" opacity=".18" />
+      <ellipse cx="110" cy="139" rx="67" ry="10" fill="var(--bg)" opacity=".16" />
       {[0, 1, 2].map((i) => (
         <g key={i} transform={`translate(${28 + i * 54} ${128 - i * 25})`}>
           <path
             d="M0 16 L22 0 M14 0 H22 V8"
             fill="none"
-            stroke="var(--ink)"
+            stroke="var(--bg)"
             strokeWidth="3"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -62,7 +62,7 @@ function MarketingGraphic() {
           rx="82"
           ry="38"
           fill="none"
-          stroke="var(--ink)"
+          stroke="var(--bg)"
           strokeOpacity=".15"
           strokeWidth="18"
         />
@@ -77,15 +77,15 @@ function MarketingGraphic() {
         <ellipse
           rx="36"
           ry="16"
-          fill="var(--ink)"
+          fill="var(--bg)"
           fillOpacity=".08"
-          stroke="var(--ink)"
+          stroke="var(--bg)"
           strokeOpacity=".55"
           strokeWidth="2"
         />
-        <circle cx="-62" cy="-20" r="10" fill="var(--ink)" />
+        <circle cx="-62" cy="-20" r="10" fill="var(--bg)" />
         <circle cx="54" cy="27" r="8" fill="var(--orange-deep)" />
-        <circle cx="26" cy="-32" r="6" fill="var(--ink)" fillOpacity=".6" />
+        <circle cx="26" cy="-32" r="6" fill="var(--bg)" fillOpacity=".6" />
       </g>
     </svg>
   );
@@ -126,7 +126,7 @@ function CloudGraphic() {
     <svg viewBox="0 0 220 170" className="h-full max-h-40 w-full" aria-hidden>
       <defs>
         <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="var(--text-muted-foreground)" />
+          <stop offset="0" stopColor="var(--text-dim)" />
           <stop offset=".24" stopColor="var(--text)" />
           <stop offset=".48" stopColor="var(--surface-3)" />
           <stop offset=".72" stopColor="var(--paper)" />
@@ -186,7 +186,7 @@ function PillarLink({
       <span
         className={cn(
           "grid size-9 place-items-center rounded-full",
-          dark ? "bg-ink text-on-ink" : "bg-foreground text-background",
+          dark ? "bg-ink text-foreground" : "bg-foreground text-ink",
         )}
       >
         <ArrowRight
@@ -264,9 +264,9 @@ export function Pillars() {
                 className={cn(
                   "relative h-[480px] overflow-hidden rounded-[28px] border transition-[flex] duration-500",
                   card.tone === "orange" && "bg-grad text-ink",
-                  card.tone === "paper" && "border-line bg-surface text-ink shadow-card",
+                  card.tone === "paper" && "bg-paper text-ink",
                   card.tone === "charcoal" && "border-line bg-surface-2 text-foreground",
-                  card.tone === "black" && "surface-ink border-line-strong bg-background text-foreground",
+                  card.tone === "black" && "border-line-strong bg-background text-foreground",
                 )}
               >
                 <button
@@ -332,9 +332,9 @@ export function Pillars() {
                 className={cn(
                   "relative flex min-h-[420px] overflow-hidden rounded-[28px] border p-6 pb-24",
                   card.tone === "orange" && "bg-grad text-ink",
-                  card.tone === "paper" && "border-line bg-surface text-ink shadow-card",
+                  card.tone === "paper" && "bg-paper text-ink",
                   card.tone === "charcoal" && "border-line bg-surface-2 text-foreground",
-                  card.tone === "black" && "surface-ink border-line-strong bg-background text-foreground",
+                  card.tone === "black" && "border-line-strong bg-background text-foreground",
                 )}
               >
                 <div className="flex w-full flex-col">

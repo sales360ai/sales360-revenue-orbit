@@ -15,14 +15,14 @@ export function MockWindow({
   return (
     <div
       className={cn(
-        "glass h-full min-h-[420px] overflow-hidden rounded-[22px] border border-line-strong shadow-lift",
+        "glass h-full min-h-[420px] overflow-hidden rounded-[22px] border border-line-strong shadow-2xl",
         className,
       )}
     >
       <div className="flex h-12 items-center justify-between gap-3 border-b border-line bg-surface/80 px-4">
         <div className="flex min-w-0 items-center gap-3">
           <div className="flex shrink-0 gap-1.5" aria-hidden>
-            <span className="size-2 rounded-full bg-line-strong" />
+            <span className="size-2 rounded-full bg-orange" />
             <span className="size-2 rounded-full bg-surface-3" />
             <span className="size-2 rounded-full bg-surface-3" />
           </div>

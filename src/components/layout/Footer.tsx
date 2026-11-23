@@ -47,7 +47,7 @@ export function Footer() {
           </ul>
         </div>
         <nav aria-labelledby="f-plat">
-          <h2 id="f-plat" className="type-mono text-muted-foreground">
+          <h2 id="f-plat" className="type-mono text-dim">
             {footer.platformTitle}
           </h2>
           <ul className="mt-5 space-y-1">
@@ -64,7 +64,7 @@ export function Footer() {
           </ul>
         </nav>
         <nav aria-labelledby="f-ind">
-          <h2 id="f-ind" className="type-mono text-muted-foreground">
+          <h2 id="f-ind" className="type-mono text-dim">
             {footer.companyTitle}
           </h2>
           <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-1 md:grid-cols-1">
@@ -97,7 +97,7 @@ export function Footer() {
           {footer.legal.map((t, i) => (
             <span key={t} className="flex items-center gap-2">
               {i > 0 && (
-                <span aria-hidden className="text-muted-foreground">
+                <span aria-hidden className="text-dim">
                   •
                 </span>
               )}
@@ -114,7 +114,7 @@ export function Footer() {
         </div>
       </div>
       <div aria-hidden className="pointer-events-none select-none overflow-hidden">
-        <p className="-mb-[3vw] text-center font-display text-[15vw] font-extrabold leading-none tracking-tight text-foreground/[.05] [font-variation-settings:'wdth'_125] [mask-image:linear-gradient(to_bottom,#000_20%,transparent)]">
+        <p className="-mb-[3vw] text-center font-display text-[15vw] font-extrabold leading-none tracking-tight text-foreground/[.04] [font-variation-settings:'wdth'_125] [mask-image:linear-gradient(to_bottom,#000_20%,transparent)]">
           SALES360
         </p>
       </div>

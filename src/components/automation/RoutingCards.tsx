@@ -205,7 +205,7 @@ export function RoutingCards() {
                     <span className="grid size-11 place-items-center rounded-xl border border-orange/25 bg-orange/[.07] text-orange">
                       <Icon className="size-5" strokeWidth={1.7} aria-hidden />
                     </span>
-                    <span className="font-mono text-[9px] text-muted-foreground">0{index + 1}</span>
+                    <span className="font-mono text-[9px] text-dim">0{index + 1}</span>
                   </div>
                   <h3 className="mt-6 font-display text-2xl font-bold leading-tight [font-variation-settings:'wdth'_108]">
                     {card.title}

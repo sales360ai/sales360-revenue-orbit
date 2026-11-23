@@ -35,4 +35,3 @@ use the editor.
 - Shared shell (Header, Footer, ConversionBanner, WhatsApp, LeadModalProvider) lives in `__root.tsx`; non-navigational CTAs call `useLeadModal().open(interest)`. Why: one global modal with pre-selected interest.
 - Design tokens are CSS variables + `@utility` classes in `src/styles.css`; reusable primitives in `src/components/system/`. Why: single design system.
 - Lead forms submit through a validated server function to private `lead_submissions` storage; never replace this with client-only success state or public read access. Why: every inquiry must reach the owner without exposing customer data.
-- Light theme is default in `:root`; the dark palette lives under `[data-theme="dark"]` and `.surface-ink` (for intentional black cards). Why: one-attribute theme restore and correct tokens inside dark islands.

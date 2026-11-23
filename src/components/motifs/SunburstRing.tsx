@@ -28,9 +28,9 @@ export function SunburstRing({ size = 48, segments = 20, variant = "static", ton
       {title && <title>{title}</title>}
       <defs>
         <linearGradient id={`g${id}`} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="var(--orange-red)" />
-          <stop offset=".45" stopColor="var(--orange-ember)" />
-          <stop offset="1" stopColor="var(--orange-amber)" />
+          <stop offset="0" stopColor="#FF4D2E" />
+          <stop offset=".45" stopColor="#FF6B1F" />
+          <stop offset="1" stopColor="#FFA23A" />
         </linearGradient>
       </defs>
       {Array.from({ length: n }).map((_, i) => (

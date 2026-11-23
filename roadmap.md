@@ -44,3 +44,9 @@
 - [x] Refine smooth scrolling and motion across touch and reduced-motion devices
 - [x] Recheck every page, keyboard interactions and reduced motion
 - [x] Run regression checks and commit the responsive polish
+
+# Black theme restoration
+
+- [x] Restore the original black-and-orange colours, surfaces, imagery treatment and logo
+- [x] Verify all seven pages on desktop and mobile without changing content or behaviour
+- [x] Run regression checks and commit the theme restoration

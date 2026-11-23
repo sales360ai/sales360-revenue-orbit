@@ -25,7 +25,7 @@ export function LeadModalProvider({ children }: { children: ReactNode }) {
       {children}
       <D.Root open={state.open} onOpenChange={(o) => setState((s) => ({ ...s, open: o }))}>
         <D.Portal>
-          <D.Overlay className="fixed inset-0 z-[90] bg-scrim backdrop-blur-md data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0" />
+          <D.Overlay className="fixed inset-0 z-[90] bg-ink/70 backdrop-blur-md data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0" />
           <D.Content
             data-lenis-prevent
             className="fixed inset-x-0 bottom-0 z-[95] max-h-[92dvh] overflow-y-auto overscroll-contain rounded-t-2xl border border-line-strong bg-raised p-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] shadow-glow-lg outline-none data-[state=open]:animate-in data-[state=open]:slide-in-from-bottom data-[state=closed]:animate-out data-[state=closed]:slide-out-to-bottom

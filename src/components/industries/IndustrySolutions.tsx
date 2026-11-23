@@ -81,7 +81,7 @@ function SolutionPanel({ industry }: { industry: IndustrySolution }) {
                     0{useCaseIndex + 1}
                   </span>
                   <Layers3
-                    className="size-4 text-muted-foreground transition-colors group-hover:text-orange"
+                    className="size-4 text-dim transition-colors group-hover:text-orange"
                     strokeWidth={1.6}
                     aria-hidden
                   />

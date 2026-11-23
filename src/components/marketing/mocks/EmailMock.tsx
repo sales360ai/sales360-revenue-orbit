@@ -38,7 +38,7 @@ export default function EmailMock() {
                   </span>
                   <div className="min-w-0 flex-1">
                     <p className="text-[10px] font-semibold">{step}</p>
-                    <p className="mt-1 font-mono text-[7px] text-muted-foreground">{m.delays[index]}</p>
+                    <p className="mt-1 font-mono text-[7px] text-dim">{m.delays[index]}</p>
                   </div>
                   <Check className="size-3.5 text-orange" aria-hidden />
                 </div>
