@@ -88,7 +88,7 @@ function FollowUpTimeline() {
             </span>
             <div className="min-w-0 flex-1 pt-0.5">
               <p className="truncate text-[9px] font-medium text-foreground/90">{event.title}</p>
-              <p className="mt-0.5 font-mono text-[7px] text-dim">{event.time}</p>
+              <p className="mt-0.5 font-mono text-[7px] text-muted-foreground">{event.time}</p>
             </div>
           </div>
         ))}
@@ -106,7 +106,7 @@ function QuotationTracker() {
       </div>
       <table className="w-full border-collapse text-left">
         <thead>
-          <tr className="border-b border-line font-mono text-[7px] uppercase tracking-wider text-dim">
+          <tr className="border-b border-line font-mono text-[7px] uppercase tracking-wider text-muted-foreground">
             {ui.quoteHeaders.map((header) => (
               <th key={header} className="px-3 py-2 font-medium">
                 {header}
@@ -226,7 +226,7 @@ function ProductShowcase() {
               <span className="hidden text-[9px] font-semibold sm:block">{ui.product}</span>
             </div>
             <div className="flex items-center gap-2">
-              <Search className="size-3 text-dim" />
+              <Search className="size-3 text-muted-foreground" />
               <span className="inline-flex items-center gap-1.5 rounded-full border border-orange/25 bg-orange/[.07] px-2 py-1 font-mono text-[7px] uppercase tracking-wider text-amber">
                 <span className="size-1 rounded-full bg-orange animate-pulse-dot" />
                 {ui.live}
@@ -246,7 +246,7 @@ function ProductShowcase() {
                     "grid size-8 place-items-center rounded-lg border",
                     index === 0
                       ? "border-orange/30 bg-orange/10 text-orange"
-                      : "border-transparent text-dim",
+                      : "border-transparent text-muted-foreground",
                   )}
                 >
                   <Icon className="size-3.5" />

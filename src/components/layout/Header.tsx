@@ -29,7 +29,7 @@ export function Header() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color] duration-300",
-        scrolled ? "glass border-line" : "border-transparent",
+        scrolled ? "glass border-line shadow-card" : "border-transparent",
       )}
     >
       <div className="container-site flex h-[72px] items-center justify-between gap-6">
@@ -73,12 +73,12 @@ export function Header() {
           <D.Root open={open} onOpenChange={setOpen}>
             <D.Trigger
               aria-label="Open menu"
-              className="grid size-11 place-items-center rounded-full border border-line-strong bg-foreground/[.04] lg:hidden"
+              className="grid size-11 place-items-center rounded-full border border-line-strong bg-surface lg:hidden"
             >
               <SunburstRing size={22} segments={12} />
             </D.Trigger>
             <D.Portal>
-              <D.Overlay className="fixed inset-0 z-[80] bg-ink/70 backdrop-blur-md data-[state=open]:animate-in data-[state=open]:fade-in-0" />
+              <D.Overlay className="fixed inset-0 z-[80] bg-scrim backdrop-blur-md data-[state=open]:animate-in data-[state=open]:fade-in-0" />
               <D.Content className="fixed inset-y-0 right-0 z-[85] flex w-full max-w-sm flex-col overflow-y-auto border-l border-line-strong bg-raised p-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] outline-none data-[state=open]:animate-in data-[state=open]:slide-in-from-right data-[state=closed]:animate-out data-[state=closed]:slide-out-to-right">
                 <div className="flex items-center justify-between">
                   <D.Title className="sr-only">Menu</D.Title>

@@ -62,7 +62,7 @@ export function ContentEngine() {
               </span>
               <div>
                 <p className="text-[10px] font-semibold">{content.social.author}</p>
-                <p className="font-mono text-[7px] text-dim">{content.social.tag}</p>
+                <p className="font-mono text-[7px] text-muted-foreground">{content.social.tag}</p>
               </div>
             </div>
             <p className="mt-4 text-[10px] leading-relaxed text-muted-foreground">

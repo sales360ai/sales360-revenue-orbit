@@ -59,7 +59,7 @@ function DirectContactCard({ channel }: { channel: Channel }) {
           </button>
         )}
       </div>
-      <p className="mt-5 type-mono text-[10px] text-dim">{channel.label}</p>
+      <p className="mt-5 type-mono text-[10px] text-muted-foreground">{channel.label}</p>
       <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">
         {"href" in channel ? (
           <a

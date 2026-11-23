@@ -16,9 +16,9 @@ export const buttonStyles = cva(
   {
     variants: {
       variant: {
-        primary: "bg-grad text-foreground font-bold btn-shine hover:shadow-glow-sm",
+        primary: "bg-grad text-ink font-bold btn-shine hover:shadow-glow-sm",
         secondary:
-          "bg-foreground/[.04] border border-line-strong text-foreground hover:border-orange/70",
+          "bg-surface border border-line-strong text-foreground hover:border-orange/70",
       },
       size: { md: "h-[52px] text-[15px]", sm: "h-11 text-sm" },
     },
@@ -41,7 +41,7 @@ function Capsule({
   return (
     <span
       className={cn(
-        "relative z-10 grid place-items-center rounded-full bg-foreground text-orange-deep",
+        "relative z-10 grid place-items-center rounded-full bg-ink text-on-ink",
         size === "sm" ? "size-8" : "size-8",
       )}
     >
@@ -109,7 +109,7 @@ export function EyebrowBadge({ children, className }: { children: ReactNode; cla
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2.5 rounded-full border border-orange/30 bg-orange/[.08] px-3.5 py-1.5 type-mono text-foreground/90",
+        "inline-flex items-center gap-2.5 rounded-full border border-[color:var(--eyebrow-border)] bg-orange/[.08] px-3.5 py-1.5 type-mono text-amber",
         className,
       )}
     >
@@ -124,7 +124,7 @@ const chipStyles = cva("inline-flex items-center rounded-full border px-3 py-1 t
     tone: {
       default: "border-line-strong text-muted-foreground",
       orange: "border-orange/40 text-amber bg-orange/[.06]",
-      solid: "border-transparent bg-ink text-foreground",
+      solid: "border-transparent bg-ink text-on-ink",
     },
   },
   defaultVariants: { tone: "default" },
@@ -176,7 +176,7 @@ export function StatPod({
   className?: string;
 }) {
   return (
-    <div className={cn("rounded-xl border border-line bg-surface p-6 shadow-inset-top", className)}>
+    <div className={cn("rounded-xl border border-line bg-surface p-6 shadow-card", className)}>
       <div className="type-h2 text-grad">
         <CountUp value={value} />
       </div>
@@ -265,7 +265,7 @@ export function GradientBand({ children, className }: { children: ReactNode; cla
   return (
     <section className={cn("relative overflow-hidden bg-grad", className)}>
       <div
-        className="absolute inset-0 bg-[radial-gradient(80%_120%_at_0%_0%,transparent_30%,rgba(10,10,11,.55)_100%)]"
+        className="absolute inset-0 bg-[radial-gradient(80%_120%_at_0%_0%,transparent_30%,var(--band-shade)_100%)]"
         aria-hidden
       />
       <div className="relative container-site section-y">{children}</div>

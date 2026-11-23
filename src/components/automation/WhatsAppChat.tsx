@@ -47,7 +47,7 @@ function ChatMessage({ message }: { message: Message }) {
       )}
     >
       {message.text}
-      <span className="mt-1 flex items-center justify-end gap-1 font-mono text-[7px] text-dim">
+      <span className="mt-1 flex items-center justify-end gap-1 font-mono text-[7px] text-muted-foreground">
         {customer ? "10:41" : "10:42"}
         {!customer && <Check className="size-2.5 text-orange" aria-hidden />}
       </span>

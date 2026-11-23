@@ -76,7 +76,7 @@ export function EmailSequence() {
                     </p>
                   </div>
                   <span
-                    className={cn("font-mono text-[8px]", selected ? "text-amber" : "text-dim")}
+                    className={cn("font-mono text-[8px]", selected ? "text-amber" : "text-muted-foreground")}
                   >
                     {String(index + 1).padStart(2, "0")}
                   </span>

@@ -312,7 +312,7 @@ function DashboardMock() {
                 {sales.mocks.forecastValue}
               </p>
             </div>
-            <span className="font-mono text-[8px] text-dim">{sales.mocks.forecastPeriod}</span>
+            <span className="font-mono text-[8px] text-muted-foreground">{sales.mocks.forecastPeriod}</span>
           </div>
           <svg
             viewBox="0 0 360 90"
@@ -380,7 +380,7 @@ export function FeatureBento() {
               >
                 <div>
                   <div className="flex items-center justify-between gap-4">
-                    <span className="font-mono text-[10px] tracking-[0.16em] text-dim">
+                    <span className="font-mono text-[10px] tracking-[0.16em] text-muted-foreground">
                       {feature.number}
                     </span>
                     <span className="grid size-11 place-items-center rounded-2xl border border-orange/25 bg-orange/[.08] text-orange">

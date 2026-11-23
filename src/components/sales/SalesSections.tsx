@@ -61,7 +61,7 @@ export function Pricing() {
                 )}
               >
                 {popular && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-orange/40 bg-ink px-4 py-1.5 font-mono text-[9px] uppercase tracking-[0.12em] text-foreground shadow-glow-sm">
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-orange/40 bg-ink px-4 py-1.5 font-mono text-[9px] uppercase tracking-[0.12em] text-on-ink shadow-glow-sm">
                     {sales.pricing.popular}
                   </span>
                 )}
@@ -117,7 +117,7 @@ export function Pricing() {
                       <span
                         className={cn(
                           "mt-0.5 grid size-5 shrink-0 place-items-center rounded-full",
-                          popular ? "bg-ink text-amber" : "bg-orange/10 text-orange",
+                          popular ? "bg-ink/10 text-ink" : "bg-orange/10 text-orange",
                         )}
                       >
                         <Check className="size-3" strokeWidth={2.4} aria-hidden />
@@ -131,7 +131,7 @@ export function Pricing() {
                   className={cn(
                     "mt-9 w-full",
                     popular
-                      ? "border border-ink bg-ink bg-none text-foreground hover:shadow-none"
+                      ? "border border-ink bg-ink bg-none text-on-ink hover:shadow-none"
                       : "text-ink",
                   )}
                 >

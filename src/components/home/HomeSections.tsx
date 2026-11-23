@@ -134,7 +134,7 @@ export function DifferenceBand() {
   return (
     <section className="px-3 py-8 sm:px-6 sm:py-12" aria-labelledby="difference-heading">
       <Reveal>
-        <div className="problem-band relative mx-auto max-w-[1536px] overflow-hidden rounded-[32px] sm:rounded-[48px]">
+        <div className="problem-band surface-ink relative mx-auto max-w-[1536px] overflow-hidden rounded-[32px] sm:rounded-[48px]">
           <div
             className="absolute inset-0 dotted-grid opacity-20 [mask-image:linear-gradient(90deg,#000,transparent_75%)]"
             aria-hidden
@@ -374,7 +374,7 @@ export function IndustriesSnapshot() {
                   <span
                     className={cn(
                       "rounded-full px-2 py-1 font-mono text-[8px] uppercase tracking-wider",
-                      selected ? "bg-ink text-foreground" : "bg-orange text-ink",
+                      selected ? "bg-ink text-on-ink" : "bg-orange text-ink",
                     )}
                   >
                     {home.industries.flagship}
@@ -410,7 +410,7 @@ export function IndustriesSnapshot() {
                 <span className="grid size-14 shrink-0 place-items-center rounded-[20px] border border-orange/40 bg-orange/10 text-orange shadow-glow-sm">
                   <ActiveIcon className="size-6" strokeWidth={1.6} aria-hidden />
                 </span>
-                <span className="font-mono text-[10px] tracking-[0.16em] text-dim">
+                <span className="font-mono text-[10px] tracking-[0.16em] text-muted-foreground">
                   {String(
                     home.industries.items.findIndex((item) => item.id === active.id) + 1,
                   ).padStart(2, "0")}
