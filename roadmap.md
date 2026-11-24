@@ -6,4 +6,4 @@
 - [x] Connect use-case Loop-stage tags back to the Revenue Loop
 - [x] Move pricing into unapproved shared content and preserve registered outcomes
 - [x] Verify page length, accessibility, reduced motion, responsive layouts and tests
-- [ ] Commit the completed Sales 360 revision
+- [x] Commit the completed Sales 360 revision
