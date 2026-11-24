@@ -52,7 +52,7 @@ function Field({
 }
 
 export function LeadForm({
-  defaultInterest = "Full Ecosystem",
+  defaultInterest = "Full Ecosystem" as Interest,
   idPrefix = "lead",
   variant = "modal",
 }: {
@@ -256,7 +256,7 @@ export function LeadForm({
         </label>
       </div>
       <div className="absolute -left-[9999px]" aria-hidden>
-        <label htmlFor={id("website")}>Website</label>
+        <label htmlFor={id("website")}>{leadForm.honeypot}</label>
         <input id={id("website")} tabIndex={-1} autoComplete="off" {...register("website")} />
       </div>
       <div className="sm:col-span-2">

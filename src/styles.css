@@ -401,7 +401,7 @@ body::after {
   animation: channel-float 6s ease-in-out var(--channel-delay, 0s) infinite;
 }
 @utility hero-connector-pulse {
-  animation: dash-travel 4s linear infinite;
+  animation: dash-travel 2.5s linear infinite;
 }
 @utility funnel-drop {
   animation: funnel-drop 8s ease-in infinite;
@@ -505,6 +505,57 @@ body::after {
 }
 @utility wave-bar {
   animation: waveform 1.4s ease-in-out var(--wave-delay, 0s) infinite;
+}
+
+@keyframes hero-aurora-drift {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translate3d(-5%, -2%, 0) scale(0.95);
+  }
+  50% {
+    opacity: 0.45;
+    transform: translate3d(7%, 5%, 0) scale(1.08);
+  }
+}
+.hero-aurora {
+  position: absolute;
+  width: min(58rem, 85vw);
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  pointer-events: none;
+  filter: blur(100px);
+  background: radial-gradient(circle, var(--orange) 0%, transparent 68%);
+  animation: hero-aurora-drift 14s ease-in-out infinite;
+}
+.hero-aurora-one {
+  left: -28%;
+  top: -42%;
+}
+.hero-aurora-two {
+  right: -30%;
+  bottom: -48%;
+  animation-delay: -7s;
+  animation-direction: reverse;
+}
+.hero-ring-main {
+  animation: spin-slow 10s linear infinite;
+}
+.hero-ring-counter {
+  animation: orbit-counter-rotate 7s linear infinite;
+}
+.hero-node-orbit {
+  animation: orbit-rotate 12s linear infinite;
+}
+.hero-node-orbit-a {
+  animation-duration: 13s;
+}
+.hero-node-orbit-b {
+  animation-duration: 9s;
+  animation-direction: reverse;
+}
+.hero-node-orbit-c {
+  animation-duration: 16s;
 }
 
 @keyframes orbit-rotate {

@@ -16,7 +16,8 @@ import {
   Zap,
 } from "lucide-react";
 import { home } from "@/content/home";
-import { CountUp, Reveal, RevealGroup, RevealItem } from "@/components/system/motion";
+import { Reveal, RevealGroup, RevealItem } from "@/components/system/motion";
+import { Claim } from "@/components/system/Claim";
 import { Card, EyebrowBadge, SectionHeading } from "@/components/system/primitives";
 import { SunburstRing } from "@/components/motifs/SunburstRing";
 import { cn } from "@/lib/utils";
@@ -37,11 +38,11 @@ export function ProofStrip() {
                 index === 3 && "lg:border-l",
               )}
             >
-              <dt className="order-2 mt-3 text-[10px] leading-relaxed text-muted-foreground sm:text-xs">
+              <dt className="order-2 mt-3 min-h-[2lh] text-balance text-[10px] leading-relaxed text-muted-foreground sm:text-xs">
                 {stat.label}
               </dt>
-              <dd className="order-1 font-display text-[clamp(1.65rem,3.3vw,3rem)] font-extrabold leading-none [font-variation-settings:'wdth'_120]">
-                <CountUp value={stat.value} className="text-grad" />
+              <dd className="order-1 flex items-baseline justify-center font-display text-[clamp(1.65rem,3.3vw,3rem)] font-extrabold leading-none tabular-nums [font-variation-settings:'wdth'_120]">
+                <Claim id={stat.claimId} countUp className="text-grad" />
               </dd>
             </div>
           ))}
@@ -149,7 +150,7 @@ export function DifferenceBand() {
                 {home.difference.headline}
               </h2>
               <p className="mt-6 max-w-[58ch] leading-relaxed text-foreground/85">
-                {home.difference.body}
+                <Claim id="paid-leads-lost" template={home.difference.body} />
               </p>
               <FunnelGraphic />
             </div>
@@ -187,7 +188,7 @@ function FounderPortrait() {
         className="founder-outline pointer-events-none absolute -left-5 top-0 z-0 font-display text-[clamp(7rem,15vw,13rem)] font-extrabold leading-none"
         aria-hidden
       >
-        20+
+        <Claim id="founder-years" />
       </span>
       <div className="absolute inset-x-5 bottom-0 top-12 rounded-[26px] bg-gradient-to-b from-orange/25 to-transparent p-px">
         <div className="relative h-full w-full overflow-hidden rounded-[25px] border border-orange/20 bg-surface-2">
@@ -215,18 +216,16 @@ function FounderPortrait() {
   );
 }
 
-function Credential({ value, label }: { value: string; label: string }) {
-  const at = label.indexOf(value);
-  const before = at >= 0 ? label.slice(0, at) : "";
-  const after = at >= 0 ? label.slice(at + value.length) : label;
+function Credential({ claimId, label }: { claimId: string; label: string }) {
   return (
     <div className="rounded-2xl border border-line bg-background/45 p-4 text-center sm:text-left">
       <p className="whitespace-pre-wrap text-xs leading-relaxed text-muted-foreground">
-        {before}
-        <strong className="font-display text-xl font-extrabold text-amber">
-          <CountUp value={value} />
-        </strong>
-        {after}
+        <Claim
+          id={claimId}
+          template={label}
+          countUp
+          claimClassName="font-display text-xl font-extrabold text-amber"
+        />
       </p>
     </div>
   );
@@ -249,7 +248,7 @@ export function FounderSpotlight() {
             <div className="lg:col-span-7">
               <EyebrowBadge>{f.eyebrow}</EyebrowBadge>
               <h2 id="founder-heading" className="type-h2 mt-6 max-w-[14ch] text-balance">
-                {f.headline}
+                <Claim id="years-experience" template={f.headline} />
               </h2>
               <div className="relative mt-8 w-fit pb-3">
                 <h3 className="font-display text-3xl font-bold [font-variation-settings:'wdth'_110]">

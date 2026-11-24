@@ -4,6 +4,7 @@ import { Bot, CalendarCheck2, Check, FileText, MessageCircle, UserRoundCheck } f
 import { automation } from "@/content/automation";
 import { EASE } from "@/components/system/motion";
 import { cn } from "@/lib/utils";
+import { SampleDataChip } from "@/components/system/primitives";
 
 const chat = automation.whatsapp;
 type Message = (typeof chat.messages)[number];
@@ -94,7 +95,8 @@ export function WhatsAppChat() {
               {chat.online}
             </p>
           </div>
-          <Bot className="size-4 text-orange" aria-label={chat.agent} />
+          <SampleDataChip />
+          <Bot className="size-4 shrink-0 text-orange" aria-label={chat.agent} />
         </div>
 
         <div

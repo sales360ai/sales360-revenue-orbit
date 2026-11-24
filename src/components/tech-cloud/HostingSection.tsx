@@ -11,6 +11,7 @@ import {
 import { techCloud } from "@/content/tech-cloud";
 import { AutomationWindow } from "@/components/automation/AutomationWindow";
 import { EASE, Reveal, RevealGroup, RevealItem } from "@/components/system/motion";
+import { Claim } from "@/components/system/Claim";
 
 const hosting = techCloud.hosting;
 const ui = hosting.panel;
@@ -38,7 +39,12 @@ export function HostingSection() {
                       <Icon className="size-4.5 text-orange" strokeWidth={1.7} aria-hidden />
                       <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
                         <strong className="block font-semibold text-foreground">
-                          {spec.lead}:
+                          {spec.lead === "99.9% Uptime SLA & Auto-Scaling" ? (
+                            <Claim id="cloud-uptime" template={spec.lead} />
+                          ) : (
+                            spec.lead
+                          )}
+                          :
                         </strong>
                         <span className="mt-1.5 block">{spec.text}</span>
                       </p>

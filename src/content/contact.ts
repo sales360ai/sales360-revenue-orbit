@@ -1,4 +1,5 @@
 import { contact, type Interest } from "./global";
+import { proposed } from "./copy";
 
 export const contactPage = {
   meta: {
@@ -59,7 +60,7 @@ export const contactPage = {
     title: "Quick FAQ",
     items: [
       {
-        q: "How quickly can we launch the AI Command Center?",
+        q: proposed("How quickly can we launch Sales 360?").text,
         a: "Most clients go live with unified lead capture and automated WhatsApp/email follow-ups within 7 to 14 days.",
       },
       {

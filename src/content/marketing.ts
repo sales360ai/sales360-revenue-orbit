@@ -1,4 +1,5 @@
 import type { Interest } from "./global";
+import { proposed } from "./copy";
 
 export const marketing = {
   meta: {
@@ -109,7 +110,7 @@ export const marketing = {
   ],
   funnel: {
     headline: "How Our 7 Channels Work Together",
-    commandCenter: "AI Command Center",
+    commandCenter: proposed("Sales 360").text,
     steps: [
       {
         number: "01",
@@ -126,8 +127,8 @@ export const marketing = {
       {
         number: "03",
         title: "Convert",
-        body: "Every warm lead routes straight into your AI Command Center to close.",
-        channels: ["Command Center"],
+        body: proposed("Every warm lead routes straight into Sales 360 to close.").text,
+        channels: [proposed("Sales 360").text],
       },
     ],
   },
@@ -155,8 +156,8 @@ export const marketing = {
         number: "03",
         title: "Convert",
         kicker: "Move sales-ready leads forward",
-        body: "Every warm lead routes straight into your AI Command Center to close.",
-        channels: ["AI Command Center"],
+        body: proposed("Every warm lead routes straight into Sales 360 to close.").text,
+        channels: [proposed("Sales 360").text],
       },
     ],
   },
@@ -194,9 +195,10 @@ export const marketing = {
       resultBadge: "#1",
       resultTitle: "Sales360.ai | AI Revenue & Growth Ecosystem",
       resultUrl: "sales360.ai",
-      resultBody:
-        "Unify lead capture, instant follow-ups, and revenue visibility in one AI Command Center.",
-      secondResult: "AI Command Center for growing sales teams",
+      resultBody: proposed(
+        "Unify lead capture, instant follow-ups, and revenue visibility in Sales 360.",
+      ).text,
+      secondResult: proposed("Sales 360 for growing sales teams").text,
       aiLabel: "AI answer",
       answer:
         "Sales360.ai is a unified option for businesses seeking automated lead response and pipeline visibility.",
@@ -231,8 +233,9 @@ export const marketing = {
       title: "Growth broadcast",
       status: "Online",
       offer: "Your custom growth plan is ready.",
-      message: "Explore the AI Command Center catalog and choose a time for your strategy call.",
-      catalog: "AI Command Center",
+      message: proposed("Explore the Sales 360 catalog and choose a time for your strategy call.")
+        .text,
+      catalog: proposed("Sales 360").text,
       catalogMeta: "Sales, follow-ups & pipeline visibility",
       view: "View catalog",
       reply: "Book a call",
@@ -247,7 +250,7 @@ export const marketing = {
       live: "Active",
       workspace: "Sales360 Mail",
       trigger: "New lead captured",
-      triggerMeta: "AI Command Center · Instant",
+      triggerMeta: proposed("Sales 360 · Instant").text,
       steps: ["Welcome", "Nurture", "Win-back"],
       delays: ["Send immediately", "Wait 2 days", "Wait 5 days"],
       previewLabel: "Email preview",
@@ -274,8 +277,9 @@ export const marketing = {
       transcriptLabel: "Live transcription",
       transcript: "I’d like to understand how quickly your team can automate our lead follow-ups.",
       summaryLabel: "AI call summary",
-      summary:
-        "High-intent inquiry. Book a strategy call and share the AI Command Center overview.",
+      summary: proposed(
+        "High-intent inquiry. Book a strategy call and share the Sales 360 overview.",
+      ).text,
       controls: ["Mute", "Keypad", "Hold", "End call"],
       headers: ["Prospect", "Duration", "Disposition"],
       calls: [

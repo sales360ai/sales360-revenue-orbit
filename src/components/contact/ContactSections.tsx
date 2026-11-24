@@ -3,6 +3,7 @@ import { contactPage } from "@/content/contact";
 import { FaqAccordion } from "@/components/system/FaqAccordion";
 import { SectionHeading } from "@/components/system/primitives";
 import { EASE, Reveal, RevealGroup, RevealItem } from "@/components/system/motion";
+import { Claim } from "@/components/system/Claim";
 
 export function NextSteps() {
   const reduce = useReducedMotion();
@@ -52,7 +53,13 @@ export function ContactFaq() {
       <Reveal className="mx-auto max-w-4xl">
         <SectionHeading id="contact-faq-title" title={contactPage.faq.title} align="center" />
         <div className="mt-9">
-          <FaqAccordion items={[...contactPage.faq.items]} defaultValue="i0" />
+          <FaqAccordion
+            items={contactPage.faq.items.map((item, index) => ({
+              ...item,
+              a: index === 0 ? <Claim id="launch-timeline" template={item.a} /> : item.a,
+            }))}
+            defaultValue="i0"
+          />
         </div>
       </Reveal>
     </section>

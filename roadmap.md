@@ -1,52 +1,9 @@
-# Home page refinement
+# Global revision
 
-- [x] Redesign the home hero using the supplied layout references and existing orange-black design system
-- [x] Replace trust-row initials with Indian male and female portrait photos
-- [x] Add the uploaded founder photograph and prefix the founder name with Mr.
-- [x] Remove trailing full stops from website page and section titles
-- [x] Add accessible home industry tabs with an overview for every sector
-- [x] Verify interactions, reduced motion, metadata, tests, and all six responsive widths
-- [x] Commit the completed refinement
-- [x] Tighten the home connector graphic to the frame edges and reduce its top gap
-- [x] Reposition the AI channel icon within the more compact composition
-- [x] Replace the basic industry overview with a polished workflow panel
-- [x] Verify the updated hero and industry tabs at all six responsive widths
-- [x] Commit the spacing and industry-panel refinements
-
-# Marketing page refinement
-
-- [x] Replace Google/Meta, SEO, Social and WhatsApp graphics with the supplied real visuals
-- [x] Upgrade Email, Telecalling and Video graphics into realistic product interfaces
-- [x] Add a three-stage scroll-animated marketing funnel after the channel collaboration section
-- [x] Verify all tabs, funnel motion, reduced motion and six responsive widths
-- [x] Commit the completed Marketing refinement
-
-# Marketing and Industries refinement
-
-- [x] Make WhatsApp and SEO visuals landscape with transparent surrounds
-- [x] Replace the dedicated Industries page cards with six accessible tabs
-- [x] Add three features and three use cases plus a bespoke graphic for every industry
-- [x] Verify tabs, deep links, reduced motion, tests and six responsive widths
-- [x] Commit the completed refinement
-
-# WhatsApp tab image refinement
-
-- [x] Cut the uploaded WhatsApp conversational-commerce graphic out of its mint background
-- [x] Serve it as a transparent landscape-style banner that fills the mock frame
-- [x] Move the two pill labels below the graphic so nothing covers the chat or catalogue
-- [x] Verify transparency, readability, reduced motion and six responsive widths
-- [x] Commit the completed refinement
-
-# All-device responsive and motion polish
-
-- [x] Audit all seven pages at 360, 390, 768, 1024, 1280 and 1536 pixels
-- [x] Fix mobile text, navigation, tabs, cards and media composition issues
-- [x] Refine smooth scrolling and motion across touch and reduced-motion devices
-- [x] Recheck every page, keyboard interactions and reduced motion
-- [x] Run regression checks and commit the responsive polish
-
-# Black theme restoration
-
-- [x] Restore the original black-and-orange colours, surfaces, imagery treatment and logo
-- [x] Verify all seven pages on desktop and mobile without changing content or behaviour
-- [x] Run regression checks and commit the theme restoration
+- [x] Replace the customer-facing product name with Sales 360 across navigation, CTAs, forms, metadata and copy
+- [x] Add proposed-copy status, a claims register, Claim renderer and verification document
+- [x] Make statistic labels uniform and render final values in server HTML
+- [x] Refine hero ring, aurora, heading reveals and desktop accent parallax with reduced-motion fallbacks
+- [x] Configure page-specific closing banners and add Sample data chips to numeric mock-ups
+- [x] Verify header CTA, honeypot, footer links, all routes, responsive layouts, tests and build
+- [x] Commit the completed global revision

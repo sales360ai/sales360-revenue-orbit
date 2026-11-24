@@ -1,10 +1,12 @@
-// GLOBAL COPY — verbatim from the Sales360.ai brief. Edit text here only.
+import { proposed } from "./copy";
+
+// GLOBAL COPY — edit shared strings here. New revision copy is explicitly proposed.
 export type Interest =
-  "AI Command Center" | "Growth Marketing" | "AI Automation" | "Tech & Cloud" | "Full Ecosystem";
+  "Sales 360" | "Growth Marketing" | "AI Automation" | "Tech & Cloud" | "Full Ecosystem";
 
 export const nav = [
   { label: "Home", to: "/" },
-  { label: "Sales", to: "/sales" },
+  { label: proposed("Sales 360").text, to: "/sales" },
   { label: "Marketing", to: "/marketing" },
   { label: "Automation", to: "/automation" },
   { label: "Tech & Cloud", to: "/tech-cloud" },
@@ -14,12 +16,63 @@ export const nav = [
 
 export const headerCta = { label: "Book Free Demo", interest: "Full Ecosystem" as Interest };
 
-export const banner = {
-  headline: "Stop Losing Leads to Slow Follow-Ups",
-  sub: "See how Sales360.ai can automate your pipeline and scale your revenue in 30 days.",
-  primary: { label: "Book a 15-Min Strategy Call", interest: "Full Ecosystem" as Interest },
-  secondary: { label: "Explore AI Command Center", to: "/sales" },
+export type BannerContent = {
+  headline: string;
+  sub: string;
+  primary: { label: string; interest: Interest };
+  secondary?: { label: string; to: string; hash?: string };
 };
+
+export const banners: Record<string, BannerContent> = {
+  "/": {
+    headline: proposed("See How Sales360.ai Would Work for Your Business.").text,
+    sub: proposed(
+      "A 15-minute conversation about where you lose revenue today and the fastest way to fix it.",
+    ).text,
+    primary: {
+      label: proposed("Book a 15-Min Strategy Call").text,
+      interest: "Full Ecosystem",
+    },
+    secondary: { label: proposed("Explore Sales 360").text, to: "/sales" },
+  },
+  "/sales": {
+    headline: proposed("See Sales 360 Run on Your Own Leads.").text,
+    sub: proposed("A live walkthrough using your channels, your enquiries and your sales process.")
+      .text,
+    primary: { label: proposed("Book Live Demo").text, interest: "Sales 360" },
+    secondary: { label: proposed("View Pricing Plans").text, to: "/sales", hash: "pricing" },
+  },
+  "/marketing": {
+    headline: proposed("Find Out Which Channels Your Buyers Actually Use.").text,
+    sub: proposed("A free audit of your current marketing across all seven channels.").text,
+    primary: {
+      label: proposed("Get Your Free Marketing Audit").text,
+      interest: "Growth Marketing",
+    },
+  },
+  "/automation": {
+    headline: proposed("Tell Us the Role. We'll Design the Agent.").text,
+    sub: proposed("From one AI employee to a coordinated team.").text,
+    primary: { label: proposed("Design Your AI Workforce").text, interest: "AI Automation" },
+  },
+  "/tech-cloud": {
+    headline: proposed("Let Our Engineers Review Your Infrastructure.").text,
+    sub: proposed("A technical review of your servers, security and support setup.").text,
+    primary: { label: proposed("Request Infrastructure Audit").text, interest: "Tech & Cloud" },
+  },
+  "/industries": {
+    headline: proposed("Talk to a Team That Understands Your Industry.").text,
+    sub: proposed("Bring your buying cycle. We will map where revenue leaks and how to fix it.")
+      .text,
+    primary: {
+      label: proposed("Book a 15-Min Strategy Call").text,
+      interest: "Full Ecosystem",
+    },
+    secondary: { label: proposed("Explore Sales 360").text, to: "/sales" },
+  },
+};
+
+export const sampleDataLabel = proposed("Sample data").text;
 
 export const contact = {
   email: "info@sales360.ai",
@@ -33,7 +86,7 @@ export const footer = {
     "AI-powered sales, marketing, and cloud infrastructure built for predictable business growth.",
   platformTitle: "Platform & Services",
   platform: [
-    { label: "Sales — AI Command Center", to: "/sales" },
+    { label: proposed("Sales 360").text, to: "/sales" },
     { label: "Marketing", to: "/marketing" },
     { label: "AI Automation", to: "/automation" },
     { label: "Tech & Cloud", to: "/tech-cloud" },
@@ -60,8 +113,9 @@ export const leadForm = {
     interest: "Primary Interest",
     goal: "Brief Goal or Challenge",
   },
+  honeypot: proposed("Leave this field empty").text,
   interests: [
-    "AI Command Center",
+    proposed("Sales 360").text,
     "Growth Marketing",
     "AI Automation",
     "Tech & Cloud",
@@ -73,7 +127,7 @@ export const leadForm = {
   successBody: "We'll respond within 4 business hours.",
 };
 
-// TEMPORARY stub page copy — replaced by page prompts 1–7.
+// Legacy stub copy is retained only for reference; no active route renders it.
 export const stubs = {
   home: {
     title: "Sales360.ai | AI Revenue, Marketing & Cloud Partner",
@@ -81,9 +135,9 @@ export const stubs = {
     desc: "AI-powered sales, marketing, and cloud infrastructure built for predictable business growth.",
   },
   sales: {
-    title: "Sales | Sales360.ai",
-    h1: "Sales — AI Command Center",
-    desc: "Sales — AI Command Center by Sales360.ai.",
+    title: proposed("Sales 360 | Sales360.ai").text,
+    h1: proposed("Sales 360").text,
+    desc: proposed("Sales 360 by Sales360.ai.").text,
   },
   marketing: {
     title: "Marketing | Sales360.ai",

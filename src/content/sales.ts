@@ -1,22 +1,27 @@
 import type { Interest } from "./global";
+import { proposed } from "./copy";
 
 export const sales = {
   meta: {
-    title: "AI Command Center for Sales | Sales360.ai",
-    description:
-      "Capture every lead, automate instant follow-ups, recover lost sales, and track your complete revenue pipeline with the Sales360.ai AI Command Center.",
+    title: proposed("Sales 360 | Sales360.ai").text,
+    description: proposed(
+      "Capture every lead, automate instant follow-ups, recover lost sales, and track your complete revenue pipeline with Sales 360.",
+    ).text,
   },
   hero: {
-    eyebrow: "FLAGSHIP PRODUCT • AI COMMAND CENTER",
+    eyebrow: proposed("FLAGSHIP PRODUCT • SALES 360").text,
     titleLead: "Your Entire Sales Pipeline, Powered by",
-    accent: "One AI Command Center",
+    accent: proposed("Sales 360").text,
     sub: "Capture leads from every channel, respond in seconds via AI, recover abandoned carts and quotes, and give management complete visibility into every rupee of pipeline.",
     primary: "Book Live Demo",
     secondary: "View Pricing Plans",
-    interest: "AI Command Center" as Interest,
+    interest: proposed("Sales 360").text as Interest,
   },
   showcase: {
-    product: "AI Command Center",
+    product: proposed("Sales 360").text,
+    previewAlt: proposed(
+      "Sales 360 product preview with lead inbox, automated follow-ups, quotation tracking, and revenue leakage alerts",
+    ).text,
     workspace: "Revenue workspace",
     live: "Live",
     inbox: "Lead Inbox",
@@ -122,7 +127,9 @@ export const sales = {
         id: "dashboard",
         number: "06",
         title: "Executive Management Dashboard",
-        body: "Track conversion rates, rep response times, campaign ROI, and forecasted revenue at a glance.",
+        body: proposed(
+          "Track conversion rates, rep response times, campaign ROI, and forecasted revenue at a glance in the Sales 360 Command Center dashboard.",
+        ).text,
       },
     ],
   },
@@ -162,6 +169,7 @@ export const sales = {
   },
   benefits: [
     {
+      claimId: "faster-response",
       prefix: "",
       number: "10",
       unit: "X",
@@ -169,6 +177,7 @@ export const sales = {
       body: "Engage hot prospects in under 15 seconds, 24/7/365.",
     },
     {
+      claimId: "close-rate",
       prefix: "+",
       number: "35",
       unit: "%",
@@ -176,6 +185,7 @@ export const sales = {
       body: "Consistent, polite automated follow-ups ensure no opportunity slips through.",
     },
     {
+      claimId: "admin-work",
       prefix: "",
       number: "70",
       unit: "%",
@@ -183,6 +193,7 @@ export const sales = {
       body: "Eliminate manual CRM data entry and spreadsheet tracking.",
     },
     {
+      claimId: "pipeline-visibility",
       prefix: "",
       number: "100",
       unit: "%",
@@ -196,7 +207,9 @@ export const sales = {
       {
         id: "ad-to-whatsapp",
         label: "Instant Ad-to-WhatsApp Conversion",
-        body: "A prospect clicks your Meta or Google ad → AI Command Center triggers an immediate personalized WhatsApp conversation → qualifies budget and books a sales call.",
+        body: proposed(
+          "A prospect clicks your Meta or Google ad → Sales 360 triggers an immediate personalized WhatsApp conversation → qualifies budget and books a sales call.",
+        ).text,
         nodes: ["Ad click", "AI WhatsApp chat", "Budget qualified", "Sales call booked"],
       },
       {

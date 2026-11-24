@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { marketing, type MarketingChannel, type MarketingChannelId } from "@/content/marketing";
 import { HashTabs, type TabItem } from "@/components/system/HashTabs";
+import { Claim } from "@/components/system/Claim";
 
 const channelIcons: Record<MarketingChannelId, LucideIcon> = {
   "google-meta-ads": MousePointerClick,
@@ -54,7 +55,11 @@ function ChannelPanel({ channel }: { channel: MarketingChannel }) {
           {channel.label}
         </p>
         <h2 className="mt-5 font-display text-[clamp(2rem,3.2vw,3.1rem)] font-bold leading-[1.08] tracking-[-0.02em] [font-variation-settings:'wdth'_108]">
-          {channel.headline}
+          {channel.id === "whatsapp" ? (
+            <Claim id="whatsapp-open-rate" template={channel.headline} />
+          ) : (
+            channel.headline
+          )}
         </h2>
         <ol className="mt-7">
           {channel.deliverables.map((deliverable, index) => (

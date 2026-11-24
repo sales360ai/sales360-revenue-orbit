@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Check, Workflow } from "lucide-react";
 import type { IndustrySolution } from "@/content/industries";
 import { industryIcons } from "./industry-icons";
+import { SampleDataChip } from "@/components/system/primitives";
 
 export function IndustryVisual({ industry }: { industry: IndustrySolution }) {
   const Icon = industryIcons[industry.icon];
@@ -42,10 +43,13 @@ export function IndustryVisual({ industry }: { industry: IndustrySolution }) {
             <span className="size-1.5 rounded-full bg-surface-3" />
             <span className="size-1.5 rounded-full bg-surface-3" />
           </div>
-          <span className="truncate font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground">
+          <span className="hidden truncate font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground min-[420px]:block">
             Sales360.ai
           </span>
-          <Workflow className="size-3.5 text-orange" aria-hidden />
+          <span className="flex items-center gap-2">
+            <SampleDataChip />
+            <Workflow className="size-3.5 text-orange" aria-hidden />
+          </span>
         </div>
         <div className="p-4 sm:p-5">
           <div className="flex items-center gap-3">

@@ -1,7 +1,8 @@
 import { Check } from "lucide-react";
 import { sales } from "@/content/sales";
 import { useLeadModal } from "@/components/lead/LeadModal";
-import { CountUp, Reveal, RevealGroup, RevealItem } from "@/components/system/motion";
+import { Reveal, RevealGroup, RevealItem } from "@/components/system/motion";
+import { Claim } from "@/components/system/Claim";
 import { Button, Card, SectionHeading } from "@/components/system/primitives";
 import { cn } from "@/lib/utils";
 
@@ -16,14 +17,10 @@ export function BusinessBenefits() {
               className="relative h-full overflow-hidden border-t-orange/70 p-6 pt-8 sm:p-7"
             >
               <span className="absolute inset-x-0 top-0 h-px bg-grad" aria-hidden />
-              <p className="font-display text-[clamp(2.35rem,4vw,3.7rem)] font-extrabold leading-none [font-variation-settings:'wdth'_120]">
-                <span className="text-grad">
-                  {benefit.prefix}
-                  <CountUp value={benefit.number} />
-                  {benefit.unit}
-                </span>
+              <p className="flex min-h-[1lh] items-baseline font-display text-[clamp(2.35rem,4vw,3.7rem)] font-extrabold leading-none tabular-nums [font-variation-settings:'wdth'_120]">
+                <Claim id={benefit.claimId} countUp className="text-grad" />
               </p>
-              <h3 className="mt-4 font-display text-xl font-bold leading-tight [font-variation-settings:'wdth'_110]">
+              <h3 className="mt-4 min-h-[2lh] text-balance font-display text-xl font-bold leading-tight [font-variation-settings:'wdth'_110]">
                 {benefit.title}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{benefit.body}</p>
@@ -91,7 +88,7 @@ export function Pricing() {
                         : "text-[clamp(2.25rem,3.5vw,3.15rem)]",
                     )}
                   >
-                    {tier.price}
+                    <Claim id={`price-${tier.id}`} />
                   </span>
                   {tier.cadence && (
                     <span
@@ -106,7 +103,7 @@ export function Pricing() {
                 </div>
                 <div className={cn("my-7 h-px", popular ? "bg-ink/15" : "bg-line")} />
                 <ul className="flex-1 space-y-4">
-                  {tier.features.map((feature) => (
+                  {tier.features.map((feature, featureIndex) => (
                     <li
                       key={feature}
                       className={cn(
@@ -122,7 +119,7 @@ export function Pricing() {
                       >
                         <Check className="size-3" strokeWidth={2.4} aria-hidden />
                       </span>
-                      {feature}
+                      <Claim id={`pricing-${tier.id}-feature-${featureIndex + 1}`} />
                     </li>
                   ))}
                 </ul>

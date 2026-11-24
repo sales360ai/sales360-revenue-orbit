@@ -25,6 +25,20 @@ export function Header() {
   }, []);
   useEffect(() => setOpen(false), [pathname]);
 
+  const runHeaderCta = () => {
+    setOpen(false);
+    if (!pathname.startsWith("/contact")) {
+      openLead(headerCta.interest);
+      return;
+    }
+    window.requestAnimationFrame(() => {
+      document.getElementById("booking-panel")?.scrollIntoView({
+        behavior: reduce ? "auto" : "smooth",
+        block: "start",
+      });
+    });
+  };
+
   return (
     <header
       className={cn(
@@ -63,11 +77,7 @@ export function Header() {
           </ul>
         </nav>
         <div className="flex items-center gap-2">
-          <Button
-            size="sm"
-            onClick={() => openLead(headerCta.interest)}
-            className="hidden sm:inline-flex"
-          >
+          <Button size="sm" onClick={runHeaderCta} className="hidden sm:inline-flex">
             {headerCta.label}
           </Button>
           <D.Root open={open} onOpenChange={setOpen}>
@@ -124,13 +134,7 @@ export function Header() {
                     })}
                   </ul>
                 </nav>
-                <Button
-                  onClick={() => {
-                    setOpen(false);
-                    openLead(headerCta.interest);
-                  }}
-                  className="w-full"
-                >
+                <Button onClick={runHeaderCta} className="w-full">
                   {headerCta.label}
                 </Button>
               </D.Content>

@@ -1,3 +1,5 @@
+import { proposed } from "./copy";
+
 export type IndustryId =
   "e-commerce" | "healthcare" | "real-estate" | "manufacturing" | "b2b-services" | "education";
 
@@ -11,7 +13,9 @@ export const industries = {
     eyebrow: "INDUSTRY-SPECIFIC AI & GROWTH SOLUTIONS",
     titleLead: "Built for",
     accent: "How Your Industry Actually Sells",
-    sub: "Every sector has unique buying cycles and operational bottlenecks. Explore how Sales360.ai adapts our AI Command Center, marketing, and cloud stack to your exact vertical.",
+    sub: proposed(
+      "Every sector has unique buying cycles and operational bottlenecks. Explore how Sales360.ai adapts Sales 360, marketing, and cloud stack to your exact vertical.",
+    ).text,
   },
   nav: [
     { id: "e-commerce", label: "E-Commerce", icon: "shopping" },
@@ -201,8 +205,9 @@ export const industries = {
         },
         {
           title: "Unified Pipeline & Routing",
-          description:
-            "Bring every conversation into the AI Command Center for qualification and next steps.",
+          description: proposed(
+            "Bring every conversation into Sales 360 for qualification and next steps.",
+          ).text,
         },
       ],
       useCases: [

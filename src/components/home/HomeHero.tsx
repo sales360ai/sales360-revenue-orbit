@@ -6,7 +6,9 @@ import { useLeadModal } from "@/components/lead/LeadModal";
 import { SunburstRing } from "@/components/motifs/SunburstRing";
 import { BrandIcon } from "./BrandIcon";
 import { Button, ButtonLink, EyebrowBadge } from "@/components/system/primitives";
-import { EASE } from "@/components/system/motion";
+import { EASE, ParallaxAccent } from "@/components/system/motion";
+import { Claim } from "@/components/system/Claim";
+import { HeroOrbit } from "./HeroOrbit";
 import arjunPortrait from "@/assets/founder-arjun.webp.asset.json";
 import ananyaPortrait from "@/assets/founder-ananya.webp.asset.json";
 import devPortrait from "@/assets/founder-dev.webp.asset.json";
@@ -61,8 +63,9 @@ function IntegrationFan() {
                 stroke="var(--orange)"
                 strokeOpacity={0.16 + (i % 4) * 0.07}
                 strokeWidth="1"
-                initial={{ pathLength: reduce ? 1 : 0 }}
-                animate={{ pathLength: 1 }}
+                strokeDasharray="2 7"
+                initial={{ opacity: reduce ? 1 : 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ duration: 1.1, delay: 0.4 + i * 0.03 + side * 0.05, ease: EASE }}
               />
             ))}
@@ -94,7 +97,7 @@ function IntegrationFan() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7, delay: 0.9, ease: EASE }}
       >
-        <SunburstRing size={44} variant="spin" tone="ink" />
+        <HeroOrbit />
       </motion.div>
       <ul aria-label="Connected channels">
         {integrations.map((item, i) => (
@@ -151,6 +154,8 @@ export function HomeHero() {
           className="absolute inset-x-0 bottom-0 h-[58%] bg-horizon opacity-60 animate-breathe"
           aria-hidden
         />
+        <div className="hero-aurora hero-aurora-one" aria-hidden />
+        <div className="hero-aurora hero-aurora-two" aria-hidden />
         <div
           className="absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-orange/[.055] blur-[110px]"
           aria-hidden
@@ -228,7 +233,9 @@ export function HomeHero() {
                 />
               ))}
             </div>
-            <span className="text-xs font-medium text-foreground/85">{h.trust}</span>
+            <span className="text-xs font-medium text-foreground/85">
+              <Claim id="trusted-founders" />
+            </span>
           </motion.div>
           <motion.p
             {...rise(0.86)}
@@ -239,7 +246,9 @@ export function HomeHero() {
         </div>
 
         <div className="relative z-20 pb-4 sm:pb-5">
-          <IntegrationFan />
+          <ParallaxAccent>
+            <IntegrationFan />
+          </ParallaxAccent>
         </div>
       </motion.div>
     </section>

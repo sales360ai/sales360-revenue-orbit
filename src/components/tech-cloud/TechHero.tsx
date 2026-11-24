@@ -3,8 +3,14 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Cloud, DatabaseBackup, MapPin, ShieldCheck } from "lucide-react";
 import { techCloud } from "@/content/tech-cloud";
 import { useLeadModal } from "@/components/lead/LeadModal";
-import { EASE } from "@/components/system/motion";
-import { Button, DottedGridFrame, EyebrowBadge } from "@/components/system/primitives";
+import { EASE, ParallaxAccent } from "@/components/system/motion";
+import {
+  Button,
+  DottedGridFrame,
+  EyebrowBadge,
+  SampleDataChip,
+} from "@/components/system/primitives";
+import { Claim } from "@/components/system/Claim";
 
 const h = techCloud.hero;
 const ui = techCloud.console;
@@ -101,13 +107,16 @@ function MonitoringConsole() {
             </div>
             <span className="hidden text-[10px] font-semibold sm:block">{ui.title}</span>
           </div>
-          <span className="inline-flex items-center gap-2 text-[8px] font-medium text-foreground/85 sm:text-[9px]">
-            <span
-              className="size-2 shrink-0 rounded-full bg-success animate-pulse-dot"
-              aria-hidden
-            />
-            {ui.status}
-          </span>
+          <div className="flex items-center gap-2">
+            <SampleDataChip />
+            <span className="hidden min-[420px]:inline-flex items-center gap-2 text-[8px] font-medium text-foreground/85 sm:text-[9px]">
+              <span
+                className="size-2 shrink-0 rounded-full bg-success animate-pulse-dot"
+                aria-hidden
+              />
+              {ui.status}
+            </span>
+          </div>
         </div>
 
         <div className="p-3.5 sm:p-5">
@@ -143,7 +152,7 @@ function MonitoringConsole() {
               </svg>
               <div className="text-center">
                 <p className="font-display text-2xl font-extrabold text-grad sm:text-3xl">
-                  {ui.uptime}
+                  <Claim id="cloud-uptime" />
                 </p>
                 <p className="mt-1 font-mono text-[7px] uppercase tracking-wider text-muted-foreground">
                   {ui.uptimeLabel}
@@ -230,7 +239,9 @@ export function TechHero() {
             transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
             className="min-w-0 lg:col-span-7"
           >
-            <MonitoringConsole />
+            <ParallaxAccent>
+              <MonitoringConsole />
+            </ParallaxAccent>
           </motion.div>
         </div>
       </DottedGridFrame>

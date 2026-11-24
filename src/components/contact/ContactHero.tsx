@@ -125,7 +125,10 @@ export function ContactHero() {
             transition={{ duration: 0.6, delay: 0.28, ease: EASE }}
             className="order-2 lg:col-start-2 lg:row-span-2 lg:row-start-1"
           >
-            <div className="rounded-[28px] bg-grad p-px shadow-glow-lg">
+            <div
+              id="booking-panel"
+              className="scroll-mt-24 rounded-[28px] bg-grad p-px shadow-glow-lg"
+            >
               <div className="rounded-[27px] bg-raised p-5 sm:p-7">
                 <LeadForm defaultInterest={h.interest} idPrefix="contact" variant="inline" />
               </div>

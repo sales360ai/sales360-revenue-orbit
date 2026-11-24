@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { techCloud } from "@/content/tech-cloud";
 import { EASE, Reveal, RevealGroup, RevealItem } from "@/components/system/motion";
-import { Card } from "@/components/system/primitives";
+import { Card, SampleDataChip } from "@/components/system/primitives";
 
 const support = techCloud.support;
 const icons = [Activity, AlarmClock, Gauge];
@@ -23,7 +23,10 @@ function MonitoringVisual() {
         <span className="font-mono text-[8px] uppercase tracking-wider text-muted-foreground">
           {support.monitoring.label}
         </span>
-        <Activity className="size-3.5 text-orange" aria-hidden />
+        <span className="flex items-center gap-2">
+          <SampleDataChip />
+          <Activity className="size-3.5 text-orange" aria-hidden />
+        </span>
       </div>
       <div className="relative mt-4">
         <svg className="h-28 w-full" viewBox="0 0 280 100" fill="none" aria-hidden>
@@ -52,9 +55,12 @@ function MonitoringVisual() {
 function IncidentVisual() {
   return (
     <div className="rounded-2xl border border-line bg-background/55 p-4">
-      <p className="font-mono text-[8px] uppercase tracking-wider text-muted-foreground">
-        {support.incident.label}
-      </p>
+      <div className="flex items-center justify-between gap-3">
+        <p className="font-mono text-[8px] uppercase tracking-wider text-muted-foreground">
+          {support.incident.label}
+        </p>
+        <SampleDataChip />
+      </div>
       <div className="mt-4">
         {support.incident.steps.map((step, index) => {
           const Icon = incidentIcons[index] ?? AlarmClock;
@@ -89,9 +95,12 @@ function TuningVisual() {
   const reduce = useReducedMotion();
   return (
     <div className="rounded-2xl border border-line bg-background/55 p-4">
-      <p className="font-mono text-[8px] uppercase tracking-wider text-muted-foreground">
-        {support.tuning.label}
-      </p>
+      <div className="flex items-center justify-between gap-3">
+        <p className="font-mono text-[8px] uppercase tracking-wider text-muted-foreground">
+          {support.tuning.label}
+        </p>
+        <SampleDataChip />
+      </div>
       <div className="mt-4 space-y-3">
         {support.tuning.items.map((item, index) => (
           <motion.div

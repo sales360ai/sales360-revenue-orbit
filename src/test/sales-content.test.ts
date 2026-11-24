@@ -10,8 +10,8 @@ describe("Sales page rules", () => {
     ]);
   });
 
-  it("opens every product CTA with AI Command Center selected", () => {
-    expect(sales.hero.interest).toBe("AI Command Center");
+  it("opens every product CTA with Sales 360 selected", () => {
+    expect(sales.hero.interest).toBe("Sales 360");
     expect(sales.pricing.tiers).toHaveLength(3);
   });
 

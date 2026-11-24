@@ -24,7 +24,7 @@ const icons: Record<string, LucideIcon> = {
   WhatsApp: MessageCircle,
   Email: Mail,
   Telecalling: PhoneCall,
-  "Command Center": LayoutDashboard,
+  "Sales 360": LayoutDashboard,
 };
 
 export function MarketingFunnel() {

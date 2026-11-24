@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
 import {
@@ -9,6 +10,8 @@ import {
 } from "react";
 import { cn } from "@/lib/utils";
 import { SunburstRing } from "@/components/motifs/SunburstRing";
+import { sampleDataLabel } from "@/content/global";
+import { Claim } from "@/components/system/Claim";
 
 /* ---------- Button ---------- */
 export const buttonStyles = cva(
@@ -137,6 +140,19 @@ export function Chip({
   return <span className={cn(chipStyles({ tone }), className)}>{children}</span>;
 }
 
+export function SampleDataChip({ className }: { className?: string }) {
+  return (
+    <span
+      className={cn(
+        "inline-flex shrink-0 items-center rounded-full border border-line-strong bg-surface-2 px-2 py-0.5 font-mono text-[8px] uppercase tracking-wider text-muted-foreground",
+        className,
+      )}
+    >
+      {sampleDataLabel}
+    </span>
+  );
+}
+
 /* ---------- Card with spotlight ---------- */
 export function Card({
   children,
@@ -168,19 +184,21 @@ export function Card({
 import { CountUp } from "./motion";
 export function StatPod({
   value,
+  claimId,
   label,
   className,
 }: {
-  value: string;
+  value?: string;
+  claimId?: string;
   label: string;
   className?: string;
 }) {
   return (
     <div className={cn("rounded-xl border border-line bg-surface p-6 shadow-inset-top", className)}>
-      <div className="type-h2 text-grad">
-        <CountUp value={value} />
+      <div className="type-h2 flex min-h-[1lh] items-baseline text-grad tabular-nums">
+        {claimId ? <Claim id={claimId} countUp /> : value ? <CountUp value={value} /> : null}
       </div>
-      <p className="mt-2 type-mono text-muted-foreground">{label}</p>
+      <p className="mt-2 min-h-[2lh] text-balance type-mono text-muted-foreground">{label}</p>
     </div>
   );
 }
@@ -205,8 +223,19 @@ export function SectionHeading({
   as?: "h1" | "h2";
   id?: string;
 }) {
+  const reduce = useReducedMotion();
   return (
-    <div className={cn("max-w-3xl", align === "center" && "mx-auto text-center", className)}>
+    <motion.div
+      className={cn("max-w-3xl", align === "center" && "mx-auto text-center", className)}
+      initial={{
+        opacity: reduce ? 1 : 0,
+        y: reduce ? 0 : 24,
+        clipPath: reduce ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)",
+      }}
+      whileInView={{ opacity: 1, y: 0, clipPath: "inset(0 0 0% 0)" }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: reduce ? 0 : 0.7, ease: [0.22, 1, 0.36, 1] }}
+    >
       {eyebrow && <EyebrowBadge className="mb-5">{eyebrow}</EyebrowBadge>}
       <H id={id} className="type-h2 text-balance">
         {title}
@@ -224,7 +253,7 @@ export function SectionHeading({
           {sub}
         </p>
       )}
-    </div>
+    </motion.div>
   );
 }
 

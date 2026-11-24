@@ -17,7 +17,7 @@ import {
 import { sales } from "@/content/sales";
 import { BrandIcon } from "@/components/home/BrandIcon";
 import { Reveal, RevealGroup, RevealItem } from "@/components/system/motion";
-import { Card, Chip, SectionHeading } from "@/components/system/primitives";
+import { Card, Chip, SampleDataChip, SectionHeading } from "@/components/system/primitives";
 import { cn } from "@/lib/utils";
 
 const featureIcons = {
@@ -46,6 +46,9 @@ function MockFrame({ children, className }: { children: React.ReactNode; classNa
         className,
       )}
     >
+      <div className="mb-3 flex justify-end">
+        <SampleDataChip />
+      </div>
       {children}
     </div>
   );

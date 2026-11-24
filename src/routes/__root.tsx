@@ -17,6 +17,7 @@ import { ConversionBanner } from "@/components/layout/ConversionBanner";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { LeadModalProvider } from "@/components/lead/LeadModal";
+import { ClaimsDevLogger } from "@/components/system/Claim";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -176,6 +177,7 @@ function AppMain() {
   }, []);
   return (
     <>
+      <ClaimsDevLogger pathname={pathname} />
       <motion.main
         id="main"
         key={pathname}

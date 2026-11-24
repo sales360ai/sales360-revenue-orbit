@@ -1,19 +1,23 @@
 import type { Interest } from "./global";
+import { proposed } from "./copy";
 
 export const home = {
   meta: {
     title: "Sales360.ai | AI Revenue, Marketing & Cloud Partner",
-    description:
-      "Sales360.ai unifies your AI Sales Command Center, multi-channel marketing, workflow automation, and secure cloud infrastructure into one predictable growth engine.",
+    description: proposed(
+      "Sales360.ai unifies Sales 360, multi-channel marketing, workflow automation, and secure cloud infrastructure into one predictable growth engine.",
+    ).text,
   },
   hero: {
     eyebrow: "AI-POWERED REVENUE & CLOUD ECOSYSTEM",
     line1: "Turn Every Lead Into Revenue—",
     line2: "Automatically",
-    sub: "Sales360.ai unifies your AI Sales Command Center, multi-channel marketing, workflow automation, and secure cloud infrastructure into one predictable growth engine.",
+    sub: proposed(
+      "Sales360.ai unifies Sales 360, multi-channel marketing, workflow automation, and secure cloud infrastructure into one predictable growth engine.",
+    ).text,
     primary: "Book Free Demo",
     primaryInterest: "Full Ecosystem" as Interest,
-    secondary: "Explore AI Command Center",
+    secondary: proposed("Explore Sales 360").text,
     trust: "Trusted by 100+ founders",
     micro: "Free 15-min strategy call · Reply within 4 business hours",
     channels: ["WhatsApp", "Email", "Meta", "Google", "Instagram", "LinkedIn"],
@@ -100,10 +104,14 @@ export const home = {
     },
   },
   proof: [
-    { value: "20+ Years", label: "Front-Line Sales & Growth Leadership" },
-    { value: "< 60 Sec", label: "Automated AI Lead Response Time" },
-    { value: "3.4X", label: "Average Pipeline Conversion Lift" },
-    { value: "99.9%", label: "Managed Cloud Uptime & Security" },
+    {
+      claimId: "years-experience",
+      value: "20+ Years",
+      label: "Front-Line Sales & Growth Leadership",
+    },
+    { claimId: "response-time", value: "< 60 Sec", label: "Automated AI Lead Response Time" },
+    { claimId: "pipeline-lift", value: "3.4X", label: "Average Pipeline Conversion Lift" },
+    { claimId: "cloud-uptime", value: "99.9%", label: "Managed Cloud Uptime & Security" },
   ],
   pillars: {
     headline: "Everything You Need to Acquire, Convert, and Scale",
@@ -111,9 +119,9 @@ export const home = {
       {
         id: "sales",
         number: "01",
-        title: "Sales (AI Command Center)",
+        title: proposed("Sales 360").text,
         body: "Capture every inquiry, automate instant WhatsApp and email follow-ups, prevent revenue leakage, and track every deal in real time.",
-        link: "Explore Sales",
+        link: proposed("Explore Sales 360").text,
         to: "/sales",
         tone: "orange",
       },
@@ -172,9 +180,9 @@ export const home = {
     title: "Founder & Chief Revenue Architect, Sales360.ai",
     body: "After two decades of building high-performing sales teams and scaling businesses across India and global markets, Viswa Korapala founded Sales360.ai with a clear mission: give growing businesses the exact AI systems, marketing precision, and cloud reliability once reserved for Fortune 500 enterprises.",
     credentials: [
-      { value: "20+", label: "20+ Years B2B & Enterprise Sales" },
-      { value: "1,000+", label: "1,000+ Growth Projects Delivered" },
-      { value: "100+", label: "Trusted Advisor to 100+ Founders" },
+      { claimId: "founder-years", value: "20+", label: "20+ Years B2B & Enterprise Sales" },
+      { claimId: "growth-projects", value: "1,000+", label: "1,000+ Growth Projects Delivered" },
+      { claimId: "trusted-advisors", value: "100+", label: "Trusted Advisor to 100+ Founders" },
     ],
   },
   industries: {

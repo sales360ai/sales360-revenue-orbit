@@ -1,7 +1,8 @@
 import * as A from "@radix-ui/react-accordion";
 import { Plus } from "lucide-react";
+import type { ReactNode } from "react";
 
-export type FaqItem = { q: string; a: string };
+export type FaqItem = { q: string; a: ReactNode };
 
 /** Single-open accordion, animated height, + rotates to ×. */
 export function FaqAccordion({ items, defaultValue }: { items: FaqItem[]; defaultValue?: string }) {

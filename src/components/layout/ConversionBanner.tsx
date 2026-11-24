@@ -1,4 +1,5 @@
-import { banner } from "@/content/global";
+import { useLocation } from "@tanstack/react-router";
+import { banners } from "@/content/global";
 import { Button, ButtonLink } from "@/components/system/primitives";
 import { useLeadModal } from "@/components/lead/LeadModal";
 import { SunburstRing } from "@/components/motifs/SunburstRing";
@@ -6,6 +7,9 @@ import { Reveal } from "@/components/system/motion";
 
 export function ConversionBanner() {
   const { open } = useLeadModal();
+  const { pathname } = useLocation();
+  const banner = banners[pathname] ?? banners["/"]!;
+
   return (
     <section aria-labelledby="banner-h" className="container-site section-y">
       <Reveal>
@@ -32,13 +36,16 @@ export function ConversionBanner() {
               <Button onClick={() => open(banner.primary.interest)} className="w-full sm:w-auto">
                 {banner.primary.label}
               </Button>
-              <ButtonLink
-                to={banner.secondary.to}
-                variant="secondary"
-                className="w-full bg-ink/40 backdrop-blur sm:w-auto"
-              >
-                {banner.secondary.label}
-              </ButtonLink>
+              {banner.secondary && (
+                <ButtonLink
+                  to={banner.secondary.to}
+                  {...(banner.secondary.hash ? { hash: banner.secondary.hash } : {})}
+                  variant="secondary"
+                  className="w-full bg-ink/40 backdrop-blur sm:w-auto"
+                >
+                  {banner.secondary.label}
+                </ButtonLink>
+              )}
             </div>
           </div>
         </div>

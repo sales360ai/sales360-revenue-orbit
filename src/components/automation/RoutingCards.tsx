@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { automation } from "@/content/automation";
 import { EASE, Reveal, RevealGroup, RevealItem } from "@/components/system/motion";
-import { Card } from "@/components/system/primitives";
+import { Card, SampleDataChip } from "@/components/system/primitives";
 
 const routing = automation.routing;
 const ui = automation.routingUi;
@@ -75,7 +75,10 @@ function EnrichmentVisual() {
         <span className="font-mono text-[8px] uppercase tracking-wider text-amber">
           {ui.enrichment.status}
         </span>
-        <span className="size-1.5 rounded-full bg-orange animate-pulse-dot" />
+        <span className="flex items-center gap-2">
+          <SampleDataChip />
+          <span className="size-1.5 rounded-full bg-orange animate-pulse-dot" />
+        </span>
       </div>
       <div className="space-y-3">
         {ui.enrichment.fields.map((field, index) => (
@@ -89,6 +92,9 @@ function EnrichmentVisual() {
 function AssignmentVisual() {
   return (
     <div className="rounded-2xl border border-line bg-surface/50 px-4 pb-5 pt-4">
+      <div className="flex justify-end">
+        <SampleDataChip />
+      </div>
       <div
         className="relative mx-auto size-[210px]"
         role="img"
@@ -133,7 +139,10 @@ function ReportVisual() {
     >
       <div className="flex items-center justify-between gap-3 border-b border-line pb-3">
         <span className="text-[10px] font-semibold">{ui.report.title}</span>
-        <BellRing className="size-3.5 text-orange" aria-hidden />
+        <span className="flex items-center gap-2">
+          <SampleDataChip />
+          <BellRing className="size-3.5 text-orange" aria-hidden />
+        </span>
       </div>
       <div className="mt-4 rounded-xl border border-orange/25 bg-orange/[.07] p-3">
         <p className="font-mono text-[8px] uppercase tracking-wider text-muted-foreground">

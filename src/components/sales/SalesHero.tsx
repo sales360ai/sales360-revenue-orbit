@@ -14,8 +14,13 @@ import {
 import { sales } from "@/content/sales";
 import { BrandIcon } from "@/components/home/BrandIcon";
 import { useLeadModal } from "@/components/lead/LeadModal";
-import { EASE } from "@/components/system/motion";
-import { Button, DottedGridFrame, EyebrowBadge } from "@/components/system/primitives";
+import { EASE, ParallaxAccent } from "@/components/system/motion";
+import {
+  Button,
+  DottedGridFrame,
+  EyebrowBadge,
+  SampleDataChip,
+} from "@/components/system/primitives";
 import { cn } from "@/lib/utils";
 
 const h = sales.hero;
@@ -209,7 +214,7 @@ function ProductShowcase() {
         transition={{ duration: 0.35, ease: EASE }}
         className="relative pb-8 [transform-style:preserve-3d]"
         role="img"
-        aria-label="AI Command Center product preview with lead inbox, automated follow-ups, quotation tracking, and revenue leakage alerts"
+        aria-label={ui.previewAlt}
       >
         <div
           aria-hidden
@@ -226,6 +231,7 @@ function ProductShowcase() {
               <span className="hidden text-[9px] font-semibold sm:block">{ui.product}</span>
             </div>
             <div className="flex items-center gap-2">
+              <SampleDataChip />
               <Search className="size-3 text-dim" />
               <span className="inline-flex items-center gap-1.5 rounded-full border border-orange/25 bg-orange/[.07] px-2 py-1 font-mono text-[7px] uppercase tracking-wider text-amber">
                 <span className="size-1 rounded-full bg-orange animate-pulse-dot" />
@@ -353,7 +359,9 @@ export function SalesHero() {
             transition={{ duration: 0.7, delay: 0.28, ease: EASE }}
             className="relative z-10 min-w-0 lg:col-span-7 lg:-mr-6 xl:-mr-10"
           >
-            <ProductShowcase />
+            <ParallaxAccent>
+              <ProductShowcase />
+            </ParallaxAccent>
           </motion.div>
         </div>
       </DottedGridFrame>
