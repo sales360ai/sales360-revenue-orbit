@@ -4,6 +4,7 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/system/motion";
 import { Claim } from "@/components/system/Claim";
 import { EyebrowBadge } from "@/components/system/primitives";
 import { SunburstRing } from "@/components/motifs/SunburstRing";
+import founderPortrait from "@/assets/founder-viswa-portrait.webp.asset.json";
 import { cn } from "@/lib/utils";
 
 export function ProofStrip() {
@@ -168,6 +169,11 @@ export function DifferenceBand() {
 function FounderPortrait() {
   return (
     <div className="relative mx-auto aspect-[4/5] w-full max-w-[390px]">
+      <SunburstRing
+        size={210}
+        className="pointer-events-none absolute -right-10 -top-10 z-0 opacity-25"
+        variant="spin"
+      />
       <span
         className="founder-outline pointer-events-none absolute -left-5 top-0 z-0 font-display text-[clamp(7rem,15vw,13rem)] font-extrabold leading-none"
         aria-hidden
@@ -176,20 +182,21 @@ function FounderPortrait() {
       </span>
       <div className="absolute inset-x-5 bottom-0 top-12 rounded-[26px] bg-gradient-to-b from-orange/25 to-transparent p-px">
         <div className="relative h-full w-full overflow-hidden rounded-[25px] border border-orange/20 bg-surface-2 shadow-[inset_-1px_0_0_var(--orange)]">
-          <div className="absolute inset-0 dotted-grid opacity-25" aria-hidden />
-          <SunburstRing
-            size={230}
-            className="absolute -right-16 -top-12 opacity-15"
-            variant="spin"
+          <img
+            src={founderPortrait.url}
+            alt="Mr. Viswa Korapala, Founder and Chief Revenue Architect at Sales360.ai"
+            width={1280}
+            height={1600}
+            loading="eager"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover"
           />
-          {/* TODO: add founder photo approved by Viswa */}
-          <div className="absolute inset-0" aria-hidden>
-            <div className="absolute left-1/2 top-[20%] size-[26%] -translate-x-1/2 rounded-full bg-gradient-to-br from-orange/55 via-surface-3 to-background shadow-glow-sm" />
-            <div className="absolute bottom-[-9%] left-1/2 h-[61%] w-[82%] -translate-x-1/2 rounded-[50%_50%_0_0] bg-gradient-to-br from-orange/30 via-surface-3 to-background" />
-            <div className="absolute bottom-[-6%] left-1/2 h-[58%] w-[78%] -translate-x-1/2 rounded-[50%_50%_0_0] border-r border-orange/45" />
-          </div>
           <div
-            className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/45 to-transparent"
+            className="absolute inset-0 bg-gradient-to-b from-orange/12 via-transparent to-background/55"
+            aria-hidden
+          />
+          <div
+            className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/60 to-transparent"
             aria-hidden
           />
         </div>
