@@ -8,22 +8,29 @@ import { cn } from "@/lib/utils";
 
 export function BusinessBenefits() {
   return (
-    <section className="container-site" aria-label="Business benefits">
-      <RevealGroup className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <section className="container-site" aria-labelledby="sales-outcomes-heading">
+      <Reveal className="mb-8">
+        <h2 id="sales-outcomes-heading" className="type-h2 text-balance">
+          {sales.outcomesLabel}
+        </h2>
+      </Reveal>
+      <RevealGroup className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         {sales.benefits.map((benefit) => (
           <RevealItem key={benefit.title}>
             <Card
               as="article"
-              className="relative h-full overflow-hidden border-t-orange/70 p-6 pt-8 sm:p-7"
+              className="relative h-full overflow-hidden border-t-orange/70 p-4 pt-6 sm:p-7"
             >
               <span className="absolute inset-x-0 top-0 h-px bg-grad" aria-hidden />
               <p className="flex min-h-[1lh] items-baseline font-display text-[clamp(2.35rem,4vw,3.7rem)] font-extrabold leading-none tabular-nums [font-variation-settings:'wdth'_120]">
                 <Claim id={benefit.claimId} countUp className="text-grad" />
               </p>
-              <h3 className="mt-4 min-h-[2lh] text-balance font-display text-xl font-bold leading-tight [font-variation-settings:'wdth'_110]">
+              <h3 className="mt-4 min-h-[2lh] text-balance font-display text-base font-bold leading-tight [font-variation-settings:'wdth'_110] sm:text-xl">
                 {benefit.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{benefit.body}</p>
+              <p className="mt-3 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                {benefit.body}
+              </p>
             </Card>
           </RevealItem>
         ))}

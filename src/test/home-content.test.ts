@@ -100,7 +100,6 @@ describe("Home page refinement", () => {
       home.hero.line2,
       home.difference.headline,
       home.founder.headline,
-      sales.hero.accent,
       sales.features.headline,
       marketing.hero.titleLead,
       marketing.hero.accent,

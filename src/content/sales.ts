@@ -1,5 +1,6 @@
 import type { Interest } from "./global";
 import { proposed } from "./copy";
+import { pricing } from "./pricing";
 
 export const sales = {
   meta: {
@@ -9,21 +10,25 @@ export const sales = {
     ).text,
   },
   hero: {
-    eyebrow: proposed("FLAGSHIP PRODUCT • SALES 360").text,
-    titleLead: "Your Entire Sales Pipeline, Powered by",
-    accent: proposed("Sales 360").text,
-    sub: "Capture leads from every channel, respond in seconds via AI, recover abandoned carts and quotes, and give management complete visibility into every rupee of pipeline.",
+    eyebrow: proposed("SALES 360 • THE REVENUE-GROWTH SYSTEM").text,
+    titleLead: proposed("One System That Grows Revenue From First Click to").text,
+    accent: proposed("Repeat Customer.").text,
+    sub: proposed(
+      "Sales 360 connects branding, marketing, lead generation, sales, customer relationships and retention, so more of the opportunities you create become revenue and more customers come back.",
+    ).text,
     primary: "Book Live Demo",
-    secondary: "View Pricing Plans",
+    secondary: proposed("See the Revenue Loop").text,
     interest: proposed("Sales 360").text as Interest,
   },
   showcase: {
     product: proposed("Sales 360").text,
     previewAlt: proposed(
-      "Sales 360 product preview with lead inbox, automated follow-ups, quotation tracking, and revenue leakage alerts",
+      "Sales 360 revenue view with the eight-stage customer lifecycle, lead inbox, follow-ups, quotation tracking and revenue leakage alerts",
     ).text,
     workspace: "Revenue workspace",
     live: "Live",
+    revenueView: proposed("Revenue view").text,
+    revenueContext: proposed("Across the customer lifecycle").text,
     inbox: "Lead Inbox",
     active: "24 active leads",
     qualification: "AI qualifying",
@@ -90,8 +95,89 @@ export const sales = {
       { number: "QT-2045", client: "Riya Ventures", value: "₹2,24,000", status: "Won" },
     ],
   },
+  revenueLoop: {
+    headline: proposed("The Revenue Loop: Where Sales 360 Protects and Grows Your Revenue.").text,
+    stagesLabel: proposed("Sales 360 Revenue Loop stages").text,
+    attract: proposed("ATTRACT").text,
+    convert: proposed("CONVERT").text,
+    grow: proposed("GROW").text,
+    capabilitiesLabel: proposed("Connected capabilities").text,
+    marketingPill: proposed("Marketing").text,
+    stages: [
+      {
+        id: "branding",
+        label: proposed("Branding").text,
+        line: proposed("Be the name buyers recognise and trust.").text,
+        phase: "attract",
+        marketingLink: true,
+      },
+      {
+        id: "marketing",
+        label: proposed("Marketing").text,
+        line: proposed("Create demand across the channels your buyers use.").text,
+        phase: "attract",
+        marketingLink: true,
+      },
+      {
+        id: "lead-generation",
+        label: proposed("Lead Generation").text,
+        line: proposed("Capture every enquiry, from every source, in one place.").text,
+        phase: "attract",
+        marketingLink: false,
+      },
+      {
+        id: "sales",
+        label: proposed("Sales").text,
+        line: proposed("Respond in seconds, qualify, quote and follow up until the deal is won.")
+          .text,
+        phase: "convert",
+        marketingLink: false,
+      },
+      {
+        id: "customer-relationships",
+        label: proposed("Customer Relationships").text,
+        line: proposed("Keep every conversation, preference and promise on record.").text,
+        phase: "grow",
+        marketingLink: false,
+      },
+      {
+        id: "retention",
+        label: proposed("Retention").text,
+        line: proposed("Reorder, renewal and feedback prompts at the right moment.").text,
+        phase: "grow",
+        marketingLink: false,
+      },
+      {
+        id: "lifetime-value",
+        label: proposed("Lifetime Value").text,
+        line: proposed("Turn one purchase into a relationship that keeps paying back.").text,
+        phase: "grow",
+        marketingLink: false,
+      },
+      {
+        id: "revenue-growth",
+        label: proposed("Revenue Growth").text,
+        line: proposed("Measured at every stage and visible to management.").text,
+        phase: "grow",
+        marketingLink: false,
+      },
+    ],
+    capabilities: [
+      { featureId: "inbox", stageIds: ["lead-generation"] },
+      { featureId: "qualification", stageIds: ["sales"] },
+      { featureId: "quotation", stageIds: ["sales"] },
+      { featureId: "radar", stageIds: ["lead-generation", "sales"] },
+      { featureId: "quotation", stageIds: ["sales", "retention"], recovery: true },
+      { featureId: "reactivation", stageIds: ["retention"] },
+      { featureId: "voice", stageIds: ["customer-relationships"] },
+      { featureId: "dashboard", stageIds: ["revenue-growth"] },
+    ],
+    recoveryTitle: proposed("Cart & Quote Recovery").text,
+    reactivationTitle: proposed("Cold Database Reactivation").text,
+  },
   features: {
     headline: "Engineered to Close Deals While You Sleep",
+    label: proposed("Inside Sales 360").text,
     items: [
       {
         id: "inbox",
@@ -133,6 +219,30 @@ export const sales = {
       },
     ],
   },
+  differentiatorsLabel: proposed("Sales 360 differentiators").text,
+  differentiators: [
+    {
+      id: "recovered",
+      title: proposed("Revenue Recovered, Not Just Leads Captured").text,
+      body: proposed(
+        "Flags uncontacted leads, stalled quotes and abandoned checkouts, then re-engages them automatically, so the money you spent attracting buyers doesn't quietly leave.",
+      ).text,
+    },
+    {
+      id: "conversation",
+      title: proposed("One Conversation From First Click to Reorder").text,
+      body: proposed(
+        "WhatsApp, email, calls and forms live in one customer record, so no handoff starts from zero and every follow-up knows the history.",
+      ).text,
+    },
+    {
+      id: "management",
+      title: proposed("Management Sees Revenue, Not Activity").text,
+      body: proposed(
+        "Conversion, response time, campaign ROI and forecast revenue in one view, by channel, team and stage.",
+      ).text,
+    },
+  ],
   mocks: {
     channels: [
       { name: "Meta", lead: "Aarav Reddy", detail: "Demo requested", unread: true },
@@ -149,11 +259,23 @@ export const sales = {
     quoteLabel: "Quotation QT-2048",
     quoteValue: "₹1,24,500",
     quoteSteps: ["Sent", "Viewed", "Nudge Day 2", "Nudge Day 4"],
+    recoverySteps: [
+      proposed("Sent").text,
+      proposed("Viewed").text,
+      proposed("Follow-up").text,
+      proposed("Won").text,
+    ],
     radarLabel: "Scanning pipeline",
     radarLegend: [
       { label: "Uncontacted", value: "03" },
       { label: "Stalled", value: "05" },
       { label: "Abandoned", value: "02" },
+    ],
+    conversation: [
+      { channel: "Meta", label: proposed("Ad click").text },
+      { channel: "WhatsApp", label: proposed("Qualification").text },
+      { channel: "Call", label: proposed("Conversation logged").text },
+      { channel: "Email", label: proposed("Quote follow-up").text },
     ],
     callLabel: "Call with Aarav · 08:42",
     sentiment: "Positive sentiment",
@@ -201,8 +323,10 @@ export const sales = {
       body: "Know exact acquisition cost and revenue per channel in real time.",
     },
   ],
+  outcomesLabel: proposed("Outcomes").text,
   useCases: {
     label: "Real-world sales scenarios",
+    loopStageLabel: proposed("Loop stage").text,
     items: [
       {
         id: "ad-to-whatsapp",
@@ -211,6 +335,7 @@ export const sales = {
           "A prospect clicks your Meta or Google ad → Sales 360 triggers an immediate personalized WhatsApp conversation → qualifies budget and books a sales call.",
         ).text,
         nodes: ["Ad click", "AI WhatsApp chat", "Budget qualified", "Sales call booked"],
+        loopStages: ["lead-generation", "sales"],
       },
       {
         id: "cart-recovery",
@@ -222,12 +347,14 @@ export const sales = {
           "Offer + payment link",
           "Sale recovered",
         ],
+        loopStages: ["sales"],
       },
       {
         id: "reactivation",
         label: "Cold Database Reactivation",
         body: "Upload dormant leads → AI runs intelligent, conversational check-in campaigns that turn old contacts into fresh pipeline.",
         nodes: ["Dormant leads uploaded", "AI check-in campaign", "Replies", "Fresh pipeline"],
+        loopStages: ["retention"],
       },
       {
         id: "upsell",
@@ -239,58 +366,13 @@ export const sales = {
           "Reorder / renewal prompt",
           "Higher lifetime value",
         ],
+        loopStages: ["lifetime-value"],
       },
     ],
   },
-  pricing: {
-    headline: "Simple, Scalable Plans Built for ROI",
-    popular: "Most Popular",
-    tiers: [
-      {
-        id: "starter",
-        name: "Starter",
-        price: "₹14,999",
-        cadence: "/ month",
-        subtitle: "For Small Teams & Growing Brands",
-        features: [
-          "Unified Lead Inbox (Web, Meta, Google)",
-          "Automated WhatsApp & Email Follow-Ups",
-          "Up to 2,500 Active Contacts",
-          "Standard Pipeline Dashboard",
-        ],
-        cta: "Get Started",
-      },
-      {
-        id: "growth",
-        name: "Growth",
-        price: "₹29,999",
-        cadence: "/ month",
-        subtitle: "For Scaling Sales Engines",
-        features: [
-          "Everything in Starter + AI Lead Qualification Agent",
-          "Automated Quotation & Cart Recovery Flows",
-          "Revenue Leakage Alerts & Custom Workflows",
-          "Up to 15,000 Active Contacts + CRM Sync",
-          "Priority Onboarding & Support",
-        ],
-        cta: "Book Growth Demo",
-      },
-      {
-        id: "enterprise",
-        name: "Enterprise",
-        price: "Custom Pricing",
-        cadence: "",
-        subtitle: "For High-Volume & Multi-Branch Organizations",
-        features: [
-          "Unlimited Contacts & Custom AI Voice/Chat Agents",
-          "Dedicated Cloud Infrastructure & Custom API Integrations",
-          "Multi-Branch Management & Role Permissions",
-          "Dedicated Account Architect & 24/7 SLA",
-        ],
-        cta: "Talk to Sales",
-      },
-    ],
-  },
+  pricing,
 } as const;
 
 export type SalesScenario = (typeof sales.useCases.items)[number];
+export type RevenueStage = (typeof sales.revenueLoop.stages)[number];
+export type RevenueStageId = RevenueStage["id"];

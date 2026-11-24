@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { sales } from "@/content/sales";
 import { SalesHero } from "@/components/sales/SalesHero";
-import { FeatureBento } from "@/components/sales/FeatureBento";
+import { RevenueLoop } from "@/components/sales/RevenueLoop";
+import { CapabilityStrip, SalesDifferentiators } from "@/components/sales/SalesCapabilities";
 import { UseCases } from "@/components/sales/UseCases";
 import { BusinessBenefits, Pricing } from "@/components/sales/SalesSections";
 
@@ -25,9 +26,11 @@ function SalesPage() {
   return (
     <>
       <SalesHero />
-      <FeatureBento />
-      <BusinessBenefits />
+      <RevenueLoop />
+      <SalesDifferentiators />
+      <CapabilityStrip />
       <UseCases />
+      <BusinessBenefits />
       <Pricing />
     </>
   );

@@ -1,6 +1,7 @@
-import { Database, MousePointerClick, RefreshCw, ShoppingCart } from "lucide-react";
-import { sales, type SalesScenario } from "@/content/sales";
+import { ArrowUpRight, Database, MousePointerClick, RefreshCw, ShoppingCart } from "lucide-react";
+import { sales, type RevenueStageId, type SalesScenario } from "@/content/sales";
 import { HashTabs, type TabItem } from "@/components/system/HashTabs";
+import { focusRevenueLoopStage } from "@/components/sales/revenueLoopNavigation";
 import { cn } from "@/lib/utils";
 
 const scenarioIcons = [MousePointerClick, ShoppingCart, Database, RefreshCw];
@@ -27,7 +28,34 @@ function Connector({ index }: { index: number }) {
   );
 }
 
+function LoopStageTags({ stageIds }: { stageIds: readonly RevenueStageId[] }) {
+  return (
+    <div className="mt-6 flex flex-wrap items-center gap-2">
+      <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-dim">
+        {sales.useCases.loopStageLabel}
+      </span>
+      {stageIds.map((stageId) => {
+        const stage = sales.revenueLoop.stages.find((item) => item.id === stageId);
+        if (!stage) return null;
+        return (
+          <button
+            key={stageId}
+            type="button"
+            onClick={() => focusRevenueLoopStage(stageId)}
+            className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-orange/30 bg-orange/[.07] px-3 font-mono text-[9px] text-amber transition-colors hover:border-orange hover:text-foreground"
+            aria-label={`${sales.useCases.loopStageLabel}: ${stage.label}`}
+          >
+            {stage.label}
+            <ArrowUpRight className="size-3" aria-hidden />
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
 function ScenarioPanel({ scenario }: { scenario: SalesScenario }) {
+  const stageIds: readonly RevenueStageId[] = scenario.loopStages;
   return (
     <div className="grid overflow-hidden rounded-[28px] border border-line bg-surface shadow-inset-top lg:grid-cols-[0.8fr_1.2fr]">
       <div className="relative border-b border-line p-6 sm:p-9 lg:border-b-0 lg:border-r">
@@ -42,6 +70,7 @@ function ScenarioPanel({ scenario }: { scenario: SalesScenario }) {
           <p className="mt-5 text-base leading-relaxed text-foreground/85 sm:text-lg">
             {scenario.body}
           </p>
+          <LoopStageTags stageIds={stageIds} />
         </div>
       </div>
       <div className="flex items-center bg-background/45 p-6 sm:p-8">
