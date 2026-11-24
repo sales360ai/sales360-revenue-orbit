@@ -13,6 +13,7 @@ import {
 import { home } from "@/content/home";
 import { Reveal, RevealGroup, RevealItem } from "@/components/system/motion";
 import { SectionHeading } from "@/components/system/primitives";
+import { SystemRail } from "@/components/home/SystemRail";
 import { cn } from "@/lib/utils";
 
 const pillarIcons = {
@@ -243,11 +244,15 @@ export function Pillars() {
         <SectionHeading
           id="pillars-heading"
           title={home.pillars.headline}
+          sub={home.pillars.sub}
           align="center"
           className="max-w-4xl"
         />
       </Reveal>
-      <RevealGroup className="mt-12 hidden min-h-[480px] gap-3 lg:flex">
+      <Reveal delay={0.08} className="mt-9">
+        <SystemRail active={home.pillars.cards[active]?.id ?? "sales"} />
+      </Reveal>
+      <RevealGroup className="mt-8 hidden min-h-[480px] gap-3 lg:flex">
         {home.pillars.cards.map((card, index) => {
           const Icon = pillarIcons[card.id as PillarId];
           const selected = active === index;
@@ -301,6 +306,14 @@ export function Pillars() {
                     </span>
                   </span>
                   <PillarGraphic card={card} />
+                  <span
+                    className={cn(
+                      "mb-2 block font-mono text-[9px] uppercase tracking-[0.13em]",
+                      darkText ? "text-ink/65" : "text-amber",
+                    )}
+                  >
+                    {card.role}
+                  </span>
                   <span className="block max-w-[330px] font-display text-[clamp(1.45rem,2vw,2rem)] font-bold leading-[1.05] [font-variation-settings:'wdth'_108]">
                     {card.title}
                   </span>
@@ -350,6 +363,14 @@ export function Pillars() {
                     <Icon className="size-6" strokeWidth={1.5} aria-hidden />
                   </div>
                   <PillarGraphic card={card} />
+                  <p
+                    className={cn(
+                      "mb-2 font-mono text-[9px] uppercase tracking-[0.13em]",
+                      darkText ? "text-ink/65" : "text-amber",
+                    )}
+                  >
+                    {card.role}
+                  </p>
                   <h3 className="font-display text-2xl font-bold leading-tight">{card.title}</h3>
                   <p
                     className={cn(

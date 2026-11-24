@@ -269,6 +269,44 @@ export const industries = {
       visual: { title: "Admission Journey", status: "Counselor assistant online" },
     },
   ],
+  homeSnapshots: {
+    "e-commerce": {
+      name: proposed("E-Commerce & D2C").text,
+      howTheyBuy: proposed("Fast, offer-led shoppers").text,
+      stages: [proposed("Discover").text, proposed("Checkout").text, proposed("Reorder").text],
+      linkLabel: proposed("See the E-Commerce & D2C system").text,
+    },
+    healthcare: {
+      name: proposed("Healthcare").text,
+      howTheyBuy: proposed("Trust and consultation-led patients").text,
+      stages: [proposed("Enquiry").text, proposed("Consultation").text, proposed("Follow-up").text],
+      linkLabel: proposed("See the Healthcare system").text,
+    },
+    "real-estate": {
+      name: proposed("Real Estate").text,
+      howTheyBuy: proposed("High-value, visit-led buyers").text,
+      stages: [proposed("Enquiry").text, proposed("Site visit").text, proposed("Booking").text],
+      linkLabel: proposed("See the Real Estate system").text,
+    },
+    manufacturing: {
+      name: proposed("Manufacturing").text,
+      howTheyBuy: proposed("Dealer and RFQ-led B2B").text,
+      stages: [proposed("RFQ").text, proposed("Quote").text, proposed("Dealer network").text],
+      linkLabel: proposed("See the Manufacturing system").text,
+    },
+    "b2b-services": {
+      name: proposed("B2B Services").text,
+      howTheyBuy: proposed("Relationship and referral-led clients").text,
+      stages: [proposed("Introduction").text, proposed("Proposal").text, proposed("Renewal").text],
+      linkLabel: proposed("See the B2B Services system").text,
+    },
+    education: {
+      name: proposed("Education").text,
+      howTheyBuy: proposed("Student-and-parent decisions").text,
+      stages: [proposed("Enquiry").text, proposed("Counselling").text, proposed("Enrolment").text],
+      linkLabel: proposed("See the Education system").text,
+    },
+  },
 } as const;
 
 export type IndustrySolution = (typeof industries.solutions)[number];

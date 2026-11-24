@@ -13,7 +13,7 @@ export const home = {
     line1: "Turn Every Lead Into Revenue—",
     line2: "Automatically",
     sub: proposed(
-      "Sales360.ai unifies Sales 360, multi-channel marketing, workflow automation, and secure cloud infrastructure into one predictable growth engine.",
+      "Sales 360 brings together the expertise to attract customers, convert opportunities and grow revenue: branding, marketing, AI automation and the technology underneath, working as one system.",
     ).text,
     primary: "Book Free Demo",
     primaryInterest: "Full Ecosystem" as Interest,
@@ -114,12 +114,25 @@ export const home = {
     { claimId: "cloud-uptime", value: "99.9%", label: "Managed Cloud Uptime & Security" },
   ],
   pillars: {
-    headline: "Everything You Need to Acquire, Convert, and Scale",
+    headline: proposed("Four Capabilities. One Revenue System.").text,
+    sub: proposed(
+      "Marketing creates demand. AI Automation scales the work. Sales 360 converts and grows revenue. Tech & Cloud keeps it all secure and running.",
+    ).text,
+    rail: {
+      accessibilityLabel: proposed("One connected revenue system").text,
+      nodes: [
+        { id: "marketing", label: proposed("Marketing").text },
+        { id: "automation", label: proposed("AI Automation").text },
+        { id: "sales", label: proposed("Sales & Revenue").text },
+      ],
+      base: proposed("Tech & Cloud: secure infrastructure underneath").text,
+    },
     cards: [
       {
         id: "sales",
         number: "01",
         title: proposed("Sales 360").text,
+        role: proposed("The revenue engine").text,
         body: "Capture every inquiry, automate instant WhatsApp and email follow-ups, prevent revenue leakage, and track every deal in real time.",
         link: proposed("Explore Sales 360").text,
         to: "/sales",
@@ -129,6 +142,7 @@ export const home = {
         id: "marketing",
         number: "02",
         title: "Growth Marketing",
+        role: proposed("Creates demand").text,
         body: "High-intent Google & Meta ads, SEO/AEO, social media, WhatsApp, email, telecalling, and video campaigns engineered for ROI.",
         link: "Explore Marketing",
         to: "/marketing",
@@ -138,6 +152,7 @@ export const home = {
         id: "automation",
         number: "03",
         title: "AI Automation",
+        role: proposed("Scales the work").text,
         body: "Eliminate repetitive manual tasks with custom AI agents for WhatsApp conversations, email sequences, and content creation.",
         link: "Explore Automation",
         to: "/automation",
@@ -147,6 +162,7 @@ export const home = {
         id: "tech-cloud",
         number: "04",
         title: "Tech & Cloud",
+        role: proposed("Keeps it running").text,
         body: "Enterprise VPS/cloud hosting, proactive cybersecurity, and 24/7 technical support that keeps your business running without downtime.",
         link: "Explore Tech & Cloud",
         to: "/tech-cloud",
@@ -188,6 +204,7 @@ export const home = {
   industries: {
     headline: "Tailored for High-Growth Sectors",
     flagship: "Flagship",
+    howTheyBuy: proposed("How they buy").text,
     items: [
       {
         label: "E-Commerce & D2C",
@@ -268,6 +285,11 @@ export const home = {
         ],
       },
     ],
+  },
+  testimonialUi: {
+    heading: proposed("Testimonials").text,
+    previous: proposed("Previous testimonial").text,
+    next: proposed("Next testimonial").text,
   },
   testimonials: [
     {

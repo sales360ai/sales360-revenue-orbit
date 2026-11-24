@@ -5,10 +5,10 @@ Every statement below remains draft until the team changes its status to `verifi
 | ID | Rendered claim | Pages | Status | Verification note |
 | --- | --- | --- | --- | --- |
 | years-experience | 20+ Years | `/` | founder-stated | Founder-stated sales and growth leadership experience. |
-| founder-years | 20+ | `/` | founder-stated | Founder-stated years of B2B and enterprise sales experience. |
-| growth-projects | 1,000+ | `/` | founder-stated | Founder-stated number of growth projects delivered. |
-| trusted-founders | Trusted by 100+ founders | `/` | founder-stated | Confirm the founder count and approval to use this trust statement. |
-| trusted-advisors | 100+ | `/` | founder-stated | Founder-stated number of founders advised. |
+| founder-years | 20+ | `/` | unverified | Founder-stated years of B2B and enterprise sales experience. |
+| growth-projects | 1,000+ | `/` | unverified | Founder-stated number of growth projects delivered. |
+| trusted-founders | Trusted by 100+ founders | `/` | unverified | Confirm the founder count and approval to use this trust statement. |
+| trusted-advisors | 100+ | `/` | unverified | Founder-stated number of founders advised. |
 | response-time | < 60 Sec | `/` | unverified | Confirm the measured automated lead response time and conditions. |
 | pipeline-lift | 3.4X | `/` | unverified | Confirm the pipeline conversion baseline, cohort and measurement period. |
 | cloud-uptime | 99.9% | `/`, `/tech-cloud` | unverified | Confirm the uptime SLA, exclusions and reporting period. |

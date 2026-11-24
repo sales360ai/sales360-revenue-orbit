@@ -2,13 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { home } from "@/content/home";
 import { HomeHero } from "@/components/home/HomeHero";
 import { Pillars } from "@/components/home/Pillars";
-import {
-  DifferenceBand,
-  FounderSpotlight,
-  IndustriesSnapshot,
-  ProofStrip,
-  Testimonials,
-} from "@/components/home/HomeSections";
+import { IndustriesSnapshot } from "@/components/home/IndustriesSnapshot";
+import { Testimonials } from "@/components/home/Testimonials";
+import { DifferenceBand, FounderSpotlight, ProofStrip } from "@/components/home/HomeSections";
 
 export const Route = createFileRoute("/")({
   head: () => ({
